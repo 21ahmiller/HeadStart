@@ -10,4 +10,6 @@
     <string name="orStr">or</string>
     <string name="logoDescriptionStr">Head Start! Logo</string>
     <string name="headstartStr">Head Start!</string>
+    <string name="job1Str">Job 1</string>
+    <string name="pageTitleStr">Job Postings</string>
 </resources>
