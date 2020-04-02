@@ -101,6 +101,7 @@
         android:id="@+id/guestButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="performOpenJobListings"
         android:text="@string/guestButtonStr"
         app:layout_constraintTop_toBottomOf="@+id/orText"
         tools:layout_editor_absoluteX="166dp" />
