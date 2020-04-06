@@ -8,11 +8,11 @@
     tools:context=".Application">
 
     <TextView
-        android:id="@+id/applicationTitle"
+        android:id="@+id/jobTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/applicationTitleStr"
+        android:text="@string/jobTitleStr"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,7 +26,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/jobInformationTitleStr"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/applicationTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/jobTitle" />
 
     <TextView
         android:id="@+id/jobInformationText"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:text="@string/companyInfoStr"
+        android:text="@string/companyInformationTitleStr"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobInformationText" />
 
@@ -67,4 +67,64 @@
         android:textAlignment="viewStart"
         app:layout_constraintTop_toBottomOf="@+id/companyInformationText"
         tools:layout_editor_absoluteX="110dp" />
+
+    <TextView
+        android:id="@+id/requirementsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/requirementsStr"
+        android:textAlignment="viewStart"
+        app:layout_constraintTop_toBottomOf="@+id/locationText"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/preferredSkillsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/preferredSkillsStr"
+        app:layout_constraintTop_toBottomOf="@+id/requirementsText"
+        tools:layout_editor_absoluteX="-30dp" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/timeStr"
+        android:textAlignment="viewStart"
+        app:layout_constraintTop_toBottomOf="@+id/preferredSkillsText"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/salaryText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/salaryStr"
+        android:textAlignment="viewStart"
+        app:layout_constraintTop_toBottomOf="@+id/timeText"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/benefitsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/benefitsStr"
+        android:textAlignment="viewStart"
+        app:layout_constraintTop_toBottomOf="@+id/salaryText"
+        tools:layout_editor_absoluteX="-33dp" />
+
+    <Button
+        android:id="@+id/applyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/applyStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/benefitsText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
