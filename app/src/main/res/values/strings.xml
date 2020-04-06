@@ -12,4 +12,11 @@
     <string name="headstartStr">Head Start!</string>
     <string name="job1Str">Job 1</string>
     <string name="pageTitleStr">Job Postings</string>
+    <string name="companyTitleStr">Company Title</string>
+    <string name="applicationTitleStr">Application Title</string>
+    <string name="jobInformationTitleStr">Job Information</string>
+    <string name="jobInformationStr">Description of Job should be inserted here</string>
+    <string name="companyInfoStr">Company Information</string>
+    <string name="companyInformationStr">Company information should be displayed here</string>
+    <string name="locationStr">Location:</string>
 </resources>

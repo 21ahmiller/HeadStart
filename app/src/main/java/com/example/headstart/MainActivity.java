@@ -14,8 +14,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void clickApplicantButton(View v){
+        performOpenJobListings(v);
+    }
+
     public void performOpenJobListings(View v){
         Intent intent = new Intent(this, jobListingPage.class);
+        startActivity(intent);
+    }
+
+    public void clickEmployerButton(View v){
+        performOpenEmployerMainPage(v);
+    }
+
+    public void performOpenEmployerMainPage(View v){
+        Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);
     }
 }
