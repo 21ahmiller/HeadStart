@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewJob"></activity>
+        <activity android:name=".FiltrationMenu"></activity>
+        <activity android:name=".NewJob" />
         <activity android:name=".Application" />
         <activity android:name=".employerMainPage" />
         <activity android:name=".jobListingPage" />
