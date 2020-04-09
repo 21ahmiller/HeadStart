@@ -32,7 +32,7 @@ public class NewJob extends AppCompatActivity {
         String preferredSkills = preferredSkillsText.getText().toString();
 
         EditText scheduleText = findViewById(R.id.scheduleText);
-        String time = scheduleText.getText().toString();
+        String schedule = scheduleText.getText().toString();
 
         EditText salaryText = findViewById(R.id.salaryText);
         String salary = salaryText.getText().toString();
@@ -41,9 +41,9 @@ public class NewJob extends AppCompatActivity {
         String benefits = benefitsText.getText().toString();
 
         EditText jobTypeText = findViewById(R.id.jobTypeText);
-        String jobType = benefitsText.getText().toString();
+        String jobType = jobTypeText.getText().toString();
 
-
+        Job job = new Job(jobTitle, jobType, jobInformation, location, requirements, preferredSkills, schedule, salary, benefits);
 
         Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);

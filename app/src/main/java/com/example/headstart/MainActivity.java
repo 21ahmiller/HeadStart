@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +16,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickApplicantButton(View v){
-        performOpenJobListings(v);
+        EditText usernameText = findViewById(R.id.usernameText);
+        String username = usernameText.getText().toString();
+
+        EditText passwordText = findViewById(R.id.passwordText);
+        String password = passwordText.getText().toString();
+
+        if(username.equals("") && password.equals("")){
+            performOpenJobListings(v);
+        }
     }
 
     public void performOpenJobListings(View v){
@@ -24,7 +33,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickEmployerButton(View v){
-        performOpenEmployerMainPage(v);
+        EditText usernameText = findViewById(R.id.usernameText);
+        String username = usernameText.getText().toString();
+
+        EditText passwordText = findViewById(R.id.passwordText);
+        String password = passwordText.getText().toString();
+
+        if(username.equals("") && password.equals("")){
+            performOpenEmployerMainPage(v);
+        }
     }
 
     public void performOpenEmployerMainPage(View v){

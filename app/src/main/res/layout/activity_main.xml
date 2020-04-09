@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/headstartLogo" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -74,7 +74,7 @@
         android:onClick="clickApplicantButton"
         android:text="@string/applicantButtonStr"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
     <Button
         android:id="@+id/signUpButton"
