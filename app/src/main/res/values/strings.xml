@@ -38,4 +38,8 @@
     <string name="salaryTitleStr">Salary</string>
     <string name="benefitsTitleStr">Benefits</string>
     <string name="submitButtonStr">Submit</string>
+    <string name="jopTypeTitleStr">Job Type</string>
+    <string name="jobTypeHintStr">Full Time/Part Time/Internship</string>
+    <string name="scheduleTitleStr">Schedule</string>
+    <string name="scheduleHintStr">Days of the Week</string>
 </resources>
