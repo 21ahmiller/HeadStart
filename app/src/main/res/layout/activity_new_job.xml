@@ -10,8 +10,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-36dp"
-        tools:layout_editor_absoluteY="-135dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-38dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,11 +118,11 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/timeTitle"
+                android:id="@+id/scheduleTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/timeTitleStr"
+                android:text="@string/scheduleTitleStr"
                 android:textAlignment="center"
                 android:textSize="18sp" />
 
@@ -131,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/timeTitleStr"
+                android:hint="@string/scheduleHintStr"
                 android:inputType="textPersonName"
                 android:textSize="14sp" />
 
@@ -168,6 +168,23 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/benefitsTitleStr"
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/jobTypeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/jopTypeTitleStr"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/jobTypeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/jobTypeHintStr"
                 android:inputType="textPersonName"
                 android:textSize="14sp" />
 

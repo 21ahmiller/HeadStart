@@ -40,6 +40,8 @@ public class NewJob extends AppCompatActivity {
         EditText benefitsText = findViewById(R.id.benefitsText);
         String benefits = benefitsText.getText().toString();
 
+
+
         Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);
     }
