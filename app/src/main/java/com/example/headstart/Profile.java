@@ -25,6 +25,7 @@ public class Profile {
 			description = new String();
 			email = new String();
 			phoneNumber = new String();
+			age = 0;
 		}
 		
 		public Profile(Location location, Education education, String description, String email, String phoneNumber, int age) {

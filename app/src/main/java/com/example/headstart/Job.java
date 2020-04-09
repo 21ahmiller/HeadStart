@@ -3,35 +3,55 @@ package com.example.headstart;
 import java.util.*;
 
 public class Job {
-		
+
 	//Data
-	
-	private double wage;
+
+	private String jobTitle;
 	private String jobType;
-	private Profile profile;
-	
+	private String jobDescription;
+	private String location;
+	private String requirements;
+	private String skills;
+	private String schedule;
+	private String salary;
+	private String benefits;
+
+
 	//Constructors
-	
+
 	public Job() {
-		wage = 0;
-		jobType = new String();
-		profile = new Profile();
-	}
-	
-	public Job(double wage, String jobType) {
-		this.wage = wage;
-		this.jobType = jobType;
-		profile = new Profile();
-	}
-	
-	//Methods
-	
-	public double getWage() {
-		return wage;
+		this.jobTitle = "";
+		this.jobType = "";
+		this.jobDescription = "";
+		this.location = "";
+		this.requirements = "";
+		this.skills = "";
+		this.schedule = "";
+		this.salary = "";
+		this.benefits = "";
 	}
 
-	public void setWage(double wage) {
-		this.wage = wage;
+	public Job(String jobTitle, String jobType, String jobDescription, String location, String requirements,
+			   String skills, String schedule, String salary, String benefits) {
+		this.jobTitle = jobTitle;
+		this.jobType = jobType;
+		this.jobDescription = jobDescription;
+		this.location = location;
+		this.requirements = requirements;
+		this.skills = skills;
+		this.schedule = schedule;
+		this.salary = salary;
+		this.benefits = benefits;
+	}
+
+	//Methods
+
+	public String getJobTitle() {
+		return jobTitle;
+	}
+
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
 	}
 
 	public String getJobType() {
@@ -42,8 +62,60 @@ public class Job {
 		this.jobType = jobType;
 	}
 
-	public Profile getProfile() {
-		return profile;
-	}	
-	
+	public String getJobDescription() {
+		return jobDescription;
+	}
+
+	public void setJobDescription(String jobDescription) {
+		this.jobDescription = jobDescription;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getRequirements() {
+		return requirements;
+	}
+
+	public void setRequirements(String requirements) {
+		this.requirements = requirements;
+	}
+
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+	public String getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
+	}
+
+	public String getSalary() {
+		return salary;
+	}
+
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
+	public String getBenefits() {
+		return benefits;
+	}
+
+	public void setBenefits(String benefits) {
+		this.benefits = benefits;
+	}
+
 }
