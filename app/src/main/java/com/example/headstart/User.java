@@ -22,7 +22,7 @@ public class User {
 		profile = new Profile();
 	}
 	
-	public User(String username, String password, String displayName, String email, String number) {
+	public User(String username, String password, String displayName) {
 		this.username = username;
 		this.password = password;
 		this.displayName = displayName;

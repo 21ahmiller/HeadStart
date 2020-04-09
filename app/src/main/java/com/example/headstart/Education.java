@@ -5,8 +5,7 @@ import java.util.*;
 public class Education {
 	
 	//Data
-	
-	private int age;
+
 	private String year;
 	private String level;  //high school, college, "" for either
 	
@@ -14,26 +13,16 @@ public class Education {
 	//Constructors
 	
 	public Education() {
-		age = 0;
 		year = "";
 		level = "";
 	}
 	
-	public Education(int age, String year, String level) {
-		this.age = age;
+	public Education(String year, String level) {
 		this.year = year;
 		this.level = level;
 	}
 	
 	//Methods
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
 
 	public String getYear() {
 		return year;
