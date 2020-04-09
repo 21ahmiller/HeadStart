@@ -88,7 +88,7 @@
         tools:layout_editor_absoluteX="-30dp" />
 
     <TextView
-        android:id="@+id/timeText"
+        android:id="@+id/scheduleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -104,7 +104,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/salaryStr"
         android:textAlignment="viewStart"
-        app:layout_constraintTop_toBottomOf="@+id/timeText"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleText"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView

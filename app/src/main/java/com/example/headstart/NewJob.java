@@ -31,14 +31,17 @@ public class NewJob extends AppCompatActivity {
         EditText preferredSkillsText = findViewById(R.id.preferredSkillsText);
         String preferredSkills = preferredSkillsText.getText().toString();
 
-        EditText timeText = findViewById(R.id.timeText);
-        String time = timeText.getText().toString();
+        EditText scheduleText = findViewById(R.id.scheduleText);
+        String time = scheduleText.getText().toString();
 
         EditText salaryText = findViewById(R.id.salaryText);
         String salary = salaryText.getText().toString();
 
         EditText benefitsText = findViewById(R.id.benefitsText);
         String benefits = benefitsText.getText().toString();
+
+        EditText jobTypeText = findViewById(R.id.jobTypeText);
+        String jobType = benefitsText.getText().toString();
 
 
 
