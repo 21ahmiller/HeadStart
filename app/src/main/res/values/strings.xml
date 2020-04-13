@@ -42,4 +42,7 @@
     <string name="jobTypeHintStr">Full Time/Part Time/Internship</string>
     <string name="scheduleTitleStr">Schedule</string>
     <string name="scheduleHintStr">Days of the Week</string>
+    <string name="filterMenuStr">Filter Menu</string>
+    <string name="resetFilterStr">Reset Filters</string>
+    <string name="applyFilterStr">Apply Filters</string>
 </resources>
