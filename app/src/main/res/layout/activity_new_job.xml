@@ -77,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/locationTitleStr"
+                android:hint="@string/locationHintStr"
                 android:inputType="textPersonName"
                 android:textSize="14sp" />
 
@@ -185,6 +185,23 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/jobTypeHintStr"
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/ageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ageTitleStr"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/ageText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/ageHintStr"
                 android:inputType="textPersonName"
                 android:textSize="14sp" />
 
