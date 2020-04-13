@@ -45,16 +45,16 @@ public class Profile {
 			return location;
 		}
 
-		public void setLocation(Location location) {
-			this.location = location;
+		public void setLocation(String state, String city, String zipcode) {
+			this.location = new Location(state, city, zipcode);
 		}
 
 		public Education getEducation() {
 			return education;
 		}
 
-		public void setEducation(Education education) {
-			this.education = education;
+		public void setEducation(String year, String school) {
+			this.education = new Education(year, school);
 		}
 
 		public ArrayList<String> getExperiences() {

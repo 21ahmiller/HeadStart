@@ -25,7 +25,7 @@ public class User {
 	public User(String username, String password, String displayName) {
 		this.username = username;
 		this.password = password;
-		this.displayName = displayName;
+		this.displayName = displayName; // this is the user's personal name
 		jobs = new ArrayList<Job>();
 		profile = new Profile();
 	}
@@ -54,6 +54,10 @@ public class User {
 	
 	public Profile getProfile() {
 		return profile;
+	}
+
+	public void setProfile(Profile profile){
+		this.profile = profile;
 	}
 		
 	
