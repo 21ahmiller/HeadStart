@@ -28,14 +28,231 @@
         app:srcCompat="@drawable/vinnie" />
 
     <Button
-        android:id="@+id/jobListing1Button"
-        android:layout_width="match_parent"
+        android:id="@+id/filterButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:onClick="performOpenJobApplication"
-        android:text="@string/job1Str"
-        android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="150dp"
+        android:onClick="performOpenFilterMenu"
+        android:text="@string/filterStr"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitleText" />
+
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/refreshButtonStr"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/filterButton"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitleText" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="629dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filterButton">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/jobListingButton1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job1Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job2Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job3Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job4Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job5Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job6Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job7Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job8Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job9Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job10Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job11Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job12Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job13Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job14Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job15Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job16Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job17Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job18Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job19Str"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/jobListingButton20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="performOpenJobApplication"
+                android:text="@string/job20Str"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/spacingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="100sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

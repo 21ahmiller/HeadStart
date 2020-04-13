@@ -45,4 +45,25 @@
     <string name="filterMenuStr">Filter Menu</string>
     <string name="resetFilterStr">Reset Filters</string>
     <string name="applyFilterStr">Apply Filters</string>
+    <string name="filterStr">Filter</string>
+    <string name="job2Str">Job 2</string>
+    <string name="job3Str">Job 3</string>
+    <string name="job4Str">Job 4</string>
+    <string name="job5Str">Job 5</string>
+    <string name="job6Str">Job 6</string>
+    <string name="job7Str">Job 7</string>
+    <string name="job8Str">Job 8</string>
+    <string name="job9Str">Job 9</string>
+    <string name="job10Str">Job 10</string>
+    <string name="job11Str">Job 11</string>
+    <string name="job12Str">Job 12</string>
+    <string name="job13Str">Job 13</string>
+    <string name="job14Str">Job 14</string>
+    <string name="job15Str">Job 15</string>
+    <string name="job16Str">Job 16</string>
+    <string name="job17Str">Job 17</string>
+    <string name="job18Str">Job 18</string>
+    <string name="job19Str">Job 19</string>
+    <string name="job20Str">Job 20</string>
+    <string name="refreshButtonStr">Refresh</string>
 </resources>

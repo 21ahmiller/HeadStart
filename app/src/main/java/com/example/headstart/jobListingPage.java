@@ -18,4 +18,9 @@ public class jobListingPage extends AppCompatActivity {
         Intent intent = new Intent(this, Application.class);
         startActivity(intent);
     }
+
+    public void performOpenFilterMenu(View v){
+        Intent intent = new Intent(this, FiltrationMenu.class);
+        startActivity(intent);
+    }
 }
