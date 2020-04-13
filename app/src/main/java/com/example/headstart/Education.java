@@ -7,19 +7,19 @@ public class Education {
 	//Data
 
 	private String year;
-	private String level;  //high school, college, "" for either
+	private String school;  //high school, college, "" for either
 	
 	
 	//Constructors
 	
 	public Education() {
 		year = "";
-		level = "";
+		school = "";
 	}
 	
-	public Education(String year, String level) {
+	public Education(String year, String school) {
 		this.year = year;
-		this.level = level;
+		this.school = school;
 	}
 	
 	//Methods
@@ -32,12 +32,12 @@ public class Education {
 		this.year = year;
 	}
 
-	public String getLevel() {
-		return level;
+	public String getSchool() {
+		return school;
 	}
 
-	public void setLevel(String level) {
-		this.level = level;
+	public void setSchool(String school) {
+		this.school = school;
 	}	
 	
 }

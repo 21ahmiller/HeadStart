@@ -9,12 +9,13 @@ public class Job {
 	private String jobTitle;
 	private String jobType;
 	private String jobDescription;
-	private String location;
+	private Location location;
 	private String requirements;
 	private String skills;
 	private String schedule;
 	private String salary;
 	private String benefits;
+	private String ageMinimum;
 
 
 	//Constructors
@@ -23,25 +24,27 @@ public class Job {
 		this.jobTitle = "";
 		this.jobType = "";
 		this.jobDescription = "";
-		this.location = "";
+		this.location = new Location();
 		this.requirements = "";
 		this.skills = "";
 		this.schedule = "";
 		this.salary = "";
 		this.benefits = "";
+		this.ageMinimum = "";
 	}
 
-	public Job(String jobTitle, String jobType, String jobDescription, String location, String requirements,
-			   String skills, String schedule, String salary, String benefits) {
+	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipcode, String requirements,
+			   String skills, String schedule, String salary, String benefits, String ageMinimum) {
 		this.jobTitle = jobTitle;
 		this.jobType = jobType;
 		this.jobDescription = jobDescription;
-		this.location = location;
+		this.location = new Location(state, city, zipcode);
 		this.requirements = requirements;
 		this.skills = skills;
 		this.schedule = schedule;
 		this.salary = salary;
 		this.benefits = benefits;
+		this.ageMinimum = ageMinimum;
 	}
 
 	//Methods
@@ -70,12 +73,12 @@ public class Job {
 		this.jobDescription = jobDescription;
 	}
 
-	public String getLocation() {
+	public Location getLocation() {
 		return location;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setLocation(String state, String city, String zipcode) {
+		this.location = new Location(state, city, zipcode);
 	}
 
 	public String getRequirements() {
@@ -118,4 +121,15 @@ public class Job {
 		this.benefits = benefits;
 	}
 
+	public String getAgeMinimum() {
+		return ageMinimum;
+	}
+
+	public void setAgeMinimum(String ageMinimum) {
+		this.ageMinimum = ageMinimum;
+	}
+	@Override
+	public String toString(){
+		return jobTitle + "\n" + jobType + "\n" + location.toString() + "\n" + salary + "\n" + "Requirements: \n" + requirements;
+	}
 }

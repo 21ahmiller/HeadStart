@@ -13,7 +13,7 @@ public class Profile {
 		private String description;
 		private String email;
 		private String phoneNumber;
-		private int age;
+		private String age;
 	
 	//Constructors
 		
@@ -25,12 +25,12 @@ public class Profile {
 			description = new String();
 			email = new String();
 			phoneNumber = new String();
-			age = 0;
+			age = "";
 		}
 		
-		public Profile(Location location, Education education, String description, String email, String phoneNumber, int age) {
-			this.location = location;
-			this.education = education;
+		public Profile(String state, String city, String zipcode, String year, String school, String description, String email, String phoneNumber, String age) {
+			this.location = new Location(state, city, zipcode);
+			this.education = new Education(year, school);
 			experiences = new ArrayList<String>();
 			interests = new ArrayList<String>();
 			this.description = description;
@@ -105,11 +105,11 @@ public class Profile {
 			this.phoneNumber = phoneNumber;
 		}
 
-		public int getAge() {
+		public String getAge() {
 		return age;
 	}
 
-		public void setAge(int age) {
+		public void setAge(String age) {
 		this.age = age;
 	}
 }
