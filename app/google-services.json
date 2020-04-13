@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "481562834058",
+    "firebase_url": "https://head-start-fc27b.firebaseio.com",
+    "project_id": "head-start-fc27b",
+    "storage_bucket": "head-start-fc27b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481562834058:android:f83f97ca994243724f6973",
+        "android_client_info": {
+          "package_name": "com.example.headstart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481562834058-2a18j1o1fsdtp3s4c17iicp27c64pu7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWOif34SiQKRdbTl5enoVMD4OdXuvPVrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481562834058-2a18j1o1fsdtp3s4c17iicp27c64pu7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
