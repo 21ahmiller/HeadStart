@@ -32,6 +32,7 @@
     <string name="reviewButtonStr">Review previously posted jobs</string>
     <string name="newJobTitleStr">Create a new job posting</string>
     <string name="locationTitleStr">Location</string>
+    <string name="locationHintStr">State, City, Zip Code (Separated with commas as shown)</string>
     <string name="requirementsTitleStr">Requirements</string>
     <string name="preferredSkillsTitleStr">Preferred Skills</string>
     <string name="timeTitleStr">Time</string>
@@ -66,4 +67,6 @@
     <string name="job19Str">Job 19</string>
     <string name="job20Str">Job 20</string>
     <string name="refreshButtonStr">Refresh</string>
+    <string name="ageTitleStr">Minimum Age</string>
+    <string name="ageHintStr">Minimum Age</string>
 </resources>

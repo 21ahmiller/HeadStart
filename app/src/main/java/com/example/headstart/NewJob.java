@@ -43,7 +43,14 @@ public class NewJob extends AppCompatActivity {
         EditText jobTypeText = findViewById(R.id.jobTypeText);
         String jobType = jobTypeText.getText().toString();
 
-        Job job = new Job(jobTitle, jobType, jobInformation, location, requirements, preferredSkills, schedule, salary, benefits);
+        EditText ageText = findViewById(R.id.ageText);
+        String minimumAge = ageText.getText().toString();
+
+        String[] locationArray = location.split(",");
+        String state = locationArray[1];
+        String city = locationArray[2];
+        String zipCode = locationArray[3];
+        Job job = new Job(jobTitle, jobType, jobInformation, state, city, zipCode, requirements, preferredSkills, schedule, salary, benefits, minimumAge);
 
         Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);

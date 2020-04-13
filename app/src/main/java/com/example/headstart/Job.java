@@ -33,12 +33,12 @@ public class Job {
 		this.ageMinimum = "";
 	}
 
-	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipcode, String requirements,
+	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String requirements,
 			   String skills, String schedule, String salary, String benefits, String ageMinimum) {
 		this.jobTitle = jobTitle;
 		this.jobType = jobType;
 		this.jobDescription = jobDescription;
-		this.location = new Location(state, city, zipcode);
+		this.location = new Location(state, city, zipCode);
 		this.requirements = requirements;
 		this.skills = skills;
 		this.schedule = schedule;
