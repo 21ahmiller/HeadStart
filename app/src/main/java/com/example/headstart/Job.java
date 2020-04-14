@@ -9,13 +9,14 @@ public class Job {
 	private String jobTitle;
 	private String jobType;
 	private String jobDescription;
-	private Location location;
+	private Location location; // Add ADDRESS??
 	private String requirements;
 	private String skills;
 	private String schedule;
 	private String salary;
 	private String benefits;
 	private String ageMinimum;
+	private ArrayList<String> keywords;
 
 
 	//Constructors
@@ -45,6 +46,7 @@ public class Job {
 		this.salary = salary;
 		this.benefits = benefits;
 		this.ageMinimum = ageMinimum;
+		this.keywords = new ArrayList<String>();
 	}
 
 	//Methods
@@ -127,6 +129,18 @@ public class Job {
 
 	public void setAgeMinimum(String ageMinimum) {
 		this.ageMinimum = ageMinimum;
+	}
+
+	public ArrayList<String> getKeywords() {
+		return keywords;
+	}
+
+	public void addKeyword(String keyword) {
+		this.keywords.add(keyword);
+	}
+
+	public void removeKeyword(String keyword){
+		this.keywords.remove(keyword);
 	}
 	@Override
 	public String toString(){

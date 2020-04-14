@@ -8,7 +8,7 @@ public class User {
 	
 	private String username;
 	private String password;
-	private String displayName;
+	private String displayName; // preferred personal name
 	private ArrayList<Job> jobs; 
 	private Profile profile;
 	
