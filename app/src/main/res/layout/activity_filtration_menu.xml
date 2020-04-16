@@ -40,11 +40,11 @@
         app:layout_constraintTop_toBottomOf="@+id/filterMenuTitle" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="334dp"
-        android:layout_height="21dp"
+        android:id="@+id/AgeText"
+        android:layout_width="336dp"
+        android:layout_height="29dp"
         android:layout_marginTop="80dp"
-        android:text="Current age"
+        android:text="@string/ageStr"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,58 +52,198 @@
         app:layout_constraintTop_toBottomOf="@+id/filterMenuTitle" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/TypeAgeBox"
         android:layout_width="359dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Type age here"
+        android:text="@string/typeAgeStr"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/AgeText" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Maximum Drive Distance (miles)"
+        android:text="@string/maximumDriveStr"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/TypeAgeBox" />
 
     <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="309dp"
-        android:layout_height="39dp"
-        android:max="100"
+        android:id="@+id/MaxDriveBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="306dp"
+        android:layout_height="42dp"
+        android:max="15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/MinPayString"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Minimum Pay Rate ($/hr)"
+        android:layout_marginTop="3dp"
+        android:text="@string/minimumValueStr"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/MaxDriveBar" />
 
     <SeekBar
-        android:id="@+id/seekBar4"
+        android:id="@+id/MinPayBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="310dp"
         android:layout_height="36dp"
         android:layout_marginTop="5dp"
-        android:max="10"
-        android:progress="3"
+        android:max="15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/MinPayString" />
+
+    <TextView
+        android:id="@+id/Education"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="150dp"
+        android:text="@string/educationStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MinPayBar" />
+
+    <TextView
+        android:id="@+id/JobType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/jobTypeStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MinPayBar" />
+
+    <RadioGroup
+        android:id="@+id/EducationBox"
+        android:layout_width="172dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Education">
+
+        <RadioButton
+            android:id="@+id/CurrentHS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currentHighSchoolStr" />
+
+        <RadioButton
+            android:id="@+id/HSGrad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/highGradStr" />
+
+        <RadioButton
+            android:id="@+id/CollegeStd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/collegeSTudentStr" />
+
+        <RadioButton
+            android:id="@+id/CollegeGrad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/collegeGradStr" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="106dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/JobType">
+
+        <RadioButton
+            android:id="@+id/FullTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fullTimeStr" />
+
+        <RadioButton
+            android:id="@+id/PartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/partTimeStr" />
+
+        <RadioButton
+            android:id="@+id/Internship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/internshipStr" />
+
+        <RadioButton
+            android:id="@+id/Coop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CoOpStr" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/EnterKeywords"
+        android:layout_width="361dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/enterKeywordsStr"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/KeywordsText" />
+
+    <TextView
+        android:id="@+id/KeywordsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/fieldKeywordStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EducationBox" />
+
+    <TextView
+        android:id="@+id/FieldExprText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/RltvFieldExprStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EnterKeywords" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="296dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="5dp"
+        android:max="10"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FieldExprText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
