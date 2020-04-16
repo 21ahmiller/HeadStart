@@ -78,4 +78,5 @@
     <string name="profilePageStr">Create a....</string>
     <string name="applicantAccountStr">Applicant Account</string>
     <string name="employerAccountStr">Employer Account</string>
+    <string name="displayNameTitle">Display Name</string>
 </resources>

@@ -7,9 +7,13 @@ public class Employer extends User{
 	//Constructors
 	
 	public Employer() {
-		
+		super();
 	}
-	
+
+	public Employer(String username, String password, String displayName) {
+		super(username, password, displayName);
+	}
+
 	//Methods
 	
 	@Override
