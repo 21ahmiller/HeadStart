@@ -58,4 +58,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);
     }
+
+    public void performCreateProfilePage(View v){
+        Intent intent = new Intent(this, createProfile.class);
+        startActivity(intent);
+    }
 }
