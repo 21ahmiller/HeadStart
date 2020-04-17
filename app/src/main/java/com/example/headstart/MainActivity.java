@@ -14,15 +14,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Currency;
+
 public class MainActivity extends AppCompatActivity {
+
+    private Currency FirebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Database Firebase = new Database(FirebaseDatabase.getInstance());
-        Firebase.databaseTest("TEST MESSAGE");
+
     }
 
     public void clickApplicantButton(View v){
