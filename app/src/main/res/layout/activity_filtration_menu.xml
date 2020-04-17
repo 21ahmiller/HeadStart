@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
+        android:onClick="resetFilters"
         android:text="@string/resetFilterStr"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filterMenuTitle" />
@@ -52,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/filterMenuTitle" />
 
     <EditText
-        android:id="@+id/TypeAgeBox"
+        android:id="@+id/TypeAgeText"
         android:layout_width="359dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -72,7 +73,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TypeAgeBox" />
+        app:layout_constraintTop_toBottomOf="@+id/TypeAgeText" />
 
     <SeekBar
         android:id="@+id/MaxDriveBar"
@@ -144,12 +145,14 @@
             android:id="@+id/CurrentHS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="false"
             android:text="@string/currentHighSchoolStr" />
 
         <RadioButton
             android:id="@+id/HSGrad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="false"
             android:text="@string/highGradStr" />
 
         <RadioButton
@@ -235,7 +238,7 @@
         app:layout_constraintTop_toBottomOf="@+id/EnterKeywords" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/FieldExperienceBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="296dp"
         android:layout_height="43dp"

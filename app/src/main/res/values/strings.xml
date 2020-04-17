@@ -84,6 +84,6 @@
     <string name="internshipStr">Internship</string>
     <string name="CoOpStr">Co-Op</string>
     <string name="fieldKeywordStr">Field Keywords (Biology, Chemistry, etc.)</string>
-    <string name="enterKeywordsStr">Enter Keywords Here</string>
+    <string name="enterKeywordsStr">Enter keywords here</string>
     <string name="RltvFieldExprStr">Relative Field Experience</string>
 </resources>
