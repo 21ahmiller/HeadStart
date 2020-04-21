@@ -11,7 +11,6 @@ public class Profile {
 		private ArrayList<String> experiences;
 		private ArrayList<String> interests;
 		private String description;
-		private String email;
 		private String phoneNumber;
 		private String age;
 	
@@ -23,18 +22,16 @@ public class Profile {
 			experiences = new ArrayList<String>();
 			interests = new ArrayList<String>();
 			description = new String();
-			email = new String();
 			phoneNumber = new String();
 			age = "";
 		}
 		
-		public Profile(String state, String city, String zipcode, String year, String school, String description, String email, String phoneNumber, String age) {
+		public Profile(String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
 			this.location = new Location(state, city, zipcode);
 			this.education = new Education(year, school);
 			experiences = new ArrayList<String>();
 			interests = new ArrayList<String>();
 			this.description = description;
-			this.email = email;
 			this.phoneNumber = phoneNumber;
 			this.age = age;
 		}
@@ -87,14 +84,6 @@ public class Profile {
 
 		public void setDescription(String description) {
 			this.description = description;
-		}
-
-		public String getEmail() {
-			return email;
-		}
-
-		public void setEmail(String email) {
-			this.email = email;
 		}
 
 		public String getPhoneNumber() {

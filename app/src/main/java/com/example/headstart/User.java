@@ -6,7 +6,7 @@ public class User {
 	
 	//Data
 	
-	private String username;
+	private String email;
 	private String password;
 	private String displayName; // preferred personal name
 	private ArrayList<Job> jobs; 
@@ -15,15 +15,15 @@ public class User {
 	//Constructors
 	
 	public User() {
-		username = "";
+		email = "";
 		password = "";
 		displayName = "";
 		jobs = new ArrayList<Job>();
 		profile = new Profile();
 	}
 	
-	public User(String username, String password, String displayName) {
-		this.username = username;
+	public User(String email, String password, String displayName) {
+		this.email = email;
 		this.password = password;
 		this.displayName = displayName; // this is the user's personal name
 		jobs = new ArrayList<Job>();
@@ -44,8 +44,8 @@ public class User {
 		displayName = newName;
 	}
 	
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return email;
 	}
 	
 	public String getDisplayName() {

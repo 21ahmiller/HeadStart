@@ -4,15 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.Currency;
 
@@ -29,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickApplicantButton(View v){
-        EditText usernameText = findViewById(R.id.usernameText);
+        EditText usernameText = findViewById(R.id.emailText);
         String username = usernameText.getText().toString();
 
         EditText passwordText = findViewById(R.id.passwordText);
@@ -46,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickEmployerButton(View v){
-        EditText usernameText = findViewById(R.id.usernameText);
+        EditText usernameText = findViewById(R.id.emailText);
         String username = usernameText.getText().toString();
 
         EditText passwordText = findViewById(R.id.passwordText);

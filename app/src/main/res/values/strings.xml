@@ -14,7 +14,7 @@
     <string name="pageTitleStr">Job Postings</string>
     <string name="companyTitleStr">Company Title</string>
     <string name="jobTitleStr">Job Title</string>
-    <string name="jobInformationTitleStr">Job Information</string>
+    <string name="jobInformationTitleStr">Job Description</string>
     <string name="jobInformationStr">Description of Job should be inserted here</string>
     <string name="companyInformationTitleStr">Company Information</string>
     <string name="companyInformationStr">Company information should be displayed here</string>
@@ -36,7 +36,7 @@
     <string name="requirementsTitleStr">Requirements</string>
     <string name="preferredSkillsTitleStr">Preferred Skills</string>
     <string name="timeTitleStr">Time</string>
-    <string name="salaryTitleStr">Salary</string>
+    <string name="salaryTitleStr">Salary ($ / hr)</string>
     <string name="benefitsTitleStr">Benefits</string>
     <string name="submitButtonStr">Submit</string>
     <string name="jopTypeTitleStr">Job Type</string>
@@ -87,13 +87,13 @@
     <string name="enterKeywordsStr">Enter keywords here</string>
     <string name="RltvFieldExprStr">Relative Field Experience</string>
     <string name="welcomeStr">Welcome!</string>
-    <string name="instructionsStr">To create an account, enter your email, a username and a password for your account</string>
+    <string name="instructionsStr">To create an account, enter your real name, your email, and a password for your account</string>
     <string name="emailStr">Email</string>
-    <string name="usernameStr">Username</string>
+    <string name="usernameStr">Email</string>
     <string name="passwordStr">Password</string>
     <string name="createStr">Create!</string>
     <string name="profilePageStr">Create a....</string>
     <string name="applicantAccountStr">Applicant Account</string>
     <string name="employerAccountStr">Employer Account</string>
-    <string name="displayNameTitle">Display Name</string>
+    <string name="displayNameTitle">Name</string>
 </resources>

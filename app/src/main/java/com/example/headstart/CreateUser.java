@@ -23,9 +23,9 @@ public class CreateUser extends AppCompatActivity {
         String password = passwordText.getText().toString();
 
         EditText usernameText = findViewById(R.id.usernameText);
-        String username = usernameText.getText().toString();
+        String displayName = usernameText.getText().toString();
 
-        User applicant = new User(email, password, username);
+        User applicant = new User(email, password, displayName);
         Intent intent = new Intent(this, jobListingPage.class);
         startActivity(intent);
     }
