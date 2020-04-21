@@ -12,10 +12,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Database {
 
-    public FirebaseDatabase database;
-    public DatabaseReference ref;
+    private FirebaseDatabase database;
+    private DatabaseReference ref;
 
 
     public Database(FirebaseDatabase database) {
@@ -40,4 +42,11 @@ public class Database {
             }
         });
     }
+
+    private void addNewUser (String username, String password, String displayName) {
+        User user = new User (username, password, displayName);
+
+//        database.child("users").child(username).setValue(user);
+    }
+
 }
