@@ -47,9 +47,9 @@ public class NewJob extends AppCompatActivity {
         String minimumAge = ageText.getText().toString();
 
         String[] locationArray = location.split(",");
-        String state = locationArray[1];
-        String city = locationArray[2];
-        String zipCode = locationArray[3];
+        String state = locationArray[0];
+        String city = locationArray[1];
+        String zipCode = locationArray[2];
         Job job = new Job(jobTitle, jobType, jobInformation, state, city, zipCode, requirements, preferredSkills, schedule, salary, benefits, minimumAge);
 
         Intent intent = new Intent(this, employerMainPage.class);
