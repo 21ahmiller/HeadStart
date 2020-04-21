@@ -77,7 +77,7 @@
     <string name="typeAgeStr">Type age here</string>
     <string name="currentHighSchoolStr">High School Student</string>
     <string name="highGradStr">High School Graduate</string>
-    <string name="collegeSTudentStr">College Student</string>
+    <string name="collegeStudentStr">College Student</string>
     <string name="collegeGradStr">College Graduate</string>
     <string name="fullTimeStr">Full Time</string>
     <string name="partTimeStr">Part Time</string>
