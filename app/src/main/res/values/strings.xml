@@ -103,4 +103,19 @@
     <string name="companyNameStr">Company Name</string>
     <string name="companyEmailStr">Company Email</string>
     <string name="companyPasswordStr">Company Password</string>
+    <string name="addressStr">Address</string>
+    <string name="stateStr">State</string>
+    <string name="cityStr">City</string>
+    <string name="zipcodeStr">Zipcode</string>
+    <string name="contactInfoStr">Contact Information</string>
+    <string name="phoneNumberStr">Phone Number (digits only)</string>
+    <string name="emailConfirmStr">Confirm Email</string>
+    <string name="noneOfAboveStr">None of the above</string>
+    <string name="freshmanStr">Freshman</string>
+    <string name="sophomoreStr">Sophomore</string>
+    <string name="juniorStr">Junior</string>
+    <string name="seniorStr">Senior</string>
+    <string name="jobQuestionsStr">Supplimental Job Information</string>
+    <string name="interestsStr">Interests (photography, biking, etc.) Separate with commas.</string>
+    <string name="experienceStr">Experiences (tutoring, research, etc.) Separate with commas.</string>
 </resources>

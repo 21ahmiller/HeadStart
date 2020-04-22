@@ -59,4 +59,12 @@ public class User {
 	public void setProfile(Profile profile){
 		this.profile = profile;
 	}
+
+	public boolean comparePassword(String password){
+		if(this.password.equals(password)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }

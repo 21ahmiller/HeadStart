@@ -7,10 +7,10 @@
     tools:context=".EditProfile">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/profileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:text="@string/profileTitleStr"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,23 +21,250 @@
         android:id="@+id/applyChangesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="170dp"
         android:width="140sp"
         android:text="@string/applyChangesStr"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/profileTitle" />
 
     <Button
         android:id="@+id/returnHomeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="170dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:width="140sp"
         android:text="@string/returnHomeStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/profileTitle" />
+
+    <TextView
+        android:id="@+id/addressTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/addressStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/applyChangesButton" />
+
+    <EditText
+        android:id="@+id/stateText"
+        android:layout_width="175sp"
+        android:layout_height="35sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="200dp"
+        android:width="200sp"
+        android:ems="10"
+        android:hint="@string/stateStr"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressTitle" />
+
+    <EditText
+        android:id="@+id/cityText"
+        android:layout_width="175sp"
+        android:layout_height="35sp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="10dp"
+        android:width="200sp"
+        android:ems="10"
+        android:hint="@string/cityStr"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressTitle" />
+
+    <EditText
+        android:id="@+id/zipcodeText"
+        android:layout_width="175sp"
+        android:layout_height="35sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="200dp"
+        android:width="200sp"
+        android:ems="10"
+        android:hint="@string/zipcodeStr"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityText" />
+
+    <TextView
+        android:id="@+id/contactInfoTitle"
+        android:layout_width="159dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/contactInfoStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zipcodeText" />
+
+    <EditText
+        android:id="@+id/PhoneNumText"
+        android:layout_width="300sp"
+        android:layout_height="35sp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="@string/phoneNumberStr"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactInfoTitle" />
+
+    <EditText
+        android:id="@+id/phoneNumText"
+        android:layout_width="300sp"
+        android:layout_height="35sp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/emailConfirmStr"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PhoneNumText" />
+
+    <TextView
+        android:id="@+id/educationTitle"
+        android:layout_width="122dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/educationStr"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumText" />
+
+    <RadioGroup
+        android:id="@+id/schoolButtonGroup"
+        android:layout_width="165dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/educationTitle">
+
+        <RadioButton
+            android:id="@+id/highSchoolButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currentHighSchoolStr" />
+
+        <RadioButton
+            android:id="@+id/collegeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/collegeStudentStr" />
+
+        <RadioButton
+            android:id="@+id/collegeGradButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/collegeGradStr" />
+
+        <RadioButton
+            android:id="@+id/neitherButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/noneOfAboveStr" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="134dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/educationTitle">
+
+        <RadioButton
+            android:id="@+id/freshmanButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/freshmanStr" />
+
+        <RadioButton
+            android:id="@+id/sophomoreButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sophomoreStr" />
+
+        <RadioButton
+            android:id="@+id/juniorButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/juniorStr" />
+
+        <RadioButton
+            android:id="@+id/seniorButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/seniorStr" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/ageText"
+        android:layout_width="184dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/ageStr"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schoolButtonGroup" />
+
+    <TextView
+        android:id="@+id/longQuestionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/jobQuestionsStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageText" />
+
+    <EditText
+        android:id="@+id/interestText"
+        android:layout_width="400dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/interestsStr"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/longQuestionTitle" />
+
+    <EditText
+        android:id="@+id/experienceText"
+        android:layout_width="400dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/experienceStr"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/interestText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
