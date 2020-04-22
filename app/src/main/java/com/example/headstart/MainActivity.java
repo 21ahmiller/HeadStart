@@ -7,18 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import java.util.Currency;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Currency FirebaseDatabase;
+    Database database = new Database();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        database.basicReadWrite(database.getFirebaseDatabase(), database.getDatabaseReference());
     }
 
     public void clickApplicantButton(View v){
