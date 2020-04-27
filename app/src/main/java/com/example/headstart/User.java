@@ -13,8 +13,6 @@ public class User {
 	private String displayName; // preferred personal name
 	private ArrayList<Job> jobs; 
 	private Profile profile;
-
-	Database database = new Database("User");
 	
 	//Constructors
 	

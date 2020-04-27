@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Database tDatabase = new Database("Test");
+    Database tDatabase = new Database("User");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
