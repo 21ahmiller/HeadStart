@@ -11,13 +11,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Database database = new Database();
+    Database tDatabase = new Database("Test");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        database.basicReadWrite(database.getFirebaseDatabase(), database.getDatabaseReference());
+      tDatabase.basicReadWrite(tDatabase.getFirebaseDatabase(), tDatabase.getDatabaseReference());
     }
 
     public void clickApplicantButton(View v){

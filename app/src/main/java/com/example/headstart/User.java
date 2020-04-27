@@ -1,5 +1,7 @@
 package com.example.headstart;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.*;
 
 public class User {
@@ -11,6 +13,8 @@ public class User {
 	private String displayName; // preferred personal name
 	private ArrayList<Job> jobs; 
 	private Profile profile;
+
+	Database database = new Database("User");
 	
 	//Constructors
 	

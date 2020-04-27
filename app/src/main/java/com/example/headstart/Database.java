@@ -13,31 +13,34 @@ import com.google.firebase.database.ValueEventListener;
 public class Database {
 
     FirebaseDatabase database;
-    DatabaseReference myRef;
+    DatabaseReference ref;
 
-    public Database() {
+    public Database(String path) {
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("message");
+        ref = database.getReference(path);
     }
 
     private static final String TAG = "Database";
 
-    public void basicReadWrite(FirebaseDatabase database, DatabaseReference myRef) {
-
-        myRef.setValue("Hello, World!");
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+    public void basicReadWrite(FirebaseDatabase database, DatabaseReference ref) {
+//
+//        ref.setValue("Hello, World!");
+//
+//        ref.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String value = dataSnapshot.getValue(String.class);
+//                Log.d(TAG, "Value is: " + value);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                Log.w(TAG, "Failed to read value.", error.toException());
+//            }
+//        });
+//
+        writeNewUser("test1234", "1234");
+        writeNewUser("test5678", "5678");
     }
 
     public FirebaseDatabase getFirebaseDatabase() {
@@ -45,6 +48,15 @@ public class Database {
     }
 
     public DatabaseReference getDatabaseReference() {
-        return myRef;
+        return ref;
+    }
+
+    public void writeNewUser(String ID, String password) {
+        User user = new User();
+
+        ref.child(ID).setValue(user);
+
+        //why isn't this default constructed like the rest?
+        ref.child(ID).child("password").setValue(password);
     }
 }
