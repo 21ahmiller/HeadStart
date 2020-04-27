@@ -23,4 +23,9 @@ public class jobListingPage extends AppCompatActivity {
         Intent intent = new Intent(this, FiltrationMenu.class);
         startActivity(intent);
     }
+
+    public void performOpenProfile(View v){
+        Intent intent = new Intent(this, ApplicantProfile.class);
+        startActivity(intent);
+    }
 }

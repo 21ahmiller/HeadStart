@@ -118,4 +118,10 @@
     <string name="jobQuestionsStr">Supplimental Job Information</string>
     <string name="interestsStr">Interests (photography, biking, etc.) Separate with commas.</string>
     <string name="experienceStr">Experiences (tutoring, research, etc.) Separate with commas.</string>
+    <string name="reviewJobStr">Review Jobs</string>
+    <string name="profileStr">Your Profile</string>
+    <string name="usernameDisplayStr">Your Username</string>
+    <string name="emailDisplayStr">Your Email</string>
+    <string name="phoneNumStr">Phone Number</string>
+    <string name="phoneNumDisplayStr">Your Phone Number</string>
 </resources>

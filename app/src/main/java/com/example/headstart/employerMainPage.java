@@ -18,4 +18,9 @@ public class employerMainPage extends AppCompatActivity {
         Intent intent = new Intent(this, NewJob.class);
         startActivity(intent);
     }
+
+    public void performReviewJobs(View v){
+        Intent intent = new Intent(this, ReviewJobs.class);
+        startActivity(intent);
+    }
 }
