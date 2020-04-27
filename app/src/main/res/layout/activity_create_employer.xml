@@ -43,16 +43,18 @@
 
     <EditText
         android:id="@+id/companyNameText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="287dp"
+        android:layout_height="36dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/companyNameStr"
         android:inputType="textPersonName"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/companyNameTitle"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyNameTitle" />
 
     <TextView
         android:id="@+id/companyEmailTitle"
@@ -67,16 +69,18 @@
 
     <EditText
         android:id="@+id/companyEmailText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="279dp"
+        android:layout_height="36dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/companyEmailStr"
         android:inputType="textPersonName"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/companyEmailTitle"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyEmailTitle" />
 
     <TextView
         android:id="@+id/companyPasswordTitle"
@@ -91,16 +95,16 @@
 
     <EditText
         android:id="@+id/companyPasswordText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="288dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/companyPasswordStr"
         android:inputType="textPassword"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyPasswordTitle" />
 

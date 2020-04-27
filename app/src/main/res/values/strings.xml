@@ -102,7 +102,7 @@
     <string name="returnHomeStr">Return Home</string>
     <string name="companyNameStr">Company Name</string>
     <string name="companyEmailStr">Company Email</string>
-    <string name="companyPasswordStr">Company Password</string>
+    <string name="companyPasswordStr">Password</string>
     <string name="addressStr">Address</string>
     <string name="stateStr">State</string>
     <string name="cityStr">City</string>

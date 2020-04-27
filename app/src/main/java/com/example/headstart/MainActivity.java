@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
         EditText passwordText = findViewById(R.id.passwordText);
         String password = passwordText.getText().toString();
 
-        signIn(email, password, v);
+        applicantSignIn(email, password, v);
     }
 
-    public void signIn(String email, String password, View v){
+    public void applicantSignIn(String email, String password, View v){
         findUser(email);
         final Controller aController = (Controller) getApplicationContext();
         User currentUser = aController.getUser();
@@ -56,15 +56,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickEmployerButton(View v){
-        EditText usernameText = findViewById(R.id.emailText);
-        String username = usernameText.getText().toString();
+        EditText emailText = findViewById(R.id.emailText);
+        String email = emailText.getText().toString();
 
         EditText passwordText = findViewById(R.id.passwordText);
         String password = passwordText.getText().toString();
 
-        if(username.equals("") && password.equals("")){
+        employerSignIn(email, password, v);
+    }
+
+    public void employerSignIn(String email, String password, View v){
+        findEmployer(email);
+        final Controller aController = (Controller) getApplicationContext();
+        Employer currentEmployer = aController.getEmployer();
+
+        if(currentEmployer.comparePassword(password)){
             performOpenEmployerMainPage(v);
+        }else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG);
+            toast.show();
         }
+    }
+
+    public void findEmployer(String email){
+        // look through database for employer with same email.
+        Employer mockEmployer = new Employer("target@hotmail.com", "password", "Target"); //this is a fake user for example
+        final Controller aController = (Controller) getApplicationContext();
+        aController.setEmployer(mockEmployer);
     }
 
     public void performOpenEmployerMainPage(View v){
