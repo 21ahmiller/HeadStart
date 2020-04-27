@@ -13,7 +13,6 @@ public class User {
 	private String displayName; // preferred personal name
 	private ArrayList<Job> jobs; 
 	private Profile profile;
-
 	
 	//Constructors
 	
