@@ -64,8 +64,8 @@ public class User {
 		this.profile = profile;
 	}
 
-	public boolean comparePassword(String password){
-		if(this.password.equals(password)){
+	public boolean comparePassword(String inputPassword){
+		if(password.equals(inputPassword)){
 			return true;
 		}else{
 			return false;

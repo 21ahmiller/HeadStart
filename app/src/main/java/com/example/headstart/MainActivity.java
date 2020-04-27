@@ -21,18 +21,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickApplicantButton(View v){
-        EditText usernameText = findViewById(R.id.emailText);
-        String username = usernameText.getText().toString();
+        EditText emailText = findViewById(R.id.emailText);
+        String email = emailText.getText().toString();
 
         EditText passwordText = findViewById(R.id.passwordText);
         String password = passwordText.getText().toString();
 
-        signIn(username, password, v);
+        signIn(email, password, v);
     }
+
     public void signIn(String email, String password, View v){
         findUser(email);
         final Controller aController = (Controller) getApplicationContext();
         User currentUser = aController.getUser();
+
         if(currentUser.comparePassword(password)){
             performOpenJobListings(v);
         }else{
