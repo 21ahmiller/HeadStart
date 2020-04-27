@@ -45,6 +45,10 @@ public class User {
 	public void setDisplayName(String newName) {
 		displayName = newName;
 	}
+
+	public void setEmail(String newEmail) {
+		email = newEmail;
+	}
 	
 	public String getEmail() {
 		return email;
