@@ -14,7 +14,6 @@ public class User {
 	private ArrayList<Job> jobs; 
 	private Profile profile;
 
-	Database database = new Database("User");
 	
 	//Constructors
 	
