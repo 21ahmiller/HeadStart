@@ -9,7 +9,7 @@ public class Job {
 	private String jobTitle;
 	private String jobType;
 	private String jobDescription;
-	private Location location; // Add ADDRESS??
+	private Location location;
 	private String requirements;
 	private String skills;
 	private String schedule;
@@ -34,12 +34,12 @@ public class Job {
 		this.ageMinimum = "";
 	}
 
-	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String requirements,
+	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
 			   String skills, String schedule, String salary, String benefits, String ageMinimum) {
 		this.jobTitle = jobTitle;
 		this.jobType = jobType;
 		this.jobDescription = jobDescription;
-		this.location = new Location(state, city, zipCode);
+		this.location = new Location(state, city, zipCode, address);
 		this.requirements = requirements;
 		this.skills = skills;
 		this.schedule = schedule;
@@ -79,8 +79,8 @@ public class Job {
 		return location;
 	}
 
-	public void setLocation(String state, String city, String zipcode) {
-		this.location = new Location(state, city, zipcode);
+	public void setLocation(String state, String city, String zipcode, String address) {
+		this.location = new Location(state, city, zipcode, address);
 	}
 
 	public String getRequirements() {
@@ -144,6 +144,6 @@ public class Job {
 	}
 	@Override
 	public String toString(){
-		return jobTitle + "\n" + jobType + "\n" + location.toString() + "\n" + salary + "\n" + "Requirements: \n" + requirements;
+		return jobTitle + "\n" + jobType + "\n" + location.toString() + "\n" + "Salary: $" + salary + " per hour" + "\n" + "Requirements: \n" + requirements;
 	}
 }

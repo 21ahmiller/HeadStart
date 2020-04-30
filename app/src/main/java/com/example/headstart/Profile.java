@@ -27,7 +27,7 @@ public class Profile {
 		}
 		
 		public Profile(String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
-			this.location = new Location(state, city, zipcode);
+			this.location = new Location(state, city, zipcode, "");
 			this.education = new Education(year, school);
 			experiences = new ArrayList<String>();
 			interests = new ArrayList<String>();
@@ -36,14 +36,24 @@ public class Profile {
 			this.age = age;
 		}
 
+		public Profile(String state, String city, String zipcode, String address, String description, String phoneNumber){
+			this.location = new Location(state, city, zipcode, address);
+			this.description = description;
+			this.phoneNumber = phoneNumber;
+			education = new Education();
+			experiences = new ArrayList<String>();
+			interests = new ArrayList<String>();
+			age = "";
+		}
+
 		//Methods
 		
 		public Location getLocation() {
 			return location;
 		}
 
-		public void setLocation(String state, String city, String zipcode) {
-			this.location = new Location(state, city, zipcode);
+		public void setLocation(String state, String city, String zipcode, String address) {
+			this.location = new Location(state, city, zipcode, address);
 		}
 
 		public Education getEducation() {

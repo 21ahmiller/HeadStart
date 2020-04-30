@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +54,36 @@ public class MainActivity extends AppCompatActivity {
         User mockUser = new User("jeffwilcox@hotmail.com", "password", "Jeffrey Wilcox"); //this is a fake user for example
         final Controller aController = (Controller) getApplicationContext();
         aController.setUser(mockUser);
+    }
+
+    public String emailReducer(String email){
+        ArrayList<String> characters = new ArrayList<String>();
+        for(int i = 0; i < email.length(); i ++){
+            characters.add(email.substring(i, i + 1));
+        }
+        characters.remove("@");
+        characters.remove(".");
+        String reduced = "";
+        for(int i = 0; i < characters.size(); i++){
+            reduced += characters.get(i);
+        }
+        return reduced;
+    }
+
+    public boolean isEmail(String email){
+        int atTimes = 0;
+        int periodTimes = 0;
+        for(int i = 0; i < email.length(); i ++){
+            if(email.substring(i, i + 1).equals("@")){
+                atTimes += 1;
+            }else if(email.substring(i, i + 1).equals(".")){
+                periodTimes += 1;
+            }
+        }
+        if(atTimes == 1 && periodTimes == 1){
+            return true;
+        }
+        return false;
     }
 
     public void performOpenJobListings(View v){

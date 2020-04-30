@@ -25,6 +25,9 @@ public class NewJob extends AppCompatActivity {
         EditText locationText = findViewById(R.id.locationText);
         String location = locationText.getText().toString();
 
+        EditText addressText = findViewById(R.id.addressText);
+        String address = locationText.getText().toString();
+
         EditText requirementsText = findViewById(R.id.requirementsText);
         String requirements = requirementsText.getText().toString();
 
@@ -50,7 +53,7 @@ public class NewJob extends AppCompatActivity {
         String state = locationArray[0];
         String city = locationArray[1];
         String zipCode = locationArray[2];
-        Job job = new Job(jobTitle, jobType, jobInformation, state, city, zipCode, requirements, preferredSkills, schedule, salary, benefits, minimumAge);
+        Job job = new Job(jobTitle, jobType, jobInformation, state, city, zipCode, address, requirements, preferredSkills, schedule, salary, benefits, minimumAge);
 
         Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);

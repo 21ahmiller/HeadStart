@@ -9,6 +9,7 @@ public class Location {
 	private String state;
 	private String city;
 	private String zipCode;
+	private String address;
 	
 	
 	//Constructors
@@ -17,12 +18,14 @@ public class Location {
 		state = "";
 		city = "";
 		zipCode = "";
+		address = "";
 	}
 	
-	public Location(String state, String city, String zipCode) {
+	public Location(String state, String city, String zipCode, String address) {
 		this.state = state;
 		this.city = city;
 		this.zipCode = zipCode;
+		this.address = address;
 	}
 	
 	//Methods
@@ -51,9 +54,17 @@ public class Location {
 		this.zipCode = zipCode;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString(){
-		return city + ", " + state + " " + zipCode;
+		return address + " " + city + ", " + state + " " + zipCode;
 	}
 	
 }

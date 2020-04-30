@@ -103,7 +103,6 @@
     <string name="companyNameStr">Company Name</string>
     <string name="companyEmailStr">Company Email</string>
     <string name="companyPasswordStr">Password</string>
-    <string name="addressStr">Address</string>
     <string name="stateStr">State</string>
     <string name="cityStr">City</string>
     <string name="zipcodeStr">Zipcode</string>
@@ -115,7 +114,7 @@
     <string name="sophomoreStr">Sophomore</string>
     <string name="juniorStr">Junior</string>
     <string name="seniorStr">Senior</string>
-    <string name="jobQuestionsStr">Supplemental Job Information</string>
+    <string name="jobQuestionsStr">Supplimental Job Information</string>
     <string name="interestsStr">Interests (photography, biking, etc.) Separate with commas.</string>
     <string name="experienceStr">Experiences (tutoring, research, etc.) Separate with commas.</string>
     <string name="reviewJobStr">Review Jobs</string>
@@ -124,6 +123,7 @@
     <string name="emailDisplayStr">Your Email</string>
     <string name="phoneNumStr">Phone Number</string>
     <string name="phoneNumDisplayStr">Your Phone Number</string>
+    <string name="addressStr">Address</string>
     <string name="locationDisplayStr">Your Location</string>
     <string name="educationDisplayStr">Your Education</string>
     <string name="ageDisplayStr">Your Age</string>
