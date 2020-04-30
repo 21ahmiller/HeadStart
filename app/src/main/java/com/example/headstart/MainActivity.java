@@ -12,17 +12,18 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Database test = new Database("User");
+    Database testUsers = new Database("Users");
+    Database testEmployers = new Database("Employers");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      test.addDefaultUser("test1234", "name1234", "test1234@gmail.com", "1234");
-      test.updateUserProfile("test1234", "MA", "test city", "00000", "Junior", "test school", "test description.", "000-000-0000", "17");
+      testUsers.addDefaultUser("user1234", "name1234", "user1234@gmail.com", "1234");
+      testUsers.updateUserProfile("user1234", "MA", "test city", "00000", "Junior", "test school", "test description.", "000-000-0000", "17");
 
-      test.addDefaultUser("test5678", "name1234", "test1234@gmail.com", "1234");
-      test.updateUserProfile("test5678", "MA", "test city", "00000", "Junior", "test school", "test description.", "000-000-0000", "17");
+      testEmployers.addDefaultEmployer("employer5678", "company5678", "employer5678@gmail.com", "5678");
+      testEmployers.updateEmployerProfile("employer5678", "MA", "test city", "00000", "01 Street", "test description.", "000-000-0000");
     }
 
     public void clickApplicantButton(View v){

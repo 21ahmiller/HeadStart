@@ -42,4 +42,36 @@ public class Database {
 
         ref.child(ID).child("profile").setValue(profile);
     }
+
+    public void addDefaultEmployer(String ID, String name, String email, String password) {
+        Employer employer = new Employer();
+        employer.setDisplayName(name);
+        employer.setEmail(email);
+
+        ref.child(ID).setValue(employer);
+        ref.child(ID).child("password").setValue(password);
+    }
+
+    public void updateEmployerProfile(String ID, String state, String city, String zipcode, String address, String description, String phoneNumber) {
+        Profile profile = new Profile(ID, state, city, zipcode, description, phoneNumber);
+
+        ref.child(ID).child("profile").setValue(profile);
+    }
+
+//    //EDIT FOR JOBS
+//
+//    public void addDefaultJob(String ID, String name, String email, String password) {
+//        Employer employer = new Employer();
+//        employer.setDisplayName(name);
+//        employer.setEmail(email);
+//
+//        ref.child(ID).setValue(employer);
+//        ref.child(ID).child("password").setValue(password);
+//    }
+//
+//    public void updateJobInformation(String ID, String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
+//        Profile profile = new Profile(state, city, zipcode, year, school, description, phoneNumber, age);
+//
+//        ref.child(ID).child("profile").setValue(profile);
+//    }
 }
