@@ -41,6 +41,7 @@ public class Database {
         Profile profile = new Profile(state, city, zipcode, year, school, description, phoneNumber, age);
 
         ref.child(ID).child("profile").setValue(profile);
+        ref.child(ID).child("profile").child("location").child("address").removeValue();
     }
 
     public void addDefaultEmployer(String ID, String name, String email, String password) {
@@ -53,25 +54,21 @@ public class Database {
     }
 
     public void updateEmployerProfile(String ID, String state, String city, String zipcode, String address, String description, String phoneNumber) {
-        Profile profile = new Profile(ID, state, city, zipcode, description, phoneNumber);
+        Profile profile = new Profile(state, city, zipcode, address, description, phoneNumber);
 
         ref.child(ID).child("profile").setValue(profile);
+        ref.child(ID).child("profile").child("education").removeValue();
+        ref.child(ID).child("profile").child("age").removeValue();
     }
 
-//    //EDIT FOR JOBS
-//
-//    public void addDefaultJob(String ID, String name, String email, String password) {
-//        Employer employer = new Employer();
-//        employer.setDisplayName(name);
-//        employer.setEmail(email);
-//
-//        ref.child(ID).setValue(employer);
-//        ref.child(ID).child("password").setValue(password);
-//    }
-//
-//    public void updateJobInformation(String ID, String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
-//        Profile profile = new Profile(state, city, zipcode, year, school, description, phoneNumber, age);
-//
-//        ref.child(ID).child("profile").setValue(profile);
-//    }
+    //EDIT FOR JOBS
+
+    public void createJob(String ID, String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
+                              String skills, String schedule, String salary, String benefits, String ageMinimum) {
+        Job job = new Job(jobTitle, jobType, jobDescription, state, city, zipCode, address, requirements,
+                skills, schedule, salary, benefits, ageMinimum);
+
+        ref.child(ID).setValue(job);
+    }
+
 }
