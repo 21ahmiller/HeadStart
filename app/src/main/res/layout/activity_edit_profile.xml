@@ -24,6 +24,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="170dp"
         android:width="140sp"
+        android:onClick="saveChanges"
         android:text="@string/applyChangesStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.524"
@@ -37,6 +38,7 @@
         android:layout_marginStart="170dp"
         android:layout_marginTop="10dp"
         android:width="140sp"
+        android:onClick="returnHome"
         android:text="@string/returnHomeStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +57,7 @@
 
     <EditText
         android:id="@+id/stateText"
-        android:layout_width="175sp"
+        android:layout_width="100sp"
         android:layout_height="35sp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="200dp"
@@ -70,9 +72,8 @@
 
     <EditText
         android:id="@+id/cityText"
-        android:layout_width="175sp"
+        android:layout_width="100sp"
         android:layout_height="35sp"
-        android:layout_marginStart="200dp"
         android:layout_marginTop="10dp"
         android:width="200sp"
         android:ems="10"
@@ -85,10 +86,10 @@
 
     <EditText
         android:id="@+id/zipcodeText"
-        android:layout_width="175sp"
+        android:layout_width="100sp"
         android:layout_height="35sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="10dp"
         android:width="200sp"
         android:ems="10"
         android:hint="@string/zipcodeStr"
@@ -96,24 +97,26 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityText" />
+        app:layout_constraintTop_toBottomOf="@+id/addressTitle" />
 
     <TextView
         android:id="@+id/contactInfoTitle"
-        android:layout_width="159dp"
+        android:layout_width="match_parent"
         android:layout_height="23dp"
         android:layout_marginTop="10dp"
         android:text="@string/contactInfoStr"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zipcodeText" />
+        app:layout_constraintTop_toBottomOf="@+id/cityText" />
 
     <EditText
         android:id="@+id/PhoneNumText"
-        android:layout_width="300sp"
+        android:layout_width="190sp"
         android:layout_height="35sp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="125dp"
         android:ems="10"
         android:hint="@string/phoneNumberStr"
         android:inputType="number"
@@ -124,16 +127,17 @@
 
     <EditText
         android:id="@+id/phoneNumText"
-        android:layout_width="300sp"
+        android:layout_width="100sp"
         android:layout_height="35sp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="175dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/emailConfirmStr"
         android:inputType="number"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PhoneNumText" />
+        app:layout_constraintTop_toBottomOf="@+id/contactInfoTitle" />
 
     <TextView
         android:id="@+id/educationTitle"
@@ -243,7 +247,7 @@
 
     <EditText
         android:id="@+id/interestText"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginTop="10dp"
         android:ems="10"
@@ -251,12 +255,13 @@
         android:text="@string/interestsStr"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/longQuestionTitle" />
 
     <EditText
         android:id="@+id/experienceText"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginTop="5dp"
         android:ems="10"
@@ -264,6 +269,7 @@
         android:text="@string/experienceStr"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interestText" />
 

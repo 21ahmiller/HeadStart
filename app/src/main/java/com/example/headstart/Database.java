@@ -20,29 +20,6 @@ public class Database {
         ref = database.getReference(path);
     }
 
-    private static final String TAG = "Database";
-
-    public void basicReadWrite(FirebaseDatabase database, DatabaseReference ref) {
-//
-//        ref.setValue("Hello, World!");
-//
-//        ref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String value = dataSnapshot.getValue(String.class);
-//                Log.d(TAG, "Value is: " + value);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        });
-//
-        writeNewUser("test1234", "1234");
-        writeNewUser("test5678", "5678");
-    }
-
     public FirebaseDatabase getFirebaseDatabase() {
         return database;
     }
@@ -51,12 +28,18 @@ public class Database {
         return ref;
     }
 
-    public void writeNewUser(String ID, String password) {
+    public void addDefaultUser(String ID, String name, String email, String password) {
         User user = new User();
+        user.setDisplayName(name);
+        user.setEmail(email);
 
         ref.child(ID).setValue(user);
-
-        //why isn't this default constructed like the rest?
         ref.child(ID).child("password").setValue(password);
+    }
+
+    public void updateUserProfile(String ID, String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
+        Profile profile = new Profile(state, city, zipcode, year, school, description, phoneNumber, age);
+
+        ref.child(ID).child("profile").setValue(profile);
     }
 }

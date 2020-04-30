@@ -16,10 +16,11 @@ public class EditProfile extends AppCompatActivity {
 
     public void saveChanges(View v){
         // figure out how to access created user object
+        returnHome(v);
     }
 
     public void returnHome(View v){
-        Intent intent = new Intent(this, UserMainPage.class);
+        Intent intent = new Intent(this, ApplicantProfile.class);
         startActivity(intent);
     }
 }

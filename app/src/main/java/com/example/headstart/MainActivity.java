@@ -1,7 +1,6 @@
 package com.example.headstart;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +10,17 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Database tDatabase = new Database("User");
+    Database test = new Database("User");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      tDatabase.basicReadWrite(tDatabase.getFirebaseDatabase(), tDatabase.getDatabaseReference());
+      test.addDefaultUser("test1234", "name1234", "test1234@gmail.com", "1234");
+      test.updateUserProfile("test1234", "MA", "test city", "00000", "Junior", "test school", "test description.", "000-000-0000", "17");
+
+      test.addDefaultUser("test5678", "name1234", "test1234@gmail.com", "1234");
+      test.updateUserProfile("test5678", "MA", "test city", "00000", "Junior", "test school", "test description.", "000-000-0000", "17");
     }
 
     public void clickApplicantButton(View v){
@@ -37,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(currentUser.comparePassword(password)){
             performOpenJobListings(v);
-        }else{
+        }
+        else{
             Toast toast = Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG);
             toast.show();
         }
