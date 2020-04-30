@@ -82,4 +82,138 @@
         app:layout_constraintStart_toStartOf="@+id/emailDisplay"
         app:layout_constraintTop_toBottomOf="@+id/emailDisplay" />
 
+    <TextView
+        android:id="@+id/locationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/locationTitleStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/phoneNumberTitle"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTitle" />
+
+    <TextView
+        android:id="@+id/locationDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/locationDisplayStr"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/phoneNumberDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberDisplay" />
+
+    <TextView
+        android:id="@+id/educationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/educationStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/locationTitle"
+        app:layout_constraintTop_toBottomOf="@+id/locationTitle" />
+
+    <TextView
+        android:id="@+id/educationDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/educationDisplayStr"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/locationDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/locationDisplay" />
+
+    <TextView
+        android:id="@+id/ageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/ageStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/educationTitle"
+        app:layout_constraintTop_toBottomOf="@+id/educationTitle" />
+
+    <TextView
+        android:id="@+id/ageDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/ageDisplayStr"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/educationDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/educationDisplay" />
+
+    <TextView
+        android:id="@+id/interestsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/interestsTitleStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageTitle" />
+
+    <TextView
+        android:id="@+id/interestsDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/interestsDisplayStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/interestsTitle" />
+
+    <TextView
+        android:id="@+id/experiencesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/experiencesTitleStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/interestsDisplay" />
+
+    <TextView
+        android:id="@+id/experiencesDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/experiencesDisplayStr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/experiencesTitle" />
+
+    <Button
+        android:id="@+id/editProfileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="150dp"
+        android:onClick="performEditProfile"
+        android:text="@string/editProfileStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/experiencesDisplay" />
+
+    <Button
+        android:id="@+id/returnJobListingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="30dp"
+        android:onClick="performViewJobs"
+        android:text="@string/returnJobListingStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/experiencesDisplay" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,7 +69,8 @@ public class User {
 	public boolean comparePassword(String inputPassword){
 		if(password.equals(inputPassword)){
 			return true;
-		}else{
+		}
+		else{
 			return false;
 		}
 	}
