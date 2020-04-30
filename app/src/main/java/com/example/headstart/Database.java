@@ -20,29 +20,6 @@ public class Database {
         ref = database.getReference(path);
     }
 
-//    private static final String TAG = "Database";
-
-//    public void basicReadWrite(FirebaseDatabase database, DatabaseReference ref) {
-//
-//        ref.setValue("Hello, World!");
-//
-//        ref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String value = dataSnapshot.getValue(String.class);
-//                Log.d(TAG, "Value is: " + value);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        });
-//
-//        addDefaultUser("test1234", "name1234", "1234");
-//        addDefaultUser("test5678", "name5678", "5678");
-//    }
-
     public FirebaseDatabase getFirebaseDatabase() {
         return database;
     }
