@@ -38,6 +38,16 @@ public class Education {
 
 	public void setSchool(String school) {
 		this.school = school;
-	}	
+	}
+
+	@Override
+	public String toString(){
+		if(school.equals("High School") || school.equals("College") && !year.equals("")){
+			return year + " in " + school;
+		}else if(!school.equals("")){
+			return school;
+		}
+		return "";
+	}
 	
 }

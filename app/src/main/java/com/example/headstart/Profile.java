@@ -23,7 +23,7 @@ public class Profile {
 			interests = new ArrayList<String>();
 			description = new String();
 			phoneNumber = new String();
-			age = "";
+			age = new String();
 		}
 		
 		public Profile(String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
@@ -43,7 +43,7 @@ public class Profile {
 			education = new Education();
 			experiences = new ArrayList<String>();
 			interests = new ArrayList<String>();
-			age = "";
+			age = new String();
 		}
 
 		//Methods

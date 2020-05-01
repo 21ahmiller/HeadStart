@@ -15,7 +15,7 @@ public class EditProfile extends AppCompatActivity {
     }
 
     public void saveChanges(View v){
-        // figure out how to access created user object
+
         returnHome(v);
     }
 

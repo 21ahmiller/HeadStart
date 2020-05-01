@@ -133,4 +133,5 @@
     <string name="experiencesDisplayStr">Your Experiences</string>
     <string name="editProfileStr">Edit Profile</string>
     <string name="returnJobListingStr">View Jobs</string>
+    <string name="inctructionsCompanyStr">To create a company account, enter the company name, the email of contact, and a password for the account</string>
 </resources>

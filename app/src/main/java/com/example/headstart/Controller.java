@@ -26,10 +26,8 @@ public class Controller extends Application {
         return currentCompany;
     }
 
-    public void filterJobs(int age, int driveDistance, int minPayRate, String education, String jobType, String keywords, int experience){
-        //for some amount of jobs, add jobs to viewingJobs
-
-
+    public void updateFireBase(){
+        //push user to fireBase and override
     }
 
 }
