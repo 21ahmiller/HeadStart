@@ -20,12 +20,20 @@ public class ApplicantProfile extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         User currentUser = aController.getUser();
 
-        TextView passwordText = findViewById(R.id.emailDisplay);
-        passwordText.setText(currentUser.getEmail());
+        TextView emailText = findViewById(R.id.emailDisplay);
+        if(filled(currentUser.getEmail())){
+            emailText.setText(currentUser.getEmail());
+        }else{
+            emailText.setText("Missing Account");
+        }
+
 
         TextView usernameText = findViewById(R.id.usernameDisplay);
-        usernameText.setText(currentUser.getDisplayName());
-
+        if(filled(currentUser.getDisplayName())){
+            usernameText.setText(currentUser.getDisplayName());
+        }else{
+            usernameText.setText("Missing Account");
+        }
 
         TextView phoneNumberText = findViewById(R.id.phoneNumberDisplay);
         if(filled(currentUser.getProfile().getPhoneNumber())){

@@ -126,7 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/contactInfoTitle" />
 
     <EditText
-        android:id="@+id/phoneNumText"
+        android:id="@+id/emailConfirmText"
         android:layout_width="141dp"
         android:layout_height="35dp"
         android:layout_marginStart="180dp"
@@ -149,7 +149,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumText" />
+        app:layout_constraintTop_toBottomOf="@+id/emailConfirmText" />
 
     <RadioGroup
         android:id="@+id/schoolButtonGroup"

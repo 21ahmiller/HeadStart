@@ -95,6 +95,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void guestButton(){
+        final Controller aController = (Controller) getApplicationContext();
+        aController.setUser(new User());
+
+        Intent intent = new Intent(this, jobListingPage.class);
+        startActivity(intent);
+    }
+
     public void clickEmployerButton(View v){
         EditText emailText = findViewById(R.id.emailText);
         String email = emailText.getText().toString();
