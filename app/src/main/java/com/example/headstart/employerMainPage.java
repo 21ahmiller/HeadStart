@@ -23,4 +23,9 @@ public class employerMainPage extends AppCompatActivity {
         Intent intent = new Intent(this, ReviewJobs.class);
         startActivity(intent);
     }
+
+    public void performEditProfile(View v){
+        Intent intent = new Intent(this, EditEmployer.class);
+        startActivity(intent);
+    }
 }

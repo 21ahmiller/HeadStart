@@ -19,7 +19,7 @@ public class CreateUser extends AppCompatActivity {
     }
 
     public void performCreateApplicant(View v){
-        EditText emailText = findViewById(R.id.emailText);
+        EditText emailText = findViewById(R.id.emailConfirmText);
         String email = emailText.getText().toString();
 
         EditText passwordText = findViewById(R.id.passwordText);

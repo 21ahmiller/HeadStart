@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -36,7 +35,7 @@ public class EditProfile extends AppCompatActivity {
         if(filled(currentUser.getProfile().getLocation().getCity()))
             cityText.setText(currentUser.getProfile().getLocation().getCity());
 
-        EditText zipcodeText = findViewById(R.id.zipcodeText);
+        EditText zipcodeText = findViewById(R.id.cityText);
         if(filled(currentUser.getProfile().getLocation().getZipCode()))
             zipcodeText.setText(currentUser.getProfile().getLocation().getZipCode());
 
@@ -121,7 +120,7 @@ public class EditProfile extends AppCompatActivity {
         EditText cityText = findViewById(R.id.cityText);
         currentUser.getProfile().getLocation().setCity(cityText.getText().toString());
 
-        EditText zipcodeText = findViewById(R.id.zipcodeText);
+        EditText zipcodeText = findViewById(R.id.cityText);
         currentUser.getProfile().getLocation().setZipCode(zipcodeText.getText().toString());
 
         RadioButton highSchool = findViewById(R.id.highSchoolButton);
