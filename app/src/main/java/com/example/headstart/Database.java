@@ -1,7 +1,11 @@
 package com.example.headstart;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.renderscript.Sampler;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -37,11 +41,19 @@ public class Database {
         ref.child(ID).child("password").setValue(password);
     }
 
+    public void readUser() {
+
+    }
+
     public void updateUserProfile(String ID, String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
         Profile profile = new Profile(state, city, zipcode, year, school, description, phoneNumber, age);
 
         ref.child(ID).child("profile").setValue(profile);
         ref.child(ID).child("profile").child("location").child("address").removeValue();
+    }
+
+    public void readUserProfile() {
+
     }
 
     public void addDefaultEmployer(String ID, String name, String email, String password) {
@@ -53,6 +65,10 @@ public class Database {
         ref.child(ID).child("password").setValue(password);
     }
 
+    public void readEmployer() {
+
+    }
+
     public void updateEmployerProfile(String ID, String state, String city, String zipcode, String address, String description, String phoneNumber) {
         Profile profile = new Profile(state, city, zipcode, address, description, phoneNumber);
 
@@ -61,7 +77,9 @@ public class Database {
         ref.child(ID).child("profile").child("age").removeValue();
     }
 
-    //EDIT FOR JOBS
+    public void readEmployerProfile() {
+
+    }
 
     public void createJob(String ID, String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
                               String skills, String schedule, String salary, String benefits, String ageMinimum) {
@@ -71,4 +89,18 @@ public class Database {
         ref.child(ID).setValue(job);
     }
 
+    public void readJob() {
+        ValueEventListener jobListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Job job = dataSnapshot.getValue(Job.class);
+                Log.i("Data", job.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
+            }
+        };
+    }
 }
