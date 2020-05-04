@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
       testEmployers.updateEmployerProfile("employer5678", "MA", "test city", "00000", "10 Street", "test description", "000-000-0000");
 
       testJobs.createJob("job9101112", "job9101112", "full-time", "test description", "MA", "test city", "00000", "10 Street", "req 1, req 2", "skill 1, skill 2", "weekdays", "$1000", "test benefits", "16");
+      //
     }
 
     public void clickApplicantButton(View v){
