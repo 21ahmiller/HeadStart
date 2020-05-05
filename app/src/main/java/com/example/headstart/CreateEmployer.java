@@ -34,7 +34,7 @@ public class CreateEmployer extends AppCompatActivity {
                 final Controller aController = (Controller) getApplicationContext();
                 aController.setEmployer(employer);
                 //Upload user to firebase
-                Intent intent = new Intent(this, jobListingPage.class);
+                Intent intent = new Intent(this, employerMainPage.class);
                 startActivity(intent);
             }else{
                 Toast toast = Toast.makeText(getApplicationContext(), "This email is already taken", Toast.LENGTH_LONG);

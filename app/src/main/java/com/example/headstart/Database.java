@@ -82,9 +82,9 @@ public class Database {
     }
 
     public void createJob(String ID, String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
-                              String skills, String schedule, String salary, String benefits, String ageMinimum) {
+                              String skills, String schedule, String salary, String benefits, String ageMinimum, String school, String year) {
         Job job = new Job(jobTitle, jobType, jobDescription, state, city, zipCode, address, requirements,
-                skills, schedule, salary, benefits, ageMinimum);
+                skills, schedule, salary, benefits, ageMinimum, school, year);
 
         ref.child(ID).setValue(job);
     }
