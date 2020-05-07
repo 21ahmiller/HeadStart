@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/addressTitle" />
 
     <EditText
-        android:id="@+id/cityText"
+        android:id="@+id/zipcodeText"
         android:layout_width="100sp"
         android:layout_height="35sp"
         android:layout_marginStart="200dp"
@@ -103,13 +103,14 @@
         android:id="@+id/contactInfoTitle"
         android:layout_width="match_parent"
         android:layout_height="23dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="@string/contactInfoStr"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityText" />
+        app:layout_constraintTop_toBottomOf="@+id/zipcodeText" />
 
     <EditText
         android:id="@+id/PhoneNumText"
