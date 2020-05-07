@@ -39,10 +39,20 @@ public class Database {
 
         ref.child(ID).setValue(user);
         ref.child(ID).child("password").setValue(password);
-    }
 
-    public void readUser() {
+        ValueEventListener userListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                Log.i("Data", user.toString());
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
+            }
+        };
+        ref.child(ID).addValueEventListener(userListener);
     }
 
     public void updateUserProfile(String ID, String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
@@ -52,10 +62,6 @@ public class Database {
         ref.child(ID).child("profile").child("location").child("address").removeValue();
     }
 
-    public void readUserProfile() {
-
-    }
-
     public void addDefaultEmployer(String ID, String name, String email, String password) {
         Employer employer = new Employer();
         employer.setDisplayName(name);
@@ -63,10 +69,20 @@ public class Database {
 
         ref.child(ID).setValue(employer);
         ref.child(ID).child("password").setValue(password);
-    }
 
-    public void readEmployer() {
+        ValueEventListener employerListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Employer employer = dataSnapshot.getValue(Employer.class);
+                Log.i("Data", employer.toString());
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
+            }
+        };
+        ref.child(ID).addListenerForSingleValueEvent(employerListener);
     }
 
     public void updateEmployerProfile(String ID, String state, String city, String zipcode, String address, String description, String phoneNumber) {
@@ -77,32 +93,27 @@ public class Database {
         ref.child(ID).child("profile").child("age").removeValue();
     }
 
-    public void readEmployerProfile() {
-
-    }
-
     public void createJob(String ID, String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
-                              String skills, String schedule, String salary, String benefits, String ageMinimum, String school, String year) {
+                          String skills, String schedule, String salary, String benefits, String ageMinimum, String school, String year) {
         Job job = new Job(jobTitle, jobType, jobDescription, state, city, zipCode, address, requirements,
                 skills, schedule, salary, benefits, ageMinimum, school, year);
 
         ref.child(ID).setValue(job);
         //school and year backwards? eduction node misspelled
         ref.child(ID).child("eduction").child("school").removeValue();
-    }
 
-//    public void readJob() {
-//        ValueEventListener jobListener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Job job = dataSnapshot.getValue(Job.class);
-//                Log.i("Data", job.toString());
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
-//            }
-//        };
-//    }
+        ValueEventListener jobListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Job job = dataSnapshot.getValue(Job.class);
+                Log.i("Data", job.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
+            }
+        };
+        ref.child(ID).addValueEventListener(jobListener);
+    }
 }

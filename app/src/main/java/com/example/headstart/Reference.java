@@ -34,21 +34,53 @@ public class Reference{
         this.ID = ID;
     }
 
-    public void readJob() {
-        ValueEventListener jobListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Job job = dataSnapshot.getValue(Job.class);
-                Log.i("Data", job.toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
-            }
-        };
-        this.getReference().addValueEventListener(jobListener);
-    }
+//    public void readUser() {
+//        ValueEventListener userListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                User user = dataSnapshot.getValue(User.class);
+//                Log.i("Data", user.toString());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
+//            }
+//        };
+//        this.getReference().addValueEventListener(userListener);
+//    }
+//
+//    public void readEmployer() {
+//        ValueEventListener employerListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                Employer employer = dataSnapshot.getValue(Employer.class);
+//                Log.i("Data", employer.toString());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
+//            }
+//        };
+//        this.getReference().addValueEventListener(employerListener);
+//    }
+//
+//    public void readJob() {
+//        ValueEventListener jobListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                Job job = dataSnapshot.getValue(Job.class);
+//                Log.i("Data", job.toString());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
+//            }
+//        };
+//        this.getReference().addValueEventListener(jobListener);
+//    }
 
     public DatabaseReference getReference() {
         return ref;

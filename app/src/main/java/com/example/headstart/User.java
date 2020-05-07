@@ -78,4 +78,15 @@ public class User {
 			return false;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", displayName='" + displayName + '\'' +
+				", jobs=" + jobs +
+				", profile=" + profile.toString() +
+				'}';
+	}
 }

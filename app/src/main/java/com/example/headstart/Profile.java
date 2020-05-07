@@ -111,4 +111,17 @@ public class Profile {
 		public void setAge(String age) {
 		this.age = age;
 	}
+
+	@Override
+	public String toString() {
+		return "Profile{" +
+				"location=" + location +
+				", education=" + education +
+				", experiences=" + experiences +
+				", interests=" + interests +
+				", description='" + description + '\'' +
+				", phoneNumber='" + phoneNumber + '\'' +
+				", age='" + age + '\'' +
+				'}';
+	}
 }

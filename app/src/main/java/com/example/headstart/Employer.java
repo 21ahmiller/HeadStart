@@ -35,4 +35,8 @@ public class Employer extends User{
 	public void  deleteCloudJob(Job job) {
 		//fill in
 	}
+
+	public String toString() {
+		return super.toString();
+	}
 }
