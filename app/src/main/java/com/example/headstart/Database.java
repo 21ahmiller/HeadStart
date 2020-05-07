@@ -82,7 +82,7 @@ public class Database {
                 Log.w("Data", "loadJob:onCancelled", databaseError.toException());
             }
         };
-        ref.child(ID).addListenerForSingleValueEvent(employerListener);
+        ref.child(ID).addValueEventListener(employerListener);
     }
 
     public void updateEmployerProfile(String ID, String state, String city, String zipcode, String address, String description, String phoneNumber) {
