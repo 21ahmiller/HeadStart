@@ -136,4 +136,10 @@
     <string name="inctructionsCompanyStr">To create a company account, enter the company name, the email of contact, and a password for the account</string>
     <string name="returnHomeButtonStr">Return to Employer Page</string>
     <string name="youngStr">Least Level of Required Education</string>
+    <string name="jobLocationStr">Job Location</string>
+    <string name="jobRequirementsStr">Job Requirements</string>
+    <string name="jobPreferredSkillsStr">Job Preferred Skills</string>
+    <string name="jobTime">Job Time</string>
+    <string name="jobSalaryStr">Job Salary</string>
+    <string name="jobBenefitsStr">Job Benefits</string>
 </resources>

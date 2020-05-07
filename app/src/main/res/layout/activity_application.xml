@@ -73,7 +73,7 @@
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
+        android:text="@string/jobLocationStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/locationText"
         app:layout_constraintTop_toBottomOf="@+id/companyInformationText" />
@@ -93,7 +93,7 @@
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
+        android:text="@string/jobRequirementsStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/requirementsText"
         app:layout_constraintTop_toBottomOf="@+id/locationEdit" />
@@ -112,7 +112,7 @@
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
+        android:text="@string/jobPreferredSkillsStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/preferredSkillsText"
         app:layout_constraintTop_toBottomOf="@+id/requirementsEdit" />
@@ -132,7 +132,7 @@
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
+        android:text="@string/jobTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/scheduleText"
         app:layout_constraintTop_toBottomOf="@+id/preferredSkillsEdit" />
@@ -152,7 +152,7 @@
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
+        android:text="@string/jobSalaryStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/salaryText"
         app:layout_constraintTop_toBottomOf="@+id/scheduleEdit" />
@@ -172,7 +172,7 @@
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
+        android:text="@string/jobBenefitsStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/benefitsText"
         app:layout_constraintTop_toBottomOf="@+id/salaryEdit" />
