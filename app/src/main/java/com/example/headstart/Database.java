@@ -87,7 +87,8 @@ public class Database {
                 skills, schedule, salary, benefits, ageMinimum, school, year);
 
         ref.child(ID).setValue(job);
-        ref.child(ID).child("education").child("school").removeValue();
+        //school and year backwards? eduction node misspelled
+        ref.child(ID).child("eduction").child("school").removeValue();
     }
 
     public void readJob() {

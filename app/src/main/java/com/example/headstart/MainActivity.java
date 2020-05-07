@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 //      testEmployers.addDefaultEmployer("employer5678", "company5678", "employer5678@gmail.com", "5678");
 //      testEmployers.updateEmployerProfile("employer5678", "MA", "test city", "00000", "10 Street", "test description", "000-000-0000");
 //
-//      testJobs.createJob("job9101112", "job9101112", "full-time", "test description", "MA", "test city", "00000", "10 Street", "req 1, req 2", "skill 1, skill 2", "weekdays", "$1000", "test benefits", "16", "", "");
-      //
+//      testJobs.createJob("job9101112", "job9101112", "full-time", "test description", "MA", "test city", "00000", "10 Street", "req 1, req 2", "skill 1, skill 2", "weekdays", "$1000", "test benefits", "16", "11th", "school");
+//      testJobs.createJob("job13141516", "job13141516", "internship", "test description 2", "MA", "test town", "11111", "50 Way", "req 3, req 4", "skill 3, skill 4", "weekends", "$5000", "test benefits 2", "14", "9th", "school");
     }
 
     public void clickApplicantButton(View v){
