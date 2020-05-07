@@ -35,61 +35,81 @@
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job1Str" />
+                android:onClick="open3"
+                android:text="@string/job1Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job2Str" />
+                android:onClick="open4"
+                android:text="@string/job2Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job3Str" />
+                android:onClick="open5"
+                android:text="@string/job3Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job4Str" />
+                android:onClick="open6"
+                android:text="@string/job4Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job5Str" />
+                android:onClick="open7"
+                android:text="@string/job5Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job6Str" />
+                android:onClick="open8"
+                android:text="@string/job6Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job7Str" />
+                android:onClick="open9"
+                android:text="@string/job7Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job8Str" />
+                android:onClick="open10"
+                android:text="@string/job8Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job9Str" />
+                android:onClick="open11"
+                android:text="@string/job9Str"
+                android:textAlignment="viewStart" />
 
             <Button
                 android:id="@+id/button12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/job10Str" />
+                android:onClick="open12"
+                android:text="@string/job10Str"
+                android:textAlignment="viewStart" />
 
         </LinearLayout>
     </ScrollView>

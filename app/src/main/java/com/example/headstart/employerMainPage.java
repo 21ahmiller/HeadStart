@@ -22,10 +22,28 @@ public class employerMainPage extends AppCompatActivity {
         companyTitle.setText(currentEmployer.getDisplayName());
 
         TextView companyBio = findViewById(R.id.companyBioText);
-        // find text to set companyBio.setText(currentEmployer.getDisplayName());
+        if(filled(currentEmployer.getCompanyBackground())){
+            companyBio.setText(currentEmployer.getCompanyBackground());
+        }else{
+            companyBio.setText("EDIT PROFILE TO ADD COMPANY BACKGROUND");
+        }
+
 
         TextView companyDescription = findViewById(R.id.companyDescriptionText);
-        // find text to set here companyDescription.setText(currentEmployer.getDisplayName());
+        if(filled(currentEmployer.getCompanyDescription())){
+            companyDescription.setText(currentEmployer.getCompanyDescription());
+        }else{
+            companyDescription.setText("EDIT PROFILE TO ADD COMPANY DESCRIPTION");
+        }
+
+    }
+
+    public boolean filled(String a){
+        if(a.equals("")){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public void performOpenNewJob(View v){

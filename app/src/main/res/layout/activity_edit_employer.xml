@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/addressStr"
+        android:text="@string/companyAddressStr"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -77,15 +77,16 @@
         android:id="@+id/cityText"
         android:layout_width="100sp"
         android:layout_height="35sp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="@string/cityStr"
         android:inputType="textPersonName"
-        android:textAlignment="center"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/zipcodeText"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stateText"
         app:layout_constraintTop_toBottomOf="@+id/addressTitle" />
 
     <EditText
@@ -113,7 +114,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zipcodeText" />
+        app:layout_constraintTop_toBottomOf="@+id/cityText" />
 
     <EditText
         android:id="@+id/phoneNumText"

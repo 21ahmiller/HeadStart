@@ -9,19 +9,110 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-public class NewJob extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class ReviseJob extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_job);
+        setContentView(R.layout.activity_revise_job);
+
+        final Controller aController = (Controller) getApplicationContext();
+        Job newJob = aController.getEmployer().getJobs().get(aController.getJobNumber());
+
+        EditText jobNameText = findViewById(R.id.jobNameText);
+        jobNameText.setText(newJob.getJobTitle());
+
+        EditText jobInformationText = findViewById(R.id.jobInformationText);
+        jobInformationText.setText(newJob.getJobDescription());
+
+        EditText locationText = findViewById(R.id.locationText);
+        locationText.setText(newJob.getLocation().getState() + "," + newJob.getLocation().getCity() + "," + newJob.getLocation().getZipCode());
+
+        EditText addressText = findViewById(R.id.addressText);
+        addressText.setText(newJob.getLocation().getAddress());
+
+        EditText requirementsText = findViewById(R.id.requirementsText);
+        requirementsText.setText(newJob.getRequirements());
+
+        EditText preferredSkillsText = findViewById(R.id.preferredSkillsText);
+        preferredSkillsText.setText(newJob.getSkills());
+
+        EditText scheduleText = findViewById(R.id.scheduleText);
+        scheduleText.setText(newJob.getSchedule());
+
+        EditText salaryText = findViewById(R.id.salaryText);
+        salaryText.setText(newJob.getSalary());
+
+        EditText benefitsText = findViewById(R.id.benefitsText);
+        benefitsText.setText(newJob.getBenefits());
+
+        RadioButton fullTime = findViewById(R.id.FullTime);
+        RadioButton partTime = findViewById(R.id.PartTime);
+        RadioButton internship = findViewById(R.id.Internship);
+        RadioButton coOp = findViewById(R.id.Coop);
+
+        if(newJob.getJobType().equals("Full Time")){
+            fullTime.setChecked(true);
+        }else if(newJob.getJobType().equals("Part Time")){
+            partTime.setChecked(true);
+        }else if(newJob.getJobType().equals("Internship")){
+            internship.setChecked(true);
+        }else{
+            coOp.setChecked(true);
+        }
+
+        RadioButton highSchoolButton = findViewById(R.id.CurrentHS);
+        RadioButton highSchoolGraduateButton = findViewById(R.id.HSGrad);
+        RadioButton collegeButton = findViewById(R.id.CollegeStd);
+        RadioButton collegeGraduateButton = findViewById(R.id.CollegeGrad);
+
+        if(newJob.getEduction().getSchool().equals("High School")){
+            highSchoolButton.setChecked(true);
+        }else if(newJob.getEduction().getSchool().equals("High School Graduate")){
+            highSchoolGraduateButton.setChecked(true);
+        }else if(newJob.getEduction().getSchool().equals("College")){
+            collegeButton.setChecked(true);
+        }else{
+            collegeGraduateButton.setChecked(true);
+        }
+
+
+        EditText ageText = findViewById(R.id.ageText);
+        ageText.setText(newJob.getAgeMinimum());
+
+        EditText keywordText = findViewById(R.id.keywordText);
+        keywordText.setText(arrayToString(newJob.getKeywords()));
     }
 
-    public void onClickSubmit(View v){
-        final Controller aController = (Controller) getApplicationContext();
-        Employer currentEmployer = aController.getEmployer();
+    public boolean filled(String a){
+        if(a.equals("")){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
-        Job newJob = new Job();
+    public String arrayToString(ArrayList<String> strings){
+        String total = "";
+        if(strings.size() > 0){
+            for(int i = 0; i < strings.size() - 1; i ++){
+                total += strings.get(i) + ",";
+            }
+            return total + strings.get(strings.size() - 1);
+        }
+        return total;
+    }
+
+    public void returnToJobView (View v){
+        Intent intent = new Intent(this, ReviewJobs.class);
+        startActivity(intent);
+    }
+
+    public void applyChanges(View v){
+        final Controller aController = (Controller) getApplicationContext();
+        Job newJob = aController.getEmployer().getJobs().get(aController.getJobNumber());
 
         EditText jobNameText = findViewById(R.id.jobNameText);
         String jobTitle = jobNameText.getText().toString();
@@ -117,7 +208,7 @@ public class NewJob extends AppCompatActivity {
         String[] keywordsArray = keywords.split(",");
         if(!keywords.equals("")){
             for(int i = 0; i < keywordsArray.length; i ++){
-                newJob.getKeywords().add(keywordsArray[i]);
+                newJob.getKeywords().set(i, keywordsArray[i]);
             }
         }
 
@@ -125,11 +216,15 @@ public class NewJob extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "All Fields Must Be Filled", Toast.LENGTH_LONG);
             toast.show();
         }else{
-            currentEmployer.addJob(newJob);
-            Intent intent = new Intent(this, employerMainPage.class);
-            startActivity(intent);
+            Toast toast = Toast.makeText(getApplicationContext(), "Changes Saved", Toast.LENGTH_LONG);
+            toast.show();
         }
 
+    }
 
+    public void deleteJob (View v){
+        final Controller aController = (Controller) getApplicationContext();
+        aController.getEmployer().removeJob(aController.getJobNumber());
+        returnToJobView(v);
     }
 }

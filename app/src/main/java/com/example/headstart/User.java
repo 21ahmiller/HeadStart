@@ -38,8 +38,8 @@ public class User {
 		jobs.add(saved);
 	}
 	
-	public void removeJob(Job saved) {
-		jobs.remove(saved);
+	public void removeJob(int position) {
+		jobs.remove(position);
 	}
 
 	public void setDisplayName(String newName) {

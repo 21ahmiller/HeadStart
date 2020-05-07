@@ -75,13 +75,12 @@
         android:layout_width="100sp"
         android:layout_height="35sp"
         android:layout_marginTop="10dp"
-        android:width="200sp"
         android:ems="10"
         android:hint="@string/cityStr"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/zipcodeText"
+        app:layout_constraintStart_toEndOf="@+id/stateText"
         app:layout_constraintTop_toBottomOf="@+id/addressTitle" />
 
     <EditText
@@ -110,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zipcodeText" />
+        app:layout_constraintTop_toBottomOf="@+id/cityText" />
 
     <EditText
         android:id="@+id/PhoneNumText"

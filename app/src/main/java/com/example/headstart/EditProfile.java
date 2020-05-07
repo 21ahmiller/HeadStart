@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class EditProfile extends AppCompatActivity {
         if(filled(currentUser.getProfile().getLocation().getCity()))
             cityText.setText(currentUser.getProfile().getLocation().getCity());
 
-        EditText zipcodeText = findViewById(R.id.cityText);
+        EditText zipcodeText = findViewById(R.id.zipcodeText);
         if(filled(currentUser.getProfile().getLocation().getZipCode()))
             zipcodeText.setText(currentUser.getProfile().getLocation().getZipCode());
 
@@ -120,7 +121,7 @@ public class EditProfile extends AppCompatActivity {
         EditText cityText = findViewById(R.id.cityText);
         currentUser.getProfile().getLocation().setCity(cityText.getText().toString());
 
-        EditText zipcodeText = findViewById(R.id.cityText);
+        EditText zipcodeText = findViewById(R.id.zipcodeText);
         currentUser.getProfile().getLocation().setZipCode(zipcodeText.getText().toString());
 
         RadioButton highSchool = findViewById(R.id.highSchoolButton);
@@ -174,9 +175,11 @@ public class EditProfile extends AppCompatActivity {
             currentUser.getProfile().getExperiences().add(experiencesArray[i]);
         }
 
+        Toast toast = Toast.makeText(getApplicationContext(), "Changes Saved", Toast.LENGTH_LONG);
+        toast.show();
+
         //save changes to firebase from the controller
         //make controller static method?
-        returnHome(v);
     }
 
     public void returnHome(View v){

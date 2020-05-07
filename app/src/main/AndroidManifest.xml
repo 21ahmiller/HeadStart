@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditEmployer"></activity>
+        <activity android:name=".ReviseJob"></activity>
+        <activity android:name=".EditEmployer" />
         <activity android:name=".ApplicantProfile" />
         <activity android:name=".ReviewJobs" />
         <activity android:name=".UserMainPage" />

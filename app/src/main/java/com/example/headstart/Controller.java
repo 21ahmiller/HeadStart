@@ -9,6 +9,7 @@ public class Controller extends Application {
     User currentUser = new User();
     Employer currentCompany = new Employer();
     ArrayList<Job> viewingJobs = new ArrayList<>();
+    int jobNumber = 0;
 
     public void setUser(User user){
         currentUser = user;
@@ -24,6 +25,14 @@ public class Controller extends Application {
 
     public Employer getEmployer() {
         return currentCompany;
+    }
+
+    public void setJobNumber (int number){
+        jobNumber = number;
+    }
+
+    public int getJobNumber(){
+        return jobNumber;
     }
 
     public void updateFireBaseUser(){
