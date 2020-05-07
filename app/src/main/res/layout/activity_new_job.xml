@@ -196,14 +196,39 @@
                 android:textAlignment="center"
                 android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/jobTypeText"
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/jobTypeHintStr"
-                android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:layout_height="137dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JobType">
+
+                <RadioButton
+                    android:id="@+id/FullTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fullTimeStr" />
+
+                <RadioButton
+                    android:id="@+id/PartTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/partTimeStr" />
+
+                <RadioButton
+                    android:id="@+id/Internship"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/internshipStr" />
+
+                <RadioButton
+                    android:id="@+id/Coop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/CoOpStr" />
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/ageTitle"
@@ -221,6 +246,52 @@
                 android:hint="@string/ageHintStr"
                 android:inputType="number"
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/youngStr"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/EducationBox"
+                android:layout_width="match_parent"
+                android:layout_height="137dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Education">
+
+                <RadioButton
+                    android:id="@+id/CurrentHS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/currentHighSchoolStr" />
+
+                <RadioButton
+                    android:id="@+id/HSGrad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/highGradStr" />
+
+                <RadioButton
+                    android:id="@+id/CollegeStd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/collegeStudentStr" />
+
+                <RadioButton
+                    android:id="@+id/CollegeGrad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/collegeGradStr" />
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/keywordTitle"

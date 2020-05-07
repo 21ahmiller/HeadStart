@@ -66,6 +66,10 @@ public class User {
 		this.profile = profile;
 	}
 
+	public ArrayList<Job> getJobs(){
+		return jobs;
+	}
+
 	public boolean comparePassword(String inputPassword){
 		if(password.equals(inputPassword)){
 			return true;

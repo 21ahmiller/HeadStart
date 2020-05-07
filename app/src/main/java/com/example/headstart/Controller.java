@@ -26,8 +26,12 @@ public class Controller extends Application {
         return currentCompany;
     }
 
-    public void updateFireBase(){
-        //push user to fireBase and override
+    public void updateFireBaseUser(){
+        //updates the User data in firebase
+    }
+
+    public void updateFireBaseEmployer(){
+        //updates the Employer data in firebase
     }
 
 }

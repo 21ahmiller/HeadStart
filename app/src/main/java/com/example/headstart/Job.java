@@ -16,6 +16,7 @@ public class Job {
 	private String salary;
 	private String benefits;
 	private String ageMinimum;
+	private Education education;
 	private ArrayList<String> keywords;
 
 
@@ -32,10 +33,12 @@ public class Job {
 		this.salary = "";
 		this.benefits = "";
 		this.ageMinimum = "";
+		this.education = new Education();
+		this.keywords = new ArrayList<String>();
 	}
 
 	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
-			   String skills, String schedule, String salary, String benefits, String ageMinimum) {
+			   String skills, String schedule, String salary, String benefits, String ageMinimum, String year, String school) {
 		this.jobTitle = jobTitle;
 		this.jobType = jobType;
 		this.jobDescription = jobDescription;
@@ -46,6 +49,7 @@ public class Job {
 		this.salary = salary;
 		this.benefits = benefits;
 		this.ageMinimum = ageMinimum;
+		this.education = new Education(year, school);
 		this.keywords = new ArrayList<String>();
 	}
 
@@ -141,6 +145,10 @@ public class Job {
 
 	public void removeKeyword(String keyword){
 		this.keywords.remove(keyword);
+	}
+
+	public Education getEduction(){
+		return education;
 	}
 	@Override
 	public String toString(){

@@ -117,7 +117,7 @@
     <string name="jobQuestionsStr">Supplemental Job Information</string>
     <string name="interestsStr">Interests (photography, biking, etc.) Separate with commas.</string>
     <string name="experienceStr">Experiences (tutoring, research, etc.) Separate with commas.</string>
-    <string name="reviewJobStr">Review Jobs</string>
+    <string name="reviewJobStr">Your Jobs</string>
     <string name="profileStr">Your Profile</string>
     <string name="usernameDisplayStr">Your Username</string>
     <string name="emailDisplayStr">Your Email</string>
@@ -134,4 +134,6 @@
     <string name="editProfileStr">Edit Profile</string>
     <string name="returnJobListingStr">View Jobs</string>
     <string name="inctructionsCompanyStr">To create a company account, enter the company name, the email of contact, and a password for the account</string>
+    <string name="returnHomeButtonStr">Return to Employer Page</string>
+    <string name="youngStr">Least Level of Required Education</string>
 </resources>

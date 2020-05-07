@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+
 import java.util.ArrayList;
 
 
@@ -26,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
       testEmployers.addDefaultEmployer("employer5678", "company5678", "employer5678@gmail.com", "5678");
       testEmployers.updateEmployerProfile("employer5678", "MA", "test city", "00000", "10 Street", "test description", "000-000-0000");
 
-      testJobs.createJob("job9101112", "job9101112", "full-time", "test description", "MA", "test city", "00000", "10 Street", "req 1, req 2", "skill 1, skill 2", "weekdays", "$1000", "test benefits", "16");
+      testJobs.createJob("job9101112", "job9101112", "full-time", "test description", "MA", "test city", "00000", "10 Street", "req 1, req 2", "skill 1, skill 2", "weekdays", "$1000", "test benefits", "16", "", "");
+      //
     }
 
     public void clickApplicantButton(View v){
