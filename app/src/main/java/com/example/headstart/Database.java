@@ -87,6 +87,7 @@ public class Database {
                 skills, schedule, salary, benefits, ageMinimum, school, year);
 
         ref.child(ID).setValue(job);
+        ref.child(ID).child("education").child("school").removeValue();
     }
 
     public void readJob() {

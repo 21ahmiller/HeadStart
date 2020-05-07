@@ -14,9 +14,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Reference extends Database{
+public class Reference{
+
+    FirebaseDatabase database;
+    DatabaseReference ref;
 
     public Reference(String path) {
-        super(path);
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference(path);
+    }
+
+    public Reference(String path, String ID) {
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference(path).child(ID);
     }
 }
