@@ -91,18 +91,18 @@ public class Database {
         ref.child(ID).child("eduction").child("school").removeValue();
     }
 
-    public void readJob() {
-        ValueEventListener jobListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Job job = dataSnapshot.getValue(Job.class);
-                Log.i("Data", job.toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
-            }
-        };
-    }
+//    public void readJob() {
+//        ValueEventListener jobListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Job job = dataSnapshot.getValue(Job.class);
+//                Log.i("Data", job.toString());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
+//            }
+//        };
+//    }
 }
