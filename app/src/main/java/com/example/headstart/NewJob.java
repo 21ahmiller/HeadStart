@@ -9,12 +9,28 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class NewJob extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_job);
+    }
+
+    public String emailReducer(String email){
+        ArrayList<String> characters = new ArrayList<String>();
+        for(int i = 0; i < email.length(); i ++){
+            characters.add(email.substring(i, i + 1));
+        }
+        characters.remove("@");
+        characters.remove(".");
+        String reduced = "";
+        for(int i = 0; i < characters.size(); i++){
+            reduced += characters.get(i);
+        }
+        return reduced;
     }
 
     public void onClickSubmit(View v){
@@ -120,6 +136,8 @@ public class NewJob extends AppCompatActivity {
                 newJob.getKeywords().add(keywordsArray[i]);
             }
         }
+
+        newJob.setCompanyID(emailReducer(currentEmployer.getEmail()));
 
         if(jobTitle.equals("") || jobInformation.equals("") || address.equals("") || requirements.equals("") || preferredSkills.equals("") || schedule.equals("") || salary.equals("") || benefits.equals("") || minimumAge.equals("") || newJob.getLocation().getState().equals("") || newJob.getLocation().getCity().equals("") || newJob.getLocation().getZipCode().equals("") || !(fullTime.isChecked() || partTime.isChecked() || internship.isChecked() || coOp.isChecked()) || !(highSchoolButton.isChecked() || highSchoolGraduateButton.isChecked() || collegeButton.isChecked()|| collegeGraduateButton.isChecked()) || keywords.equals("")){
             Toast toast = Toast.makeText(getApplicationContext(), "All Fields Must Be Filled", Toast.LENGTH_LONG);

@@ -18,6 +18,7 @@ public class Job {
 	private String ageMinimum;
 	private Education education;
 	private ArrayList<String> keywords;
+	private String companyID;
 
 
 	//Constructors
@@ -35,10 +36,11 @@ public class Job {
 		this.ageMinimum = "";
 		this.education = new Education();
 		this.keywords = new ArrayList<String>();
+		this.companyID = "";
 	}
 
 	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
-			   String skills, String schedule, String salary, String benefits, String ageMinimum, String year, String school) {
+			   String skills, String schedule, String salary, String benefits, String ageMinimum, String year, String school, String companyID) {
 		this.jobTitle = jobTitle;
 		this.jobType = jobType;
 		this.jobDescription = jobDescription;
@@ -51,6 +53,7 @@ public class Job {
 		this.ageMinimum = ageMinimum;
 		this.education = new Education(year, school);
 		this.keywords = new ArrayList<String>();
+		this.companyID = companyID;
 	}
 
 	//Methods
@@ -145,6 +148,14 @@ public class Job {
 
 	public void removeKeyword(String keyword){
 		this.keywords.remove(keyword);
+	}
+
+	public String getCompanyID(){
+		return companyID;
+	}
+
+	public void setCompanyID(String companyID){
+		this.companyID = companyID;
 	}
 
 	public Education getEduction(){

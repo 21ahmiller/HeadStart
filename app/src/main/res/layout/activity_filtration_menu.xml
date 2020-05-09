@@ -15,15 +15,25 @@
         android:text="@string/filterMenuStr"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:onClick="returnHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <Button
         android:id="@+id/resetFiltersButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
         android:onClick="resetFilters"
         android:text="@string/resetFilterStr"
@@ -35,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="80dp"
         android:onClick="applyFilters"
         android:text="@string/applyFilterStr"
         app:layout_constraintEnd_toEndOf="parent"

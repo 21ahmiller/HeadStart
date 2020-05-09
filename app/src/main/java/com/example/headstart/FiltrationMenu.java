@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 public class FiltrationMenu extends AppCompatActivity {
 
@@ -64,6 +65,11 @@ public class FiltrationMenu extends AppCompatActivity {
 
         // ADD LOT OF FILTER STUFF HERE
 
+        Toast toast = Toast.makeText(getApplicationContext(), "Filter Settings Updated", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    public void returnHome(View v){
         Intent intent = new Intent(this, jobListingPage.class);
         startActivity(intent);
     }

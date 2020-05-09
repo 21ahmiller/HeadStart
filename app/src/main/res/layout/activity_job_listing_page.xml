@@ -70,8 +70,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open1"
                 android:text="@string/job1Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -79,8 +80,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open2"
                 android:text="@string/job2Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -88,8 +90,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open3"
                 android:text="@string/job3Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -97,8 +100,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open4"
                 android:text="@string/job4Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -106,8 +110,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open5"
                 android:text="@string/job5Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -115,8 +120,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open6"
                 android:text="@string/job6Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -124,8 +130,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open7"
                 android:text="@string/job7Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -133,8 +140,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open8"
                 android:text="@string/job8Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -142,8 +150,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open9"
                 android:text="@string/job9Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -151,8 +160,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open10"
                 android:text="@string/job10Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -160,8 +170,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open11"
                 android:text="@string/job11Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -169,8 +180,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open12"
                 android:text="@string/job12Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -178,8 +190,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open13"
                 android:text="@string/job13Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -187,8 +200,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open14"
                 android:text="@string/job14Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -196,8 +210,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open15"
                 android:text="@string/job15Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -205,8 +220,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open16"
                 android:text="@string/job16Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -214,8 +230,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open17"
                 android:text="@string/job17Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -223,8 +240,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open18"
                 android:text="@string/job18Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -232,8 +250,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open19"
                 android:text="@string/job19Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <Button
@@ -241,8 +260,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:onClick="performOpenJobApplication"
+                android:onClick="open20"
                 android:text="@string/job20Str"
+                android:textAlignment="viewStart"
                 android:textSize="24sp" />
 
             <TextView

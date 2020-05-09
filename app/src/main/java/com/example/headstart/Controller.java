@@ -8,7 +8,8 @@ public class Controller extends Application {
 
     User currentUser = new User();
     Employer currentCompany = new Employer();
-    ArrayList<Job> viewingJobs = new ArrayList<>();
+    ArrayList<Job> viewingJobs = new ArrayList<>(20);
+    ArrayList<Job> filteredJobs = new ArrayList<>(200);
     int jobNumber = 0;
 
     public void setUser(User user){
@@ -33,6 +34,14 @@ public class Controller extends Application {
 
     public int getJobNumber(){
         return jobNumber;
+    }
+
+    public ArrayList<Job> getViewingJobs(){
+        return viewingJobs;
+    }
+
+    public ArrayList<Job> getFilteredJobs(){
+        return filteredJobs;
     }
 
     public void updateFireBaseUser(){
