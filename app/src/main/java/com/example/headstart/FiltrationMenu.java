@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class FiltrationMenu extends AppCompatActivity {
 
     @Override
@@ -62,8 +64,61 @@ public class FiltrationMenu extends AppCompatActivity {
 
     public void applyFilters(View v){
 
+        EditText typeAgeText = findViewById(R.id.TypeAgeText);
+        String age = typeAgeText.getText().toString();
 
-        // ADD LOT OF FILTER STUFF HERE
+        SeekBar maxDriveBar = findViewById(R.id.MaxDriveBar);
+        int distance = maxDriveBar.getProgress();
+
+        SeekBar minPayBar = findViewById(R.id.MinPayBar);
+        int minPay = minPayBar.getProgress();
+
+        String school = "";
+        RadioButton highSchoolStudentButton = findViewById(R.id.CurrentHS);
+        if(highSchoolStudentButton.isChecked()){
+            school = "High School";
+        }
+        RadioButton highSchoolGradButton = findViewById(R.id.HSGrad);
+        if(highSchoolGradButton.isChecked()){
+            school = "High School Graduate";
+        }
+        RadioButton collegeStudentButton = findViewById(R.id.CollegeStd);
+        if(collegeStudentButton.isChecked()){
+            school = "College";
+        }
+        RadioButton collegeGradButton = findViewById(R.id.CollegeGrad);
+        if(collegeGradButton.isChecked()){
+            school = "College Graduate";
+        }
+        String jobType = "";
+        RadioButton fullTimeButton = findViewById(R.id.FullTime);
+        if(fullTimeButton.isChecked()){
+            jobType = "Full Time";
+        }
+        RadioButton partTimeButton = findViewById(R.id.PartTime);
+        if(partTimeButton.isChecked()){
+            jobType = "Part Time";
+        }
+        RadioButton internshipButton = findViewById(R.id.Internship);
+        if(internshipButton.isChecked()){
+            jobType = "Internship";
+        }
+        RadioButton coOpButton = findViewById(R.id.Coop);
+        if(coOpButton.isChecked()){
+            jobType = "Co-Op";
+        }
+
+        EditText enterKeywordText = findViewById(R.id.EnterKeywords);
+        String keywords = enterKeywordText.getText().toString();
+        String[] keywordsArray = keywords.split(",");
+
+
+        //Add firebase filtering here
+
+        final Controller aController = (Controller) getApplicationContext();
+        ArrayList<Job> filteredJobs = aController.getFilteredJobs();
+
+        //add jobs to Filtered Jobs
 
         Toast toast = Toast.makeText(getApplicationContext(), "Filter Settings Updated", Toast.LENGTH_LONG);
         toast.show();
