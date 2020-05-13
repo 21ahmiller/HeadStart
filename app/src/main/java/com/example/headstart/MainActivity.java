@@ -9,10 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 
@@ -24,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Database testUsers = new Database("Users");
+        Database Employers = new Database("Employers");
         // Database testEmployers = new Database("Employers");
         // Database testJobs = new Database("Jobs");
 
@@ -45,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //      Reference specJob = new Reference("Jobs", "job9101112");
 //      specJob.readJob();
+
 
     }
 
@@ -81,37 +80,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void findUser(final String email){
+    public void findUser(String email){
+        // look through database for user with same email.
+        User mockUser = new User("jeffwilcox@hotmail.com", "password", "Jeffrey Wilcox"); //this is a fake user for example
         final Controller aController = (Controller) getApplicationContext();
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference usersRef = database.getReference("Users");
-
-        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    User extracted = ds.getValue(User.class);
-                    if(extracted.getEmail().equals(email)){
-                        final Controller aController = (Controller) getApplicationContext();
-                        aController.setUser(extracted);
-                        break;
-                    }
-                }
-                if(aController.getUser().getEmail().equals("")){
-                    Toast toast = Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_LONG);
-                    toast.show();
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("MainActivity", "Failed to read value.", error.toException());
-            }
-        });
+        aController.setUser(mockUser);
     }
 
     public String emailReducer(String email){
