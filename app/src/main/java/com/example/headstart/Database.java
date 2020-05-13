@@ -74,8 +74,6 @@ public class Database {
 
     public void updateUserProfile(String ID, String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
         Profile profile = new Profile(state, city, zipcode, year, school, description, phoneNumber, age);
-
-
         ref.child(ID).child("profile").setValue(profile);
         ref.child(ID).child("profile").child("location").child("address").removeValue();
     }

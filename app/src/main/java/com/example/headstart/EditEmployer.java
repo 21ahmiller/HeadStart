@@ -84,8 +84,7 @@ public class EditEmployer extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "Changes Saved", Toast.LENGTH_LONG);
         toast.show();
 
-        //save changes to firebase from the controller
-        //make controller static method?
+        aController.updateFireBaseEmployerProfile();
     }
 
     public void returnHome(View v){

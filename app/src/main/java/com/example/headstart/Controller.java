@@ -55,6 +55,8 @@ public class Controller extends Application {
         Database Employers = new Database("Employers");
         String ID = emailReducer(currentCompany.getEmail());
         Employers.getDatabaseReference().child(ID).child("profile").setValue(currentCompany.getProfile());
+        Employers.getDatabaseReference().child(ID).child("companyBackground").setValue(currentCompany.getCompanyBackground());
+        Employers.getDatabaseReference().child(ID).child("companyDescription").setValue(currentCompany.getCompanyDescription());
     }
 
     public String emailReducer(String email){
