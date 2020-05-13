@@ -63,12 +63,16 @@ public class MainActivity extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         User currentUser = aController.getUser();
 
-        if(currentUser.comparePassword(password)){
-            performOpenJobListings(v);
-        }
-        else{
-            Toast toast = Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG);
-            toast.show();
+        if(currentUser.getEmail().equals("")){
+
+        }else{
+            if(currentUser.comparePassword(password)){
+                performOpenJobListings(v);
+            }
+            else{
+                Toast toast = Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG);
+                toast.show();
+            }
         }
     }
 
