@@ -68,10 +68,10 @@ public class FiltrationMenu extends AppCompatActivity {
         String age = typeAgeText.getText().toString();
 
         SeekBar maxDriveBar = findViewById(R.id.MaxDriveBar);
-        int distance = maxDriveBar.getProgress();
+        int distance = 2 * maxDriveBar.getProgress();
 
         SeekBar minPayBar = findViewById(R.id.MinPayBar);
-        int minPay = minPayBar.getProgress();
+        int minPay = 10 + 2 * minPayBar.getProgress();
 
         String school = "";
         RadioButton highSchoolStudentButton = findViewById(R.id.CurrentHS);

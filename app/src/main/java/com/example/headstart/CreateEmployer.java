@@ -33,7 +33,10 @@ public class CreateEmployer extends AppCompatActivity {
                 Employer employer = new Employer(email, password, displayName);
                 final Controller aController = (Controller) getApplicationContext();
                 aController.setEmployer(employer);
-                //Upload user to firebase
+
+                Database Employers = new Database("Employers");
+                Employers.addDefaultEmployer(displayName, email, password);
+
                 Intent intent = new Intent(this, employerMainPage.class);
                 startActivity(intent);
             }else{

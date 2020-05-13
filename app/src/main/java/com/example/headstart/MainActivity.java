@@ -9,37 +9,40 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Database testUsers = new Database("Users");
-    Database testEmployers = new Database("Employers");
-    Database testJobs = new Database("Jobs");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      testUsers.addDefaultUser("user1234", "name1234", "user1234@gmail.com", "1234");
-      testUsers.updateUserProfile("user1234", "MA", "test city", "00000", "Junior", "test school", "test description.", "000-000-0000", "17");
 
-      testEmployers.addDefaultEmployer("employer5678", "company5678", "employer5678@gmail.com", "5678");
-      testEmployers.updateEmployerProfile("employer5678", "MA", "test city", "00000", "10 Street", "test description", "000-000-0000");
+        // Database testUsers = new Database("Users");
+        // Database testEmployers = new Database("Employers");
+        // Database testJobs = new Database("Jobs");
 
-      testJobs.createJob("job9101112", "job9101112", "full-time", "test description", "MA", "test city", "00000", "10 Street", "req 1, req 2", "skill 1, skill 2", "weekdays", "$1000", "test benefits", "16", "11th", "school", "jeffwilcoxhotmailcom");
-      testJobs.createJob("job13141516", "job13141516", "internship", "test description 2", "MA", "test town", "11111", "50 Way", "req 3, req 4", "skill 3, skill 4", "weekends", "$5000", "test benefits 2", "14", "9th", "school", "jeffwilcoxhotmailcom");
+//      testUsers.addDefaultUser("name1234", "user1234@gmail.com", "1234");
+//      testUsers.updateUserProfile("user1234", "MA", "test city", "00000", "Junior", "test school", "test description.", "000-000-0000", "17");
+//
+//      testEmployers.addDefaultEmployer("employer5678", "company5678", "employer5678@gmail.com", "5678");
+//      testEmployers.updateEmployerProfile("employer5678", "MA", "test city", "00000", "10 Street", "test description", "000-000-0000");
+//
+//      testJobs.createJob("job9101112", "job9101112", "full-time", "test description", "MA", "test city", "00000", "10 Street", "req 1, req 2", "skill 1, skill 2", "weekdays", "$1000", "test benefits", "16", "11th", "school", "jeffwilcoxhotmailcom");
+//      testJobs.createJob("job13141516", "job13141516", "internship", "test description 2", "MA", "test town", "11111", "50 Way", "req 3, req 4", "skill 3, skill 4", "weekends", "$5000", "test benefits 2", "14", "9th", "school", "jeffwilcoxhotmailcom");
+//
+//      Reference specUser = new Reference("Users", "user1234");
+//      specUser.readUser();
+//
+//      Reference specEmployer = new Reference("Employers", "employer5678");
+//      specEmployer.readEmployer();
+//
+//      Reference specJob = new Reference("Jobs", "job9101112");
+//      specJob.readJob();
 
-      Reference specUser = new Reference("Users", "user1234");
-      specUser.readUser();
-
-      Reference specEmployer = new Reference("Employers", "employer5678");
-      specEmployer.readEmployer();
-
-      Reference specJob = new Reference("Jobs", "job9101112");
-      specJob.readJob();
     }
 
     public void clickApplicantButton(View v){

@@ -178,8 +178,8 @@ public class EditProfile extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "Changes Saved", Toast.LENGTH_LONG);
         toast.show();
 
-        //save changes to firebase from the controller
-        //make controller static method?
+
+        aController.updateFireBaseUserProfile();
     }
 
     public void returnHome(View v){

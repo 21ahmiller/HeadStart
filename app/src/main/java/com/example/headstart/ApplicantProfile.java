@@ -100,8 +100,12 @@ public class ApplicantProfile extends AppCompatActivity {
     }
 
     public void performEditProfile(View v){
-        Intent intent = new Intent(this, EditProfile.class);
-        startActivity(intent);
+        final Controller aController = (Controller) getApplicationContext();
+        User currentUser = aController.getUser();
+        if(!currentUser.getEmail().equals("")){
+            Intent intent = new Intent(this, EditProfile.class);
+            startActivity(intent);
+        }
     }
 
     public void performViewJobs(View v){

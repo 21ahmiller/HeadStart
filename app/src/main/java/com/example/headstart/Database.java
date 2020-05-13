@@ -14,6 +14,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Database {
 
     FirebaseDatabase database;
@@ -32,10 +34,11 @@ public class Database {
         return ref;
     }
 
-    public void addDefaultUser(String ID, String name, String email, String password) {
+    public void addDefaultUser(String name, String email, String password) {
         User user = new User();
         user.setDisplayName(name);
         user.setEmail(email);
+        String ID = emailReducer(email);
 
         ref.child(ID).setValue(user);
         ref.child(ID).child("password").setValue(password);
@@ -55,17 +58,33 @@ public class Database {
         ref.child(ID).addValueEventListener(userListener);
     }
 
+    public String emailReducer(String email){
+        ArrayList<String> characters = new ArrayList<String>();
+        for(int i = 0; i < email.length(); i ++){
+            characters.add(email.substring(i, i + 1));
+        }
+        characters.remove("@");
+        characters.remove(".");
+        String reduced = "";
+        for(int i = 0; i < characters.size(); i++){
+            reduced += characters.get(i);
+        }
+        return reduced;
+    }
+
     public void updateUserProfile(String ID, String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
         Profile profile = new Profile(state, city, zipcode, year, school, description, phoneNumber, age);
+
 
         ref.child(ID).child("profile").setValue(profile);
         ref.child(ID).child("profile").child("location").child("address").removeValue();
     }
 
-    public void addDefaultEmployer(String ID, String name, String email, String password) {
+    public void addDefaultEmployer(String name, String email, String password) {
         Employer employer = new Employer();
         employer.setDisplayName(name);
         employer.setEmail(email);
+        String ID = emailReducer(email);
 
         ref.child(ID).setValue(employer);
         ref.child(ID).child("password").setValue(password);
@@ -93,10 +112,13 @@ public class Database {
         ref.child(ID).child("profile").child("age").removeValue();
     }
 
-    public void createJob(String ID, String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
+    public void createJob(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
                           String skills, String schedule, String salary, String benefits, String ageMinimum, String school, String year, String companyID) {
         Job job = new Job(jobTitle, jobType, jobDescription, state, city, zipCode, address, requirements,
                 skills, schedule, salary, benefits, ageMinimum, school, year, companyID);
+
+        String jobTitleNoSpace = jobTitle.replaceAll(" ", "");
+        String ID = jobTitleNoSpace + companyID;
 
         ref.child(ID).setValue(job);
         //school and year backwards? eduction node misspelled

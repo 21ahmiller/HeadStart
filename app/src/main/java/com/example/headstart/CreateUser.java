@@ -33,7 +33,10 @@ public class CreateUser extends AppCompatActivity {
                 User applicant = new User(email, password, displayName);
                 final Controller aController = (Controller) getApplicationContext();
                 aController.setUser(applicant);
-                //Upload user to firebase
+
+                Database Users = new Database("Users");
+                Users.addDefaultUser(displayName, email, password);
+
                 Intent intent = new Intent(this, jobListingPage.class);
                 startActivity(intent);
             }else{
@@ -47,10 +50,8 @@ public class CreateUser extends AppCompatActivity {
     }
 
     public boolean uniqueEmail(String email){
-        //checks if email already exists in system
-        // true if exists
-        //false if doesn't
         String reduced = emailReducer(email);
+        //check through every email in database;
         return true; //just a test
     }
 

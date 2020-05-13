@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class Controller extends Application {
 
-    User currentUser = new User();
-    Employer currentCompany = new Employer();
-    ArrayList<Job> viewingJobs = new ArrayList<>(20);
-    ArrayList<Job> filteredJobs = new ArrayList<>(200);
-    int jobNumber = 0;
+    private User currentUser = new User();
+    private Employer currentCompany = new Employer();
+    private ArrayList<Job> viewingJobs = new ArrayList<>(20);
+    private ArrayList<Job> filteredJobs = new ArrayList<>(200);
+    private int jobNumber = 0;
 
     public void setUser(User user){
         currentUser = user;
@@ -44,12 +44,32 @@ public class Controller extends Application {
         return filteredJobs;
     }
 
-    public void updateFireBaseUser(){
-        //updates the User data in firebase
+
+    public void updateFireBaseUserProfile(){
+        Database Users = new Database("Users");
+        String ID = emailReducer(currentUser.getEmail());
+        Users.getDatabaseReference().child(ID).child("profile").setValue(currentUser.getProfile());
     }
 
-    public void updateFireBaseEmployer(){
-        //updates the Employer data in firebase
+    public void updateFireBaseEmployerProfile(){
+        Database Employers = new Database("Employers");
+        String ID = emailReducer(currentCompany.getEmail());
+        Employers.getDatabaseReference().child(ID).child("profile").setValue(currentCompany.getProfile());
     }
+
+    public String emailReducer(String email){
+        ArrayList<String> characters = new ArrayList<String>();
+        for(int i = 0; i < email.length(); i ++){
+            characters.add(email.substring(i, i + 1));
+        }
+        characters.remove("@");
+        characters.remove(".");
+        String reduced = "";
+        for(int i = 0; i < characters.size(); i++){
+            reduced += characters.get(i);
+        }
+        return reduced;
+    }
+
 
 }
