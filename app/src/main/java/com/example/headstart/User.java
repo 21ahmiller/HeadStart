@@ -70,6 +70,13 @@ public class User {
 		return jobs;
 	}
 
+	public String getPassword(){
+		return password;
+	}
+
+	//DELETE
+
+
 	public boolean comparePassword(String inputPassword){
 		if(password.equals(inputPassword)){
 			return true;
