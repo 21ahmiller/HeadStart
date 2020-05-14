@@ -67,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
         }else{
             if(currentUser.comparePassword(password)){
+                Database jobs = new Database("Jobs");
+                for(int i = 0; i < jobs.populateRandom().size(); i++){
+                    aController.getFilteredJobs().set(i, jobs.populateRandom().get(i));
+                }
+                aController.setJobRefreshNumber(0);
                 performOpenJobListings(v);
             }
             else{
@@ -167,19 +172,48 @@ public class MainActivity extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
 
-        if(currentEmployer.comparePassword(password)){
-            performOpenEmployerMainPage(v);
+        if(currentEmployer.getEmail().equals("")){
+
         }else{
-            Toast toast = Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG);
-            toast.show();
+            if(currentEmployer.comparePassword(password)){
+                performOpenEmployerMainPage(v);
+            }else{
+                Toast toast = Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG);
+                toast.show();
+            }
         }
     }
 
-    public void findEmployer(String email){
-        // look through database for employer with same email.
-        Employer mockEmployer = new Employer("target@hotmail.com", "password", "Target"); //this is a fake user for example
+    public void findEmployer(final String email){
         final Controller aController = (Controller) getApplicationContext();
-        aController.setEmployer(mockEmployer);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference employersRef = database.getReference("Employers");
+        employersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    Employer extracted = ds.getValue(Employer.class);
+                    if(extracted.getEmail().equals(email)){
+                        final Controller aController = (Controller) getApplicationContext();
+                        aController.setEmployer(extracted);
+                        break;
+                    }
+                }
+                if(aController.getEmployer().getEmail().equals("")){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("MainActivity", "Failed to read value.", error.toException());
+            }
+        });
     }
 
     public void performOpenEmployerMainPage(View v){

@@ -64,7 +64,7 @@ public class Location {
 
 	@Override
 	public String toString(){
-		if(address != "" && city != "" && state != "" && zipCode != ""){
+		if(!address.equals("") && !city.equals("") && !state.equals("") && !zipCode.equals("")){
 			return address + " " + city + ", " + state + " " + zipCode;
 		}else{
 			return "";

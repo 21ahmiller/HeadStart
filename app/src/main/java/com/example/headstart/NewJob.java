@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.ArrayList;
 
 public class NewJob extends AppCompatActivity {
@@ -41,6 +43,13 @@ public class NewJob extends AppCompatActivity {
 
         EditText jobNameText = findViewById(R.id.jobNameText);
         String jobTitle = jobNameText.getText().toString();
+
+        boolean uniqueJob = true;
+        for(int i = 0; i < currentEmployer.getJobs().size(); i ++){
+            if(jobTitle.equals(currentEmployer.getJobs().get(i).getJobTitle())){
+                uniqueJob = false;
+            }
+        }
 
         newJob.setJobTitle(jobTitle);
 
@@ -133,7 +142,7 @@ public class NewJob extends AppCompatActivity {
         String[] keywordsArray = keywords.split(",");
         if(!keywords.equals("")){
             for(int i = 0; i < keywordsArray.length; i ++){
-                newJob.getKeywords().add(keywordsArray[i]);
+                newJob.getKeywords().add(keywordsArray[i].replaceAll(" ", "").toLowerCase());
             }
         }
 
@@ -142,10 +151,18 @@ public class NewJob extends AppCompatActivity {
         if(jobTitle.equals("") || jobInformation.equals("") || address.equals("") || requirements.equals("") || preferredSkills.equals("") || schedule.equals("") || salary.equals("") || benefits.equals("") || minimumAge.equals("") || newJob.getLocation().getState().equals("") || newJob.getLocation().getCity().equals("") || newJob.getLocation().getZipCode().equals("") || !(fullTime.isChecked() || partTime.isChecked() || internship.isChecked() || coOp.isChecked()) || !(highSchoolButton.isChecked() || highSchoolGraduateButton.isChecked() || collegeButton.isChecked()|| collegeGraduateButton.isChecked()) || keywords.equals("")){
             Toast toast = Toast.makeText(getApplicationContext(), "All Fields Must Be Filled", Toast.LENGTH_LONG);
             toast.show();
-        }else{
+        }else if (uniqueJob){
             currentEmployer.addJob(newJob);
+
+            Database jobs = new Database("Jobs");
+            jobs.createJob(newJob);
+            currentEmployer.updateFireBaseJobs();
+
             Intent intent = new Intent(this, employerMainPage.class);
             startActivity(intent);
+        }else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Job Name Must Be Unique", Toast.LENGTH_LONG);
+            toast.show();
         }
 
 

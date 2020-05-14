@@ -4,9 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -29,19 +37,27 @@ public class CreateUser extends AppCompatActivity {
         String displayName = usernameText.getText().toString();
 
         if(isEmail(email)){
-            if(uniqueEmail(email)){
+            uniqueEmail(email);
+            final Controller aController = (Controller) getApplicationContext();
+            Toast toast = Toast.makeText(getApplicationContext(), aController.getUser().toString(), Toast.LENGTH_LONG);
+            toast.show();
+            if(aController.getUser().getEmail().equals("")){
                 User applicant = new User(email, password, displayName);
-                final Controller aController = (Controller) getApplicationContext();
                 aController.setUser(applicant);
 
                 Database Users = new Database("Users");
                 Users.addDefaultUser(displayName, email, password);
 
+                Database jobs = new Database("Jobs");
+                for(int i = 0; i < jobs.populateRandom().size(); i++){
+                    aController.getFilteredJobs().set(i, jobs.populateRandom().get(i));
+                }
+                aController.setJobRefreshNumber(0);
                 Intent intent = new Intent(this, jobListingPage.class);
                 startActivity(intent);
             }else{
-                Toast toast = Toast.makeText(getApplicationContext(), "This email is already taken", Toast.LENGTH_LONG);
-                toast.show();
+                Toast toast2 = Toast.makeText(getApplicationContext(), "This email is already taken", Toast.LENGTH_LONG);
+                toast2.show();
             }
         }else{
             Toast toast = Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_LONG);
@@ -49,13 +65,36 @@ public class CreateUser extends AppCompatActivity {
         }
     }
 
-    public boolean uniqueEmail(String email){
-        String reduced = emailReducer(email);
-        //check through every email in database;
-        return true; //just a test
+    public void uniqueEmail(final String email){
+        final Controller aController = (Controller) getApplicationContext();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference usersRef = database.getReference("Users");
+        Query query = usersRef.orderByChild("email").equalTo(email);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    User extracted = ds.getValue(User.class);
+                    if(extracted.getEmail().equals(email)){
+                        final Controller aController = (Controller) getApplicationContext();
+                        aController.setUser(extracted);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("MainActivity", "Failed to read value.", error.toException());
+            }
+        });
     }
 
-    public static String emailReducer(String email){
+    public String emailReducer(String email){
         ArrayList<String> characters = new ArrayList<String>();
         for(int i = 0; i < email.length(); i ++){
             characters.add(email.substring(i, i + 1));
@@ -68,6 +107,7 @@ public class CreateUser extends AppCompatActivity {
         }
         return reduced;
     }
+
 
     public static boolean isEmail(String email){
         int atTimes = 0;

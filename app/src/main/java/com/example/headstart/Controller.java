@@ -11,6 +11,7 @@ public class Controller extends Application {
     private ArrayList<Job> viewingJobs = new ArrayList<>(20);
     private ArrayList<Job> filteredJobs = new ArrayList<>(200);
     private int jobNumber = 0;
+    private int jobRefreshNumber = 0;
 
     public void setUser(User user){
         currentUser = user;
@@ -42,6 +43,14 @@ public class Controller extends Application {
 
     public ArrayList<Job> getFilteredJobs(){
         return filteredJobs;
+    }
+
+    public int getJobRefreshNumber(){
+        return jobRefreshNumber;
+    }
+
+    public void setJobRefreshNumber(int jobRefreshNumber){
+        this.jobRefreshNumber = jobRefreshNumber;
     }
 
 

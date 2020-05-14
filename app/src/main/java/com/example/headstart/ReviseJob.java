@@ -98,7 +98,7 @@ public class ReviseJob extends AppCompatActivity {
         String total = "";
         if(strings.size() > 0){
             for(int i = 0; i < strings.size() - 1; i ++){
-                total += strings.get(i) + ",";
+                total += strings.get(i) + ", ";
             }
             return total + strings.get(strings.size() - 1);
         }
@@ -117,7 +117,6 @@ public class ReviseJob extends AppCompatActivity {
         EditText jobNameText = findViewById(R.id.jobNameText);
         String jobTitle = jobNameText.getText().toString();
 
-        newJob.setJobTitle(jobTitle);
 
         EditText jobInformationText = findViewById(R.id.jobInformationText);
         String jobInformation = jobInformationText.getText().toString();
@@ -208,7 +207,7 @@ public class ReviseJob extends AppCompatActivity {
         String[] keywordsArray = keywords.split(",");
         if(!keywords.equals("")){
             for(int i = 0; i < keywordsArray.length; i ++){
-                newJob.getKeywords().set(i, keywordsArray[i]);
+                newJob.getKeywords().set(i, keywordsArray[i].replaceAll(" ", ""));
             }
         }
 
@@ -216,6 +215,8 @@ public class ReviseJob extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "All Fields Must Be Filled", Toast.LENGTH_LONG);
             toast.show();
         }else{
+            Database jobs = new Database("Jobs");
+            jobs.updateJob(newJob);
             Toast toast = Toast.makeText(getApplicationContext(), "Changes Saved", Toast.LENGTH_LONG);
             toast.show();
         }
@@ -224,7 +225,10 @@ public class ReviseJob extends AppCompatActivity {
 
     public void deleteJob (View v){
         final Controller aController = (Controller) getApplicationContext();
+        Database jobs = new Database("Jobs");
+        jobs.removeJob(aController.getEmployer().getJobs().get(aController.getJobNumber()));
         aController.getEmployer().removeJob(aController.getJobNumber());
+        aController.getEmployer().updateFireBaseJobs();
         returnToJobView(v);
     }
 }

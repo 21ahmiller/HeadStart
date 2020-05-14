@@ -147,4 +147,5 @@
     <string name="editJobStr">Edit Job Information</string>
     <string name="returnJobViewStr">Return to job view</string>
     <string name="deleteJobStr">Delete Job</string>
+    <string name="jobDiffStr">Job Title (Cannot be changed)</string>
 </resources>

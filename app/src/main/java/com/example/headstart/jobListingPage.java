@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,9 +18,10 @@ public class jobListingPage extends AppCompatActivity {
         setContentView(R.layout.activity_job_listing_page);
 
         final Controller aController = (Controller) getApplicationContext();
+        for(int i = aController.getJobRefreshNumber() * 20; i < (aController.getJobRefreshNumber() + 1) * 20; i ++){
+            aController.getViewingJobs().set(i % 20, aController.getFilteredJobs().get(i));
+        }
         ArrayList<Job> jobs = aController.getViewingJobs();
-        Job fakeJob = new  Job("job13141516", "internship", "test description 2", "MA", "test town", "11111", "50 Way", "req 3, req 4", "skill 3, skill 4", "weekends", "5000", "test benefits 2", "14", "9th", "school", "jeffwilcoxhotmailcom");
-        jobs.add(fakeJob);
 
         Button button1 = findViewById(R.id.jobListingButton1);
         if(aController.getViewingJobs().size() > 0)
@@ -237,5 +239,16 @@ public class jobListingPage extends AppCompatActivity {
         aController.setJobNumber(19);
         if(aController.getViewingJobs().size() > 19)
             performOpenJobApplication(v);
+    }
+    public void refresh(View v){
+        final Controller aController = (Controller) getApplicationContext();
+        if(aController.getJobRefreshNumber() < 9){
+            aController.setJobRefreshNumber(aController.getJobRefreshNumber() + 1);
+            Intent intent = new Intent(this, jobListingPage.class);
+            startActivity(intent);
+        }else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Edit filter settings to see new jobs", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }

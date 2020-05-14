@@ -12,6 +12,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -110,17 +111,13 @@ public class Database {
         ref.child(ID).child("profile").child("age").removeValue();
     }
 
-    public void createJob(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
-                          String skills, String schedule, String salary, String benefits, String ageMinimum, String school, String year, String companyID) {
-        Job job = new Job(jobTitle, jobType, jobDescription, state, city, zipCode, address, requirements,
-                skills, schedule, salary, benefits, ageMinimum, school, year, companyID);
+    public void createJob(Job job) {
 
-        String jobTitleNoSpace = jobTitle.replaceAll(" ", "");
-        String ID = jobTitleNoSpace + companyID;
+        String jobTitleNoSpace = job.getJobTitle().replaceAll(" ", "");
+        String ID = jobTitleNoSpace + job.getCompanyID();
 
         ref.child(ID).setValue(job);
         //school and year backwards? eduction node misspelled
-        ref.child(ID).child("eduction").child("school").removeValue();
 
         ValueEventListener jobListener = new ValueEventListener() {
             @Override
@@ -135,5 +132,27 @@ public class Database {
             }
         };
         ref.child(ID).addValueEventListener(jobListener);
+    }
+
+    public void removeJob(Job job){
+        String jobTitleNoSpace = job.getJobTitle().replaceAll(" ", "");
+        String ID = jobTitleNoSpace + job.getCompanyID();
+        ref.child(ID).removeValue();
+    }
+
+    public void updateJob(Job job){
+        String jobTitleNoSpace = job.getJobTitle().replaceAll(" ", "");
+        String ID = jobTitleNoSpace + job.getCompanyID();
+        ref.child(ID).setValue(job);
+    }
+
+    public ArrayList<Job> populateRandom(){
+        // implement correctly
+        return new ArrayList<Job>();
+    }
+
+    public ArrayList<Job> populateFiltered(){
+        // implement correctly
+        return new ArrayList<Job>();
     }
 }

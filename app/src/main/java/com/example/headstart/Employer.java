@@ -64,4 +64,24 @@ public class Employer extends User{
 	public String toString() {
 		return super.toString();
 	}
+
+	public void updateFireBaseJobs(){
+		Database employers = new Database("Employers");
+		String ID = emailReducer(super.getEmail());
+		employers.getDatabaseReference().child(ID).child("jobs").setValue(super.getJobs());
+	}
+
+	public String emailReducer(String email){
+		ArrayList<String> characters = new ArrayList<String>();
+		for(int i = 0; i < email.length(); i ++){
+			characters.add(email.substring(i, i + 1));
+		}
+		characters.remove("@");
+		characters.remove(".");
+		String reduced = "";
+		for(int i = 0; i < characters.size(); i++){
+			reduced += characters.get(i);
+		}
+		return reduced;
+	}
 }

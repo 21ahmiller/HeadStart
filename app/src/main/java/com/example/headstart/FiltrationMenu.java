@@ -111,14 +111,20 @@ public class FiltrationMenu extends AppCompatActivity {
         EditText enterKeywordText = findViewById(R.id.EnterKeywords);
         String keywords = enterKeywordText.getText().toString();
         String[] keywordsArray = keywords.split(",");
+        ArrayList<String> keywordsReduced = new ArrayList<String>();
+        if(!keywords.equals("")){
+            for(int i = 0; i < keywordsArray.length; i ++){
+                keywordsReduced.add(keywordsArray[i].replaceAll(" ", "").toLowerCase());
+            }
+        }
 
-
-        //Add firebase filtering here
-
+        Database jobs = new Database("Jobs");
         final Controller aController = (Controller) getApplicationContext();
-        ArrayList<Job> filteredJobs = aController.getFilteredJobs();
-
-        //add jobs to Filtered Jobs
+        ArrayList<Job> filteredJobs = jobs.populateFiltered();
+        for(int i = 0; i < filteredJobs.size(); i++){
+            aController.getFilteredJobs().set(i, filteredJobs.get(i));
+        }
+        aController.setJobRefreshNumber(0);
 
         Toast toast = Toast.makeText(getApplicationContext(), "Filter Settings Updated", Toast.LENGTH_LONG);
         toast.show();

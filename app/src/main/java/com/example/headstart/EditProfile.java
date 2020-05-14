@@ -164,15 +164,22 @@ public class EditProfile extends AppCompatActivity {
         EditText interestsText = findViewById(R.id.interestText);
         String interests = interestsText.getText().toString();
         String[] interestsArray = interests.split(",");
-        for(int i = 0; i < interestsArray.length; i ++){
-            currentUser.getProfile().getInterests().add(interestsArray[i]);
+        if(!interests.equals("")){
+            currentUser.getProfile().getInterests().clear();
+            for(int i = 0; i < interestsArray.length; i ++){
+                currentUser.getProfile().getInterests().add(interestsArray[i].replaceAll(" ", ""));
+            }
         }
+
 
         EditText experiencesText = findViewById(R.id.experienceText);
         String experiences = experiencesText.getText().toString();
         String[] experiencesArray = experiences.split(",");
-        for(int i = 0; i < experiencesArray.length; i ++){
-            currentUser.getProfile().getExperiences().add(experiencesArray[i]);
+        if(!experiences.equals("")){
+            currentUser.getProfile().getExperiences().clear();
+            for(int i = 0; i < experiencesArray.length; i ++){
+                currentUser.getProfile().getExperiences().add(experiencesArray[i].replaceAll(" ", ""));
+            }
         }
 
         Toast toast = Toast.makeText(getApplicationContext(), "Changes Saved", Toast.LENGTH_LONG);
