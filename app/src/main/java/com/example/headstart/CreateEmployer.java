@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.ArrayList;
 
 public class CreateEmployer extends AppCompatActivity {
@@ -35,7 +37,9 @@ public class CreateEmployer extends AppCompatActivity {
                 aController.setEmployer(employer);
 
                 Database Employers = new Database("Employers");
-                Employers.addDefaultEmployer(displayName, email, password);
+                DatabaseReference ref = Employers.getDatabaseReference();
+                ref.child(emailReducer(email)).setValue(employer);
+                // Employers.addDefaultEmployer(displayName, email, password);
 
                 Intent intent = new Intent(this, employerMainPage.class);
                 startActivity(intent);

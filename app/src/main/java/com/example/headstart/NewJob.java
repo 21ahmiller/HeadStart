@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class NewJob extends AppCompatActivity {
 
@@ -166,5 +167,54 @@ public class NewJob extends AppCompatActivity {
         }
 
 
+    }
+
+//    for(int i = aController.getJobRefreshNumber() * 20; i < (aController.getJobRefreshNumber() + 1) * 20; i ++){
+//        aController.getViewingJobs().set(i % 20, aController.getFilteredJobs().get(i));
+//    }
+//    ArrayList<Job> jobs = aController.getViewingJobs();
+
+    public void addRandom50(View v){
+        final Controller aController = (Controller) getApplicationContext();
+        Employer currentEmployer = aController.getEmployer();
+        for(int i = 0; i < 50; i ++){
+            Random rand = new Random();
+            Job newJob = new Job();
+
+            String jobTitle = "This is the Job Title: Number " + Integer.toString(i + 1);
+            newJob.setJobTitle(jobTitle);
+            newJob.setJobDescription("This is a fake job");
+            newJob.setAddress("10 parkway Ave");
+
+            String[] states = {"Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"};
+            int randState = rand.nextInt(50);
+            newJob.setState(states[randState]);
+            newJob.setZipcode("00000");
+            newJob.setCity("Boston");
+            newJob.setRequirements("These should be the requirements");
+            newJob.setSkills("These should be the preferred skills");
+
+            String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Weekends"};
+
+            int day1 = rand.nextInt(6);
+            int day2 = rand.nextInt(6);
+            while(day1 == day2){
+                day2 = rand.nextInt(6);
+            }
+            newJob.setSchedule(days[day1] + " and " + days[day2]);
+
+            int intSalary = rand.nextInt(19) + 12;
+            String salary = Integer.toString(intSalary);
+            newJob.setSalary(salary);
+            newJob.setBenefits("These should be the benefits");
+            newJob.setJobType("");
+            newJob.setSchool("");
+
+            int minAge = rand.nextInt(9) + 14;
+            String minimumAge = Integer.toString(minAge);
+            newJob.setAgeMinimum(minimumAge);
+            newJob.setCompanyID(emailReducer(currentEmployer.getEmail()));
+        }
+        currentEmployer.updateFireBaseJobs();
     }
 }

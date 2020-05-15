@@ -46,7 +46,8 @@ public class CreateUser extends AppCompatActivity {
                 aController.setUser(applicant);
 
                 Database Users = new Database("Users");
-                Users.addDefaultUser(displayName, email, password);
+                DatabaseReference ref = Users.getDatabaseReference();
+                ref.child(emailReducer(email)).setValue(applicant);
 
                 Database jobs = new Database("Jobs");
                 for(int i = 0; i < jobs.populateRandom().size(); i++){

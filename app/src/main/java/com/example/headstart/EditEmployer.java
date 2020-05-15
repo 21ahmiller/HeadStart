@@ -60,7 +60,7 @@ public class EditEmployer extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
 
-        EditText phoneNumberText = findViewById(R.id.PhoneNumText);
+        EditText phoneNumberText = findViewById(R.id.phoneNumText);
         currentEmployer.getProfile().setPhoneNumber(phoneNumberText.toString());
 
         EditText stateText = findViewById(R.id.stateText);
