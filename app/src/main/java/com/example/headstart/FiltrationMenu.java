@@ -67,6 +67,9 @@ public class FiltrationMenu extends AppCompatActivity {
         EditText typeAgeText = findViewById(R.id.TypeAgeText);
         String age = typeAgeText.getText().toString();
 
+        EditText stateText = findViewById(R.id.stateText);
+        String state = stateText.getText().toString();
+
         SeekBar maxDriveBar = findViewById(R.id.MaxDriveBar);
         int distance = 2 * maxDriveBar.getProgress();
 
