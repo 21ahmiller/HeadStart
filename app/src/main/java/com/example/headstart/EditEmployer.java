@@ -21,7 +21,7 @@ public class EditEmployer extends AppCompatActivity {
         EditText emailConfirmText = findViewById(R.id.emailConfirmText);
         emailConfirmText.setText(currentEmployer.getEmail());
 
-        EditText phoneNumberText = findViewById(R.id.PhoneNumText);
+        EditText phoneNumberText = findViewById(R.id.phoneNumText);
         if(filled(currentEmployer.getProfile().getPhoneNumber()))
             phoneNumberText.setText(currentEmployer.getProfile().getPhoneNumber());
 
