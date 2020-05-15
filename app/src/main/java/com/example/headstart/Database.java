@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.renderscript.Sampler;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,15 +17,18 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.*;
 
 public class Database {
 
     FirebaseDatabase database;
     DatabaseReference ref;
+    ArrayList<Job> jobs;
 
     public Database(String path) {
         database = FirebaseDatabase.getInstance();
         ref = database.getReference(path);
+        jobs = new ArrayList<Job>();
     }
 
     public FirebaseDatabase getFirebaseDatabase() {
@@ -147,12 +151,46 @@ public class Database {
     }
 
     public ArrayList<Job> populateRandom(){
-        // implement correctly
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    int count = 0;
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        count += 1;
+                    }
+                    ArrayList<Integer> randomJobs = new ArrayList<Integer>();
+                    Random rand = new Random();
+                    for(int i = 0; i < 200; i ++){
+                        int random = rand.nextInt(count);
+                        if(!randomJobs.contains(random)){
+                            randomJobs.add(random);
+                        }
+                    }
+                    count = 0;
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        count += 1;
+                        if(randomJobs.contains(count)){
+                            addJob(ds.getValue(Job.class));
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Log.w("MainActivity", "Failed to read value.", error.toException());
+                }
+            });
+        return jobs;
+    }
+
+    public ArrayList<Job> populateFiltered(String minAge, int maxDrive, int minpay, String school, String jobType, ArrayList<String> Keywords, User user){
+        jobs = new ArrayList<Job>();
+        Query query = ref.orderByChild("jobType").equalTo(user.getProfile().getLocation().getState());
         return new ArrayList<Job>();
     }
 
-    public ArrayList<Job> populateFiltered(){
-        // implement correctly
-        return new ArrayList<Job>();
+    public void addJob(Job job){
+        jobs.add(job);
     }
 }

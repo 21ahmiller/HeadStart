@@ -18,11 +18,8 @@ public class jobListingPage extends AppCompatActivity {
         setContentView(R.layout.activity_job_listing_page);
 
         final Controller aController = (Controller) getApplicationContext();
-        for(int i = aController.getJobRefreshNumber() * 20; i < (aController.getJobRefreshNumber() + 1) * 20; i ++){
-            aController.getViewingJobs().set(i % 20, aController.getFilteredJobs().get(i));
-        }
-        ArrayList<Job> jobs = aController.getViewingJobs();
 
+        ArrayList<Job> jobs = new ArrayList<Job>();
         Button button1 = findViewById(R.id.jobListingButton1);
         if(aController.getViewingJobs().size() > 0)
             button1.setText(jobs.get(0).toString());

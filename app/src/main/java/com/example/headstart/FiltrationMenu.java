@@ -120,7 +120,7 @@ public class FiltrationMenu extends AppCompatActivity {
 
         Database jobs = new Database("Jobs");
         final Controller aController = (Controller) getApplicationContext();
-        ArrayList<Job> filteredJobs = jobs.populateFiltered();
+        ArrayList<Job> filteredJobs = jobs.populateFiltered(age, distance, minPay, school, jobType, keywordsReduced, aController.getUser());
         for(int i = 0; i < filteredJobs.size(); i++){
             aController.getFilteredJobs().set(i, filteredJobs.get(i));
         }

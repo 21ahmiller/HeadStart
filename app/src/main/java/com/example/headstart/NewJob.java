@@ -64,7 +64,7 @@ public class NewJob extends AppCompatActivity {
         EditText addressText = findViewById(R.id.addressText);
         String address = addressText.getText().toString();
 
-        newJob.getLocation().setAddress(address);
+        newJob.setAddress(address);
 
         EditText requirementsText = findViewById(R.id.requirementsText);
         String requirements = requirementsText.getText().toString();
@@ -112,13 +112,13 @@ public class NewJob extends AppCompatActivity {
         RadioButton collegeGraduateButton = findViewById(R.id.CollegeGrad);
 
         if(highSchoolButton.isChecked()){
-            newJob.getEduction().setSchool("High School");
+            newJob.setSchool("High School");
         }else if(highSchoolGraduateButton.isChecked()){
-            newJob.getEduction().setSchool("High School Graduate");
+            newJob.setSchool("High School Graduate");
         }else if(collegeButton.isChecked()){
-            newJob.getEduction().setSchool("College");
+            newJob.setSchool("College");
         }else{
-            newJob.getEduction().setSchool("College Graduate");
+            newJob.setSchool("College Graduate");
         }
 
         EditText ageText = findViewById(R.id.ageText);
@@ -131,9 +131,9 @@ public class NewJob extends AppCompatActivity {
             String state = locationArray[0];
             String city = locationArray[1];
             String zipCode = locationArray[2];
-            newJob.getLocation().setState(state);
-            newJob.getLocation().setZipCode(zipCode);
-            newJob.getLocation().setCity(city);
+            newJob.setState(state);
+            newJob.setZipcode(zipCode);
+            newJob.setCity(city);
         }
 
         EditText keywordText = findViewById(R.id.keywordText);
@@ -148,7 +148,7 @@ public class NewJob extends AppCompatActivity {
 
         newJob.setCompanyID(emailReducer(currentEmployer.getEmail()));
 
-        if(jobTitle.equals("") || jobInformation.equals("") || address.equals("") || requirements.equals("") || preferredSkills.equals("") || schedule.equals("") || salary.equals("") || benefits.equals("") || minimumAge.equals("") || newJob.getLocation().getState().equals("") || newJob.getLocation().getCity().equals("") || newJob.getLocation().getZipCode().equals("") || !(fullTime.isChecked() || partTime.isChecked() || internship.isChecked() || coOp.isChecked()) || !(highSchoolButton.isChecked() || highSchoolGraduateButton.isChecked() || collegeButton.isChecked()|| collegeGraduateButton.isChecked()) || keywords.equals("")){
+        if(jobTitle.equals("") || jobInformation.equals("") || address.equals("") || requirements.equals("") || preferredSkills.equals("") || schedule.equals("") || salary.equals("") || benefits.equals("") || minimumAge.equals("") || newJob.getState().equals("") || newJob.getCity().equals("") || newJob.getZipcode().equals("") || !(fullTime.isChecked() || partTime.isChecked() || internship.isChecked() || coOp.isChecked()) || !(highSchoolButton.isChecked() || highSchoolGraduateButton.isChecked() || collegeButton.isChecked()|| collegeGraduateButton.isChecked()) || keywords.equals("")){
             Toast toast = Toast.makeText(getApplicationContext(), "All Fields Must Be Filled", Toast.LENGTH_LONG);
             toast.show();
         }else if (uniqueJob){

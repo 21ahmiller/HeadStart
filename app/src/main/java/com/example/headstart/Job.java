@@ -9,14 +9,17 @@ public class Job {
 	private String jobTitle;
 	private String jobType;
 	private String jobDescription;
-	private Location location;
+	private String address;
+	private String state;
+	private String city;
+	private String zipcode;
 	private String requirements;
 	private String skills;
 	private String schedule;
 	private String salary;
 	private String benefits;
 	private String ageMinimum;
-	private Education education;
+	private String school;
 	private ArrayList<String> keywords;
 	private String companyID;
 
@@ -27,31 +30,37 @@ public class Job {
 		this.jobTitle = "";
 		this.jobType = "";
 		this.jobDescription = "";
-		this.location = new Location();
 		this.requirements = "";
 		this.skills = "";
 		this.schedule = "";
 		this.salary = "";
 		this.benefits = "";
 		this.ageMinimum = "";
-		this.education = new Education();
 		this.keywords = new ArrayList<String>();
 		this.companyID = "";
+		this.school = "";
+		this.address = "";
+		this.state = "";
+		this.city = "";
+		this.zipcode = "";
 	}
 
 	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
-			   String skills, String schedule, String salary, String benefits, String ageMinimum, String year, String school, String companyID) {
+			   String skills, String schedule, String salary, String benefits, String ageMinimum, String school, String companyID) {
 		this.jobTitle = jobTitle;
 		this.jobType = jobType;
 		this.jobDescription = jobDescription;
-		this.location = new Location(state, city, zipCode, address);
+		this.address = address;
+		this.state = state;
+		this.city = city;
+		this.zipcode = zipCode;
 		this.requirements = requirements;
 		this.skills = skills;
 		this.schedule = schedule;
 		this.salary = salary;
 		this.benefits = benefits;
 		this.ageMinimum = ageMinimum;
-		this.education = new Education(year, school);
+		this.school = school;
 		this.keywords = new ArrayList<String>();
 		this.companyID = companyID;
 	}
@@ -80,14 +89,6 @@ public class Job {
 
 	public void setJobDescription(String jobDescription) {
 		this.jobDescription = jobDescription;
-	}
-
-	public Location getLocation() {
-		return location;
-	}
-
-	public void setLocation(String state, String city, String zipcode, String address) {
-		this.location = new Location(state, city, zipcode, address);
 	}
 
 	public String getRequirements() {
@@ -150,6 +151,39 @@ public class Job {
 		this.keywords.remove(keyword);
 	}
 
+	public String getAddress(){
+		return address;
+	}
+	public String getState(){
+		return state;
+	}
+	public String getCity(){
+		return city;
+	}
+	public String getZipcode(){
+		return zipcode;
+	}
+	public String getSchool(){
+		return school;
+	}
+
+	public void setState(String state){
+		this.state = state;
+	}
+	public void setCity(String city){
+		this.city = city;
+	}
+	public void setZipcode(String zipcode){
+		this.zipcode = zipcode;
+	}
+	public void setAddress(String address){
+		this.address = address;
+	}
+	public void setSchool(String school){
+		this.school = school;
+	}
+
+
 	public String getCompanyID(){
 		return companyID;
 	}
@@ -158,11 +192,8 @@ public class Job {
 		this.companyID = companyID;
 	}
 
-	public Education getEduction(){
-		return education;
-	}
 	@Override
 	public String toString(){
-		return jobTitle + "\n" + jobType + "\n" + location.toString() + "\n" + "Salary: $" + salary + " per hour" + "\n" + "Requirements: \n" + requirements;
+		return jobTitle + "\n" + jobType + "\n" + address + " " + city + ", " + state + " " + zipcode + "\n" + "Salary: $" + salary + " per hour" + "\n" + "Requirements: \n" + requirements;
 	}
 }
