@@ -227,7 +227,7 @@ public class ReviseJob extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         Database jobs = new Database("Jobs");
         jobs.removeJob(aController.getEmployer().getJobs().get(aController.getJobNumber()));
-        aController.getEmployer().removeJob(aController.getJobNumber());
+        aController.getEmployer().getJobs().remove(aController.getJobNumber());
         aController.getEmployer().updateFireBaseJobs();
         returnToJobView(v);
     }

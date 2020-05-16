@@ -177,7 +177,7 @@ public class NewJob extends AppCompatActivity {
     public void addRandom50(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
-        for(int i = 0; i < 50; i ++){
+        for(int i = 0; i < 5; i ++){
             Random rand = new Random();
             Job newJob = new Job();
 
@@ -187,7 +187,7 @@ public class NewJob extends AppCompatActivity {
             newJob.setAddress("10 parkway Ave");
 
             String[] states = {"Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"};
-            int randState = rand.nextInt(50);
+            int randState = rand.nextInt(states.length);
             newJob.setState(states[randState]);
             newJob.setZipcode("00000");
             newJob.setCity("Boston");
@@ -196,10 +196,10 @@ public class NewJob extends AppCompatActivity {
 
             String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Weekends"};
 
-            int day1 = rand.nextInt(6);
-            int day2 = rand.nextInt(6);
+            int day1 = rand.nextInt(days.length);
+            int day2 = rand.nextInt(days.length);
             while(day1 == day2){
-                day2 = rand.nextInt(6);
+                day2 = rand.nextInt(days.length);
             }
             newJob.setSchedule(days[day1] + " and " + days[day2]);
 
@@ -207,14 +207,34 @@ public class NewJob extends AppCompatActivity {
             String salary = Integer.toString(intSalary);
             newJob.setSalary(salary);
             newJob.setBenefits("These should be the benefits");
-            newJob.setJobType("");
-            newJob.setSchool("");
+
+            String[] jobTypes = {"Full Time", "Part Time", "Internship", "Co-Op"};
+            int randJobType = rand.nextInt(jobTypes.length);
+            newJob.setJobType(jobTypes[randJobType]);
+
+            String[] schoolTypes = {"High School", "High School Graduate", "College", "College Graduate"};
+            int randSchoolType = rand.nextInt(schoolTypes.length);
+            newJob.setSchool(schoolTypes[randSchoolType]);
 
             int minAge = rand.nextInt(9) + 14;
             String minimumAge = Integer.toString(minAge);
             newJob.setAgeMinimum(minimumAge);
             newJob.setCompanyID(emailReducer(currentEmployer.getEmail()));
+
+            String[] keywordsArray = {"Biology", "Chemistry", "Engineering", "Accounting", "Computer Science", "Manufacturing", "Finance", "Business", "Management", "Software", "Programming", "Lab", "Marketing", "Design", "Quality", "Teacher", "Grocery Store", "Communication", "Public Speaking", "Advertising", "Banking", "Robotics", "Civil Engineering", "Biotechnology", "Medical", "CAD", "Education", "Safety", "Consultant", "Inspection", "Research", "Developer", "Cybersecurity", "Epidemiology", "Security", "Information", "Data", "Analytics", "Cooking", "Baking", "Mathematics", "Astronomy", "Forensics"};
+            int keyword1 = rand.nextInt(keywordsArray.length);
+            int keyword2 = rand.nextInt(keywordsArray.length);
+            while(keyword1 == keyword2) {
+                keyword2 = rand.nextInt(keywordsArray.length);
+            }
+            newJob.getKeywords().add(keywordsArray[keyword1].replaceAll(" ", "").toLowerCase());
+            newJob.getKeywords().add(keywordsArray[keyword2].replaceAll(" ","").toLowerCase());
+
+            Database jobs = new Database("Jobs");
+            jobs.createJob(newJob);
+            currentEmployer.addJob(newJob);
         }
+
         currentEmployer.updateFireBaseJobs();
     }
 }

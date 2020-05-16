@@ -42,20 +42,26 @@ public class CreateUser extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), aController.getUser().toString(), Toast.LENGTH_LONG);
             toast.show();
             if(aController.getUser().getEmail().equals("")){
-                User applicant = new User(email, password, displayName);
-                aController.setUser(applicant);
+                if(password.length() >= 8){
+                    User applicant = new User(email, password, displayName);
+                    aController.setUser(applicant);
 
-                Database Users = new Database("Users");
-                DatabaseReference ref = Users.getDatabaseReference();
-                ref.child(emailReducer(email)).setValue(applicant);
+                    Database Users = new Database("Users");
+                    DatabaseReference ref = Users.getDatabaseReference();
+                    ref.child(emailReducer(email)).setValue(applicant);
 
-                Database jobs = new Database("Jobs");
-                for(int i = 0; i < jobs.populateRandom().size(); i++){
-                    aController.getFilteredJobs().set(i, jobs.populateRandom().get(i));
+                    Database jobs = new Database("Jobs");
+                    for(int i = 0; i < jobs.populateRandom().size(); i++){
+                        aController.getFilteredJobs().set(i, jobs.populateRandom().get(i));
+                    }
+                    aController.setJobRefreshNumber(0);
+                    Intent intent = new Intent(this, jobListingPage.class);
+                    startActivity(intent);
+                }else{
+                    Toast toast3 = Toast.makeText(getApplicationContext(), "Password Must Be 8 Characters or Longer", Toast.LENGTH_LONG);
+                    toast3.show();
                 }
-                aController.setJobRefreshNumber(0);
-                Intent intent = new Intent(this, jobListingPage.class);
-                startActivity(intent);
+
             }else{
                 Toast toast2 = Toast.makeText(getApplicationContext(), "This email is already taken", Toast.LENGTH_LONG);
                 toast2.show();

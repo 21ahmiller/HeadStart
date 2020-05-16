@@ -32,17 +32,22 @@ public class CreateEmployer extends AppCompatActivity {
 
         if(isEmail(email)){
             if(uniqueEmail(email)){
-                Employer employer = new Employer(email, password, displayName);
-                final Controller aController = (Controller) getApplicationContext();
-                aController.setEmployer(employer);
+                if(password.length() >= 8){
+                    Employer employer = new Employer(email, password, displayName);
+                    final Controller aController = (Controller) getApplicationContext();
+                    aController.setEmployer(employer);
 
-                Database Employers = new Database("Employers");
-                DatabaseReference ref = Employers.getDatabaseReference();
-                ref.child(emailReducer(email)).setValue(employer);
-                // Employers.addDefaultEmployer(displayName, email, password);
+                    Database Employers = new Database("Employers");
+                    DatabaseReference ref = Employers.getDatabaseReference();
+                    ref.child(emailReducer(email)).setValue(employer);
+                    // Employers.addDefaultEmployer(displayName, email, password);
 
-                Intent intent = new Intent(this, employerMainPage.class);
-                startActivity(intent);
+                    Intent intent = new Intent(this, employerMainPage.class);
+                    startActivity(intent);
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Password Must Be 8 Characters or Longer", Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }else{
                 Toast toast = Toast.makeText(getApplicationContext(), "This email is already taken", Toast.LENGTH_LONG);
                 toast.show();
