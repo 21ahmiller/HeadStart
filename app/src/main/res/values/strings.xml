@@ -148,5 +148,11 @@
     <string name="returnJobViewStr">Return to job view</string>
     <string name="deleteJobStr">Delete Job</string>
     <string name="jobDiffStr">Job Title (Cannot be changed)</string>
+    <string name="stateStringStr">Current State of Residence</string>
+    <string name="StateStrStr">State</string>
+    <string name="tenStr">10</string>
+    <string name="ZeroStr">0</string>
+    <string name="ThirtyStr">30</string>
+    <string name="FortyStr">40</string>
     <string name="signOutStr">Sign Out</string>
 </resources>

@@ -22,7 +22,7 @@ public class CreateEmployer extends AppCompatActivity {
 
     public void performCreateEmployer(View v){
         EditText emailText = findViewById(R.id.companyEmailText);
-        String email = emailText.getText().toString();
+        String email = emailText.getText().toString().replaceAll(" ", "");
 
         EditText passwordText = findViewById(R.id.companyPasswordText);
         String password = passwordText.getText().toString();

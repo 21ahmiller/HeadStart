@@ -184,10 +184,24 @@ public class Database {
         return jobs;
     }
 
-    public ArrayList<Job> populateFiltered(String minAge, int maxDrive, int minpay, String school, String jobType, ArrayList<String> Keywords, User user){
+    public ArrayList<Job> populateFiltered(String minAge, int maxDrive, int minpay, String school, String jobType, ArrayList<String> Keywords, String state, User user){
         jobs = new ArrayList<Job>();
-        Query query = ref.orderByChild("jobType").equalTo(user.getProfile().getLocation().getState());
-        return new ArrayList<Job>();
+        Query query = ref.orderByChild("state").equalTo(state);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("MainActivity", "Failed to read value.", error.toException());
+            }
+        });
+        return jobs;
     }
 
     public void addJob(Job job){

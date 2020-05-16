@@ -28,7 +28,7 @@ public class CreateUser extends AppCompatActivity {
 
     public void performCreateApplicant(View v){
         EditText emailText = findViewById(R.id.emailConfirmText);
-        String email = emailText.getText().toString();
+        String email = emailText.getText().toString().replaceAll(" ", "");
 
         EditText passwordText = findViewById(R.id.passwordText);
         String password = passwordText.getText().toString();

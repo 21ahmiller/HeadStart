@@ -54,11 +54,11 @@ public class FiltrationMenu extends AppCompatActivity {
         RadioButton coOpButton = findViewById(R.id.Coop);
         coOpButton.setChecked(false);
 
-        SeekBar fieldExperienceBar = findViewById(R.id.FieldExperienceBar);
-        fieldExperienceBar.setProgress(0);
-
         EditText enterKeywordText = findViewById(R.id.EnterKeywords);
         enterKeywordText.setText("");
+
+        EditText stateText = findViewById(R.id.StateText);
+        stateText.setText("");
 
     }
 
@@ -67,7 +67,7 @@ public class FiltrationMenu extends AppCompatActivity {
         EditText typeAgeText = findViewById(R.id.TypeAgeText);
         String age = typeAgeText.getText().toString();
 
-        EditText stateText = findViewById(R.id.stateText);
+        EditText stateText = findViewById(R.id.StateText);
         String state = stateText.getText().toString();
 
         SeekBar maxDriveBar = findViewById(R.id.MaxDriveBar);
@@ -123,7 +123,7 @@ public class FiltrationMenu extends AppCompatActivity {
 
         Database jobs = new Database("Jobs");
         final Controller aController = (Controller) getApplicationContext();
-        ArrayList<Job> filteredJobs = jobs.populateFiltered(age, distance, minPay, school, jobType, keywordsReduced, aController.getUser());
+        ArrayList<Job> filteredJobs = jobs.populateFiltered(age, distance, minPay, school, jobType, keywordsReduced, state, aController.getUser());
         for(int i = 0; i < filteredJobs.size(); i++){
             aController.getFilteredJobs().set(i, filteredJobs.get(i));
         }

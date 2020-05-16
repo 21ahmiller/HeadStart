@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickApplicantButton(View v){
         EditText emailText = findViewById(R.id.emailConfirmText);
-        String email = emailText.getText().toString();
+        String email = emailText.getText().toString().replaceAll(" ", "");
 
         EditText passwordText = findViewById(R.id.passwordText);
         String password = passwordText.getText().toString();
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickEmployerButton(View v){
         EditText emailText = findViewById(R.id.emailConfirmText);
-        String email = emailText.getText().toString();
+        String email = emailText.getText().toString().replaceAll(" ", "");
 
         EditText passwordText = findViewById(R.id.passwordText);
         String password = passwordText.getText().toString();
