@@ -60,4 +60,13 @@ public class employerMainPage extends AppCompatActivity {
         Intent intent = new Intent(this, EditEmployer.class);
         startActivity(intent);
     }
+
+    public void signOut(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
+        final Controller aController = (Controller) getApplicationContext();
+        User currentUser = aController.getUser();
+        currentUser = new User();
+    }
 }
