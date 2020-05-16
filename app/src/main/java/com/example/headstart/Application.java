@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -89,6 +90,16 @@ public class Application extends AppCompatActivity {
     public void returnToJobs (View v){
         Intent intent = new Intent(this, jobListingPage.class);
         startActivity(intent);
+    }
+
+    public void openWebsite(String url){
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
+    }
+
+    public void goToWeb(View v){
+        openWebsite("https://www.massacademy.org/admissions/");
     }
 
 
