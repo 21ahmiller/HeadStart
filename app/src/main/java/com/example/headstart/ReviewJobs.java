@@ -17,37 +17,40 @@ public class ReviewJobs extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
 
-        Button test3 = findViewById(R.id.button3);
-        if(currentEmployer.getJobs().size() > 0)
-            test3.setText(currentEmployer.getJobs().get(0).toString());
-        Button test4 = findViewById(R.id.button4);
-        if(currentEmployer.getJobs().size() > 1)
-            test4.setText(currentEmployer.getJobs().get(1).toString());
-        Button test5 = findViewById(R.id.button5);
-        if(currentEmployer.getJobs().size() > 2)
-            test5.setText(currentEmployer.getJobs().get(2).toString());
-        Button test6 = findViewById(R.id.button6);
-        if(currentEmployer.getJobs().size() > 3)
-            test6.setText(currentEmployer.getJobs().get(3).toString());
-        Button test7 = findViewById(R.id.button7);
-        if(currentEmployer.getJobs().size() > 4)
-            test7.setText(currentEmployer.getJobs().get(4).toString());
-        Button test8 = findViewById(R.id.button8);
-        if(currentEmployer.getJobs().size() > 5)
-            test8.setText(currentEmployer.getJobs().get(5).toString());
-        Button test9 = findViewById(R.id.button9);
-        if(currentEmployer.getJobs().size() > 6)
-            test9.setText(currentEmployer.getJobs().get(6).toString());
-        Button test10 = findViewById(R.id.button10);
-        if(currentEmployer.getJobs().size() > 7)
-            test10.setText(currentEmployer.getJobs().get(7).toString());
-        Button test11 = findViewById(R.id.button11);
-        if(currentEmployer.getJobs().size() > 8)
-            test11.setText(currentEmployer.getJobs().get(8).toString());
-        Button test12 = findViewById(R.id.button12);
-        if(currentEmployer.getJobs().size() > 9)
-            test12.setText(currentEmployer.getJobs().get(9).toString());
+        if(currentEmployer.getJobs().equals(null)){
 
+        }else{
+            Button test3 = findViewById(R.id.button3);
+            if(currentEmployer.getJobs().size() > 0)
+                test3.setText(currentEmployer.getJobs().get(0).toString());
+            Button test4 = findViewById(R.id.button4);
+            if(currentEmployer.getJobs().size() > 1)
+                test4.setText(currentEmployer.getJobs().get(1).toString());
+            Button test5 = findViewById(R.id.button5);
+            if(currentEmployer.getJobs().size() > 2)
+                test5.setText(currentEmployer.getJobs().get(2).toString());
+            Button test6 = findViewById(R.id.button6);
+            if(currentEmployer.getJobs().size() > 3)
+                test6.setText(currentEmployer.getJobs().get(3).toString());
+            Button test7 = findViewById(R.id.button7);
+            if(currentEmployer.getJobs().size() > 4)
+                test7.setText(currentEmployer.getJobs().get(4).toString());
+            Button test8 = findViewById(R.id.button8);
+            if(currentEmployer.getJobs().size() > 5)
+                test8.setText(currentEmployer.getJobs().get(5).toString());
+            Button test9 = findViewById(R.id.button9);
+            if(currentEmployer.getJobs().size() > 6)
+                test9.setText(currentEmployer.getJobs().get(6).toString());
+            Button test10 = findViewById(R.id.button10);
+            if(currentEmployer.getJobs().size() > 7)
+                test10.setText(currentEmployer.getJobs().get(7).toString());
+            Button test11 = findViewById(R.id.button11);
+            if(currentEmployer.getJobs().size() > 8)
+                test11.setText(currentEmployer.getJobs().get(8).toString());
+            Button test12 = findViewById(R.id.button12);
+            if(currentEmployer.getJobs().size() > 9)
+                test12.setText(currentEmployer.getJobs().get(9).toString());
+        }
     }
 
     public void open3(View v){
