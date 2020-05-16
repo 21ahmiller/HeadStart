@@ -114,12 +114,11 @@ public class ApplicantProfile extends AppCompatActivity {
     }
 
     public void signOut(View v){
+        final Controller aController = (Controller) getApplicationContext();
+        aController.setUser(new User());
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
-        final Controller aController = (Controller) getApplicationContext();
-        User currentUser = aController.getUser();
-        currentUser = new User();
     }
 
 

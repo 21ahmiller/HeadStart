@@ -63,7 +63,7 @@ public class employerMainPage extends AppCompatActivity {
 
     public void signOut(View v){
         final Controller aController = (Controller) getApplicationContext();
-        aController.setUser(new Employer());
+        aController.setEmployer(new Employer());
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

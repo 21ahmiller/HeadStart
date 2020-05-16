@@ -177,7 +177,7 @@ public class NewJob extends AppCompatActivity {
     public void addRandom50(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
-        for(int i = 0; i < 50; i ++){
+        for(int i = 0; i < 5; i ++){
             Random rand = new Random();
             Job newJob = new Job();
 
