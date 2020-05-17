@@ -137,6 +137,11 @@ public class NewJob extends AppCompatActivity {
             newJob.setCity(city);
         }
 
+        EditText URLtext = findViewById(R.id.URLText);
+        String URL = URLtext.getText().toString();
+
+        newJob.setApplicationURL(URL);
+
         EditText keywordText = findViewById(R.id.keywordText);
         String keywords = keywordText.getText().toString();
 
@@ -149,7 +154,7 @@ public class NewJob extends AppCompatActivity {
 
         newJob.setCompanyID(emailReducer(currentEmployer.getEmail()));
 
-        if(jobTitle.equals("") || jobInformation.equals("") || address.equals("") || requirements.equals("") || preferredSkills.equals("") || schedule.equals("") || salary.equals("") || benefits.equals("") || minimumAge.equals("") || newJob.getState().equals("") || newJob.getCity().equals("") || newJob.getZipcode().equals("") || !(fullTime.isChecked() || partTime.isChecked() || internship.isChecked() || coOp.isChecked()) || !(highSchoolButton.isChecked() || highSchoolGraduateButton.isChecked() || collegeButton.isChecked()|| collegeGraduateButton.isChecked()) || keywords.equals("")){
+        if(jobTitle.equals("") || jobInformation.equals("") || address.equals("") || requirements.equals("") || preferredSkills.equals("") || schedule.equals("") || salary.equals("") || benefits.equals("") || minimumAge.equals("") || newJob.getState().equals("") || newJob.getCity().equals("") || newJob.getZipcode().equals("") || !(fullTime.isChecked() || partTime.isChecked() || internship.isChecked() || coOp.isChecked()) || !(highSchoolButton.isChecked() || highSchoolGraduateButton.isChecked() || collegeButton.isChecked()|| collegeGraduateButton.isChecked()) || keywords.equals("") || URL.equals("")){
             Toast toast = Toast.makeText(getApplicationContext(), "All Fields Must Be Filled", Toast.LENGTH_LONG);
             toast.show();
         }else if (uniqueJob){
@@ -224,6 +229,10 @@ public class NewJob extends AppCompatActivity {
             }
             newJob.getKeywords().add(keywordsArray[keyword1].replaceAll(" ", "").toLowerCase());
             newJob.getKeywords().add(keywordsArray[keyword2].replaceAll(" ","").toLowerCase());
+
+            String[] urls = {"https://www.massacademy.org/admissions/", "https://youtu.be/dQw4w9WgXcQ", "http://www.trex-game.skipser.com"};
+            int randomUrl = rand.nextInt(urls.length);
+            newJob.setApplicationURL(urls[randomUrl]);
 
             Database jobs = new Database("Jobs");
             jobs.createJob(newJob);

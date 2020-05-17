@@ -22,6 +22,7 @@ public class Job {
 	private String school;
 	private ArrayList<String> keywords;
 	private String companyID;
+	private String applicationURL;
 
 
 	//Constructors
@@ -43,10 +44,11 @@ public class Job {
 		this.state = "";
 		this.city = "";
 		this.zipcode = "";
+		this.applicationURL = "";
 	}
 
 	public Job(String jobTitle, String jobType, String jobDescription, String state, String city, String zipCode, String address, String requirements,
-			   String skills, String schedule, String salary, String benefits, String ageMinimum, String school, String companyID) {
+			   String skills, String schedule, String salary, String benefits, String ageMinimum, String school, String applicationURL, String companyID) {
 		this.jobTitle = jobTitle;
 		this.jobType = jobType;
 		this.jobDescription = jobDescription;
@@ -63,6 +65,7 @@ public class Job {
 		this.school = school;
 		this.keywords = new ArrayList<String>();
 		this.companyID = companyID;
+		this.applicationURL = applicationURL;
 	}
 
 	//Methods
@@ -143,12 +146,12 @@ public class Job {
 		return keywords;
 	}
 
-	public void addKeyword(String keyword) {
-		this.keywords.add(keyword);
+	public void setApplicationURL(String applicationURL){
+		this.applicationURL = applicationURL;
 	}
 
-	public void removeKeyword(String keyword){
-		this.keywords.remove(keyword);
+	public String getApplicationURL(){
+		return applicationURL;
 	}
 
 	public String getAddress(){

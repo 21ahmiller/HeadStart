@@ -36,47 +36,14 @@ public class Application extends AppCompatActivity {
         TextView jobDescription = findViewById(R.id.jobInformationText);
         jobDescription.setText(displayedJob.getJobDescription());
 
-        TextView companyInformation = findViewById(R.id.companyInformationText);
-        String employerID = displayedJob.getCompanyID();
-
-        Database employers = new Database("Employers");
-        DatabaseReference ref = employers.getDatabaseReference();
-        Query query = ref.orderByKey().equalTo(employerID);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            /**
-             * retrieves employer from Firebase
-             * @param dataSnapshot
-             */
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Employer extracted = dataSnapshot.getValue(Employer.class);
-                final Controller aController = (Controller) getApplicationContext();
-                aController.setEmployer(extracted);
-            }
-
-            /**
-             * Sends error message if Firebase read fails
-             * @param error
-             */
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("MainActivity", "Failed to read value.", error.toException());
-            }
-        });
-
-        Employer employer = aController.getEmployer();
-        String description = employer.getCompanyDescription();
-        if(!description.equals("")){
-            companyInformation.setText(description);
-        }else{
-            companyInformation.setText("COMPANY HAS NO DESCRIPTION");
-        }
-
         TextView title = findViewById(R.id.jobTitle);
         title.setText(displayedJob.getJobTitle());
+
+        TextView minAge = findViewById(R.id.minAgeEdit);
+        minAge.setText(displayedJob.getAgeMinimum());
+
+        TextView minEducation = findViewById(R.id.minEducationEdit);
+        minEducation.setText(displayedJob.getSchool());
 
         TextView location = findViewById(R.id.locationEdit);
         location.setText(displayedJob.getAddress() + " " + displayedJob.getCity() + ", " + displayedJob.getState() + " " + displayedJob.getZipcode());
@@ -122,6 +89,10 @@ public class Application extends AppCompatActivity {
      * @param v
      */
     public void goToWeb(View v){
-        openWebsite("https://www.massacademy.org/admissions/");
+        final Controller aController = (Controller) getApplicationContext();
+        Job displayedJob = aController.getFilteredJobs().get(aController.getJobNumber());
+        openWebsite(displayedJob.getApplicationURL());
     }
+
+
 }

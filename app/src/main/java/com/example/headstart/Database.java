@@ -184,6 +184,7 @@ public class Database {
         return jobs;
     }
 
+
     public ArrayList<Job> populateFiltered(final String minAge, int maxDrive, final int minpay, final String school, final String jobType, final ArrayList<String> Keywords, String state, User user){
         this.jobs = new ArrayList<Job>();
         Query query = ref.orderByChild("state").equalTo(state);
@@ -199,8 +200,18 @@ public class Database {
                             break;
                         }
                     }
-                    if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && Integer.parseInt(job.getSalary()) > minpay &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field){
-                        jobs.add(job);
+                    if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && Integer.parseInt(job.getSalary()) > minpay &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !(jobs.contains(job))){
+                        boolean add = true;
+                        for(int i = 0; i < jobs.size(); i ++){
+                            String job1 = job.getJobTitle() + job.getCompanyID();
+                            String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                            if(job1.equals(job2)){
+                                add = false;
+                                break;
+                            }
+                        }
+                        if(add)
+                            jobs.add(job);
                     }
                     if(jobs.size() == 200){
                         break;
@@ -216,8 +227,18 @@ public class Database {
                                 break;
                             }
                         }
-                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !jobs.contains(job)){
-                            jobs.add(job);
+                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !(jobs.contains(job))){
+                            boolean add = true;
+                            for(int i = 0; i < jobs.size(); i ++){
+                                String job1 = job.getJobTitle() + job.getCompanyID();
+                                String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                                if(job1.equals(job2)){
+                                    add = false;
+                                    break;
+                                }
+                            }
+                            if(add)
+                                jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -234,8 +255,18 @@ public class Database {
                                 break;
                             }
                         }
-                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !jobs.contains(job)){
-                            jobs.add(job);
+                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !(jobs.contains(job))){
+                            boolean add = true;
+                            for(int i = 0; i < jobs.size(); i ++){
+                                String job1 = job.getJobTitle() + job.getCompanyID();
+                                String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                                if(job1.equals(job2)){
+                                    add = false;
+                                    break;
+                                }
+                            }
+                            if(add)
+                                jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -252,8 +283,18 @@ public class Database {
                                 break;
                             }
                         }
-                        if(field && !jobs.contains(job)){
-                            jobs.add(job);
+                        if(field && !(jobs.contains(job))){
+                            boolean add = true;
+                            for(int i = 0; i < jobs.size(); i ++){
+                                String job1 = job.getJobTitle() + job.getCompanyID();
+                                String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                                if(job1.equals(job2)){
+                                    add = false;
+                                    break;
+                                }
+                            }
+                            if(add)
+                                jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -263,8 +304,18 @@ public class Database {
                 if(!(jobs.size() == 200)){
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
                         Job job = ds.getValue(Job.class);
-                        if(!jobs.contains(job)){
-                            jobs.add(job);
+                        if(!(jobs.contains(job))){
+                            boolean add = true;
+                            for(int i = 0; i < jobs.size(); i ++){
+                                String job1 = job.getJobTitle() + job.getCompanyID();
+                                String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                                if(job1.equals(job2)){
+                                    add = false;
+                                    break;
+                                }
+                            }
+                            if(add)
+                                jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;

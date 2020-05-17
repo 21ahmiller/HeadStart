@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 Database jobs = new Database("Jobs");
                 ArrayList<Job> randomJobs = jobs.populateRandom();
                 aController.setFilteredJobs(randomJobs);
-                performOpenJobListings(v);
+                Intent intent = new Intent(this, ApplicantProfile.class);
+                startActivity(intent);
             }
             else{
                 Toast toast = Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG);
@@ -90,47 +91,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public String emailReducer(String email){
-        ArrayList<String> characters = new ArrayList<String>();
-        for(int i = 0; i < email.length(); i ++){
-            characters.add(email.substring(i, i + 1));
-        }
-        characters.remove("@");
-        characters.remove(".");
-        String reduced = "";
-        for(int i = 0; i < characters.size(); i++){
-            reduced += characters.get(i);
-        }
-        return reduced;
-    }
-
-    public boolean isEmail(String email){
-        int atTimes = 0;
-        int periodTimes = 0;
-        for(int i = 0; i < email.length(); i ++){
-            if(email.substring(i, i + 1).equals("@")){
-                atTimes += 1;
-            }else if(email.substring(i, i + 1).equals(".")){
-                periodTimes += 1;
-            }
-        }
-        if(atTimes == 1 && periodTimes == 1){
-            return true;
-        }
-        return false;
-    }
-
-    public void performOpenJobListings(View v){
-        Intent intent = new Intent(this, jobListingPage.class);
-        startActivity(intent);
-    }
-
     public void guestButton(View v){
         final Controller aController = (Controller) getApplicationContext();
         Database jobs = new Database("Jobs");
         ArrayList<Job> randomJobs = jobs.populateRandom();
         aController.setFilteredJobs(randomJobs);
-        Intent intent = new Intent(this, jobListingPage.class);
+        Intent intent = new Intent(this, ApplicantProfile.class);
         startActivity(intent);
     }
 

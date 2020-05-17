@@ -155,4 +155,9 @@
     <string name="ThirtyStr">30</string>
     <string name="FortyStr">40</string>
     <string name="signOutStr">Sign Out</string>
+    <string name="minEducationStr">Min. Education</string>
+    <string name="jobMinAgeStr">Job Minimum Age</string>
+    <string name="jobMinEducationStr">Job Minimum Required Education</string>
+    <string name="applicationStr">Application Site</string>
+    <string name="applicationHintStr">Company application site or home website URL</string>
 </resources>

@@ -48,6 +48,9 @@ public class ReviseJob extends AppCompatActivity {
         EditText benefitsText = findViewById(R.id.benefitsText);
         benefitsText.setText(newJob.getBenefits());
 
+        EditText urlText = findViewById(R.id.URLText);
+        urlText.setText(newJob.getApplicationURL());
+
         RadioButton fullTime = findViewById(R.id.FullTime);
         RadioButton partTime = findViewById(R.id.PartTime);
         RadioButton internship = findViewById(R.id.Internship);
@@ -156,6 +159,10 @@ public class ReviseJob extends AppCompatActivity {
 
         newJob.setBenefits(benefits);
 
+        EditText urlText = findViewById(R.id.URLText);
+        String urlString = urlText.getText().toString();
+        newJob.setApplicationURL(urlString);
+
         RadioButton fullTime = findViewById(R.id.FullTime);
         RadioButton partTime = findViewById(R.id.PartTime);
         RadioButton internship = findViewById(R.id.Internship);
@@ -211,7 +218,7 @@ public class ReviseJob extends AppCompatActivity {
             }
         }
 
-        if(jobTitle.equals("") || jobInformation.equals("") || address.equals("") || requirements.equals("") || preferredSkills.equals("") || schedule.equals("") || salary.equals("") || benefits.equals("") || minimumAge.equals("") || newJob.getState().equals("") || newJob.getCity().equals("") || newJob.getZipcode().equals("") || !(fullTime.isChecked() || partTime.isChecked() || internship.isChecked() || coOp.isChecked()) || !(highSchoolButton.isChecked() || highSchoolGraduateButton.isChecked() || collegeButton.isChecked()|| collegeGraduateButton.isChecked()) || keywords.equals("")){
+        if(jobTitle.equals("") || jobInformation.equals("") || address.equals("") || requirements.equals("") || preferredSkills.equals("") || schedule.equals("") || salary.equals("") || benefits.equals("") || minimumAge.equals("") || newJob.getState().equals("") || newJob.getCity().equals("") || newJob.getZipcode().equals("") || !(fullTime.isChecked() || partTime.isChecked() || internship.isChecked() || coOp.isChecked()) || !(highSchoolButton.isChecked() || highSchoolGraduateButton.isChecked() || collegeButton.isChecked()|| collegeGraduateButton.isChecked()) || keywords.equals("") || urlString.equals("")){
             Toast toast = Toast.makeText(getApplicationContext(), "All Fields Must Be Filled", Toast.LENGTH_LONG);
             toast.show();
         }else{

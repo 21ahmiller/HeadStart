@@ -310,6 +310,23 @@
                 android:inputType="textPersonName"
                 android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/URLTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/applicationStr"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/URLText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/applicationHintStr"
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
+
             <Button
                 android:id="@+id/submitButton"
                 android:layout_width="match_parent"

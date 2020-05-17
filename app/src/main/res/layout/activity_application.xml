@@ -8,6 +8,26 @@
     tools:context=".Application">
 
     <TextView
+        android:id="@+id/locationText3"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/ageHintStr"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jobInformationText" />
+
+    <TextView
+        android:id="@+id/locationText2"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/minEducationStr"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minAgeEdit" />
+
+    <TextView
         android:id="@+id/jobTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,35 +59,14 @@
         tools:layout_editor_absoluteX="81dp" />
 
     <TextView
-        android:id="@+id/companyInformationTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/companyInformationTitleStr"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jobInformationText" />
-
-    <TextView
-        android:id="@+id/companyInformationText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/companyInformationStr"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/companyInformationTitle"
-        tools:layout_editor_absoluteX="30dp" />
-
-    <TextView
         android:id="@+id/locationText"
         android:layout_width="104dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="@string/locationStr"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/companyInformationText" />
+        app:layout_constraintTop_toBottomOf="@+id/minEducationEdit" />
 
     <TextView
         android:id="@+id/locationEdit"
@@ -77,7 +76,28 @@
         android:text="@string/jobLocationStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/locationText"
-        app:layout_constraintTop_toBottomOf="@+id/companyInformationText" />
+        app:layout_constraintTop_toBottomOf="@+id/minEducationEdit" />
+
+    <TextView
+        android:id="@+id/minEducationEdit"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/jobMinEducationStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/locationText2"
+        app:layout_constraintTop_toBottomOf="@+id/minAgeEdit" />
+
+    <TextView
+        android:id="@+id/minAgeEdit"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/jobMinAgeStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/locationText3"
+        app:layout_constraintTop_toBottomOf="@+id/jobInformationText" />
 
     <TextView
         android:id="@+id/requirementsText"
@@ -86,7 +106,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/requirementsStr"
         android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="@+id/locationText"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationEdit" />
 
     <TextView
@@ -105,7 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/preferredSkillsStr"
-        app:layout_constraintStart_toStartOf="@+id/requirementsText"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/requirementsEdit" />
 
     <TextView
@@ -125,7 +145,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/timeStr"
         android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="@+id/preferredSkillsText"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/preferredSkillsEdit" />
 
     <TextView
@@ -145,7 +165,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/salaryStr"
         android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="@+id/scheduleText"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scheduleEdit" />
 
     <TextView
@@ -165,7 +185,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/benefitsStr"
         android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="@+id/salaryText"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/salaryEdit" />
 
     <TextView

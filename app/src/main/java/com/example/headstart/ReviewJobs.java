@@ -165,7 +165,9 @@ public class ReviewJobs extends AppCompatActivity {
     }
 
     public void goAhead(View v){
-        if(pageNumber == pages){
+        final Controller aController = (Controller) getApplicationContext();
+        Employer currentEmployer = aController.getEmployer();
+        if(pageNumber == pages || currentEmployer.getJobs().equals(null)){
             Toast toast = Toast.makeText(getApplicationContext(), "No Other Jobs", Toast.LENGTH_LONG);
             toast.show();
         }else{
@@ -175,7 +177,9 @@ public class ReviewJobs extends AppCompatActivity {
     }
 
     public void moveBack(View v){
-        if(pageNumber == 0){
+        final Controller aController = (Controller) getApplicationContext();
+        Employer currentEmployer = aController.getEmployer();
+        if(pageNumber == 0 || currentEmployer.getJobs().equals(null)){
             Toast toast = Toast.makeText(getApplicationContext(), "This is the first page", Toast.LENGTH_LONG);
             toast.show();
         }else{

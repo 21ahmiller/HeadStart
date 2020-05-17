@@ -39,8 +39,6 @@ public class CreateUser extends AppCompatActivity {
         if(isEmail(email)){
             uniqueEmail(email);
             final Controller aController = (Controller) getApplicationContext();
-            Toast toast = Toast.makeText(getApplicationContext(), aController.getUser().toString(), Toast.LENGTH_LONG);
-            toast.show();
             if(aController.getUser().getEmail().equals("")){
                 if(password.length() >= 8){
                     User applicant = new User(email, password, displayName);
@@ -52,7 +50,7 @@ public class CreateUser extends AppCompatActivity {
                     Database jobs = new Database("Jobs");
                     ArrayList<Job> randomJobs = jobs.populateRandom();
                     aController.setFilteredJobs(randomJobs);
-                    Intent intent = new Intent(this, jobListingPage.class);
+                    Intent intent = new Intent(this, ApplicantProfile.class);
                     startActivity(intent);
                 }else{
                     Toast toast3 = Toast.makeText(getApplicationContext(), "Password Must Be 8 Characters or Longer", Toast.LENGTH_LONG);
