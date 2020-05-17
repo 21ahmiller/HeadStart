@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 public class EditEmployer extends AppCompatActivity {
 
+    /**
+     * Gets and displays current employer's data
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,11 @@ public class EditEmployer extends AppCompatActivity {
 
     }
 
+    /**
+     * Checks if a TextView is filled
+     * @param a
+     * @return true if TextView has a value
+     */
     public boolean filled(String a){
         if(a.equals("")){
             return false;
@@ -55,7 +64,10 @@ public class EditEmployer extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Saves and uploads changes to employer to Firebase
+     * @param v
+     */
     public void saveChanges(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -87,6 +99,10 @@ public class EditEmployer extends AppCompatActivity {
         aController.updateFireBaseEmployerProfile();
     }
 
+    /**
+     * Brings user back to employerMainPage
+     * @param v
+     */
     public void returnHome(View v){
         Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);
