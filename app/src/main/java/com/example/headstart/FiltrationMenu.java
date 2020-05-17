@@ -14,12 +14,20 @@ import java.util.ArrayList;
 
 public class FiltrationMenu extends AppCompatActivity {
 
+    /**
+     * Creates page and sets contentView
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtration_menu);
     }
 
+    /**
+     * Sets all filters to default (0, false, or "")
+     * @param v
+     */
     public void resetFilters(View v){
         EditText typeAgeText = findViewById(R.id.TypeAgeText);
         typeAgeText.setText("");
@@ -62,6 +70,10 @@ public class FiltrationMenu extends AppCompatActivity {
 
     }
 
+    /**
+     * Sets and applies filters, and sets arrayList filteredJobs
+     * @param v
+     */
     public void applyFilters(View v){
 
         EditText typeAgeText = findViewById(R.id.TypeAgeText);
@@ -130,6 +142,10 @@ public class FiltrationMenu extends AppCompatActivity {
         toast.show();
     }
 
+    /**
+     * Sends user back to jobListingsPage
+     * @param v
+     */
     public void returnHome(View v){
         Intent intent = new Intent(this, jobListingPage.class);
         startActivity(intent);
