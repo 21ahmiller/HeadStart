@@ -20,12 +20,22 @@ import java.util.ArrayList;
 
 public class CreateUser extends AppCompatActivity {
 
+    /**
+     * Creates page and sets ContentView
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
     }
 
+    /**
+     * Checks if information entered is valid, and
+     * If valid: creates an user in Firebase with given information
+     * If not valid: Toasts error message
+     * @param v
+     */
     public void performCreateApplicant(View v){
         EditText emailText = findViewById(R.id.emailConfirmText);
         String email = emailText.getText().toString().replaceAll(" ", "");
@@ -67,6 +77,12 @@ public class CreateUser extends AppCompatActivity {
         }
     }
 
+    /**
+     * Checks if a given email already exists in Firebase
+     * Not currently working
+     * @param email
+     * @return true if email exists, false if email is not present
+     */
     public void uniqueEmail(final String email){
         final Controller aController = (Controller) getApplicationContext();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -96,6 +112,11 @@ public class CreateUser extends AppCompatActivity {
         });
     }
 
+    /**
+     * changes email into unique ID without unallowed characters
+     * @param email
+     * @return reduced
+     */
     public String emailReducer(String email){
         ArrayList<String> characters = new ArrayList<String>();
         for(int i = 0; i < email.length(); i ++){
@@ -110,7 +131,11 @@ public class CreateUser extends AppCompatActivity {
         return reduced;
     }
 
-
+    /**
+     * Checks if a string is in a correct email format
+     * @param email
+     * @return true if email is in correct format
+     */
     public static boolean isEmail(String email){
         int atTimes = 0;
         int periodTimes = 0;
@@ -130,6 +155,4 @@ public class CreateUser extends AppCompatActivity {
         }
         return false;
     }
-
-
 }

@@ -21,48 +21,34 @@ import java.util.*;
 
 public class Database {
 
+    //Database data
     FirebaseDatabase database;
     DatabaseReference ref;
     ArrayList<Job> jobs;
 
+    /**
+     * Create a database with a reference to a given path
+     * @param path
+     */
     public Database(String path) {
         database = FirebaseDatabase.getInstance();
         ref = database.getReference(path);
         jobs = new ArrayList<Job>();
     }
 
-    public FirebaseDatabase getFirebaseDatabase() {
-        return database;
-    }
-
+    /**
+     * gets database reference
+     * @return ref
+     */
     public DatabaseReference getDatabaseReference() {
         return ref;
     }
 
-    public void addDefaultUser(String name, String email, String password) {
-        User user = new User();
-        user.setDisplayName(name);
-        user.setEmail(email);
-        String ID = emailReducer(email);
-
-        ref.child(ID).setValue(user);
-        ref.child(ID).child("password").setValue(password);
-
-        ValueEventListener userListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                Log.i("Data", user.toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
-            }
-        };
-        ref.child(ID).addValueEventListener(userListener);
-    }
-
+    /**
+     * changes email into unique ID without unallowed characters
+     * @param email
+     * @return reduced
+     */
     public String emailReducer(String email){
         ArrayList<String> characters = new ArrayList<String>();
         for(int i = 0; i < email.length(); i ++){
@@ -77,51 +63,16 @@ public class Database {
         return reduced;
     }
 
-    public void updateUserProfile(String ID, String state, String city, String zipcode, String year, String school, String description, String phoneNumber, String age) {
-        Profile profile = new Profile(state, city, zipcode, year, school, description, phoneNumber, age);
-        ref.child(ID).child("profile").setValue(profile);
-        ref.child(ID).child("profile").child("location").child("address").removeValue();
-    }
-
-    public void addDefaultEmployer(String name, String email, String password) {
-        Employer employer = new Employer();
-        employer.setDisplayName(name);
-        employer.setEmail(email);
-        String ID = emailReducer(email);
-
-        ref.child(ID).setValue(employer);
-        ref.child(ID).child("password").setValue(password);
-
-        ValueEventListener employerListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Employer employer = dataSnapshot.getValue(Employer.class);
-                Log.i("Data", employer.toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Data", "loadJob:onCancelled", databaseError.toException());
-            }
-        };
-        ref.child(ID).addValueEventListener(employerListener);
-    }
-
-    public void updateEmployerProfile(String ID, String state, String city, String zipcode, String address, String description, String phoneNumber) {
-        Profile profile = new Profile(state, city, zipcode, address, description, phoneNumber);
-
-        ref.child(ID).child("profile").setValue(profile);
-        ref.child(ID).child("profile").child("education").removeValue();
-        ref.child(ID).child("profile").child("age").removeValue();
-    }
-
+    /**
+     * Creates a job in Firebase
+     * @param job
+     */
     public void createJob(Job job) {
 
         String jobTitleNoSpace = job.getJobTitle().replaceAll(" ", "");
         String ID = jobTitleNoSpace + job.getCompanyID();
 
         ref.child(ID).setValue(job);
-        //school and year backwards? eduction node misspelled
 
         ValueEventListener jobListener = new ValueEventListener() {
             @Override
@@ -138,18 +89,30 @@ public class Database {
         ref.child(ID).addValueEventListener(jobListener);
     }
 
+    /**
+     * Removes a job from Firebase
+     * @param job
+     */
     public void removeJob(Job job){
         String jobTitleNoSpace = job.getJobTitle().replaceAll(" ", "");
         String ID = jobTitleNoSpace + job.getCompanyID();
         ref.child(ID).removeValue();
     }
 
+    /**
+     * Updates a job's information in Firebase
+     * @param job
+     */
     public void updateJob(Job job){
         String jobTitleNoSpace = job.getJobTitle().replaceAll(" ", "");
         String ID = jobTitleNoSpace + job.getCompanyID();
         ref.child(ID).setValue(job);
     }
 
+    /**
+     *  Populates arrayList jobs with 200 random jobs from Firebase
+     * @return arrayList jobs
+     */
     public ArrayList<Job> populateRandom(){
             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -184,7 +147,18 @@ public class Database {
         return jobs;
     }
 
-
+    /**
+     * Applies filters and returns new arrayList of jobs that match filters
+     * @param minAge
+     * @param maxDrive
+     * @param minpay
+     * @param school
+     * @param jobType
+     * @param Keywords
+     * @param state
+     * @param user
+     * @return filtered arrayList jobs
+     */
     public ArrayList<Job> populateFiltered(final String minAge, int maxDrive, final int minpay, final String school, final String jobType, final ArrayList<String> Keywords, String state, User user){
         this.jobs = new ArrayList<Job>();
         Query query = ref.orderByChild("state").equalTo(state);
@@ -200,18 +174,8 @@ public class Database {
                             break;
                         }
                     }
-                    if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && Integer.parseInt(job.getSalary()) > minpay &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !(jobs.contains(job))){
-                        boolean add = true;
-                        for(int i = 0; i < jobs.size(); i ++){
-                            String job1 = job.getJobTitle() + job.getCompanyID();
-                            String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
-                            if(job1.equals(job2)){
-                                add = false;
-                                break;
-                            }
-                        }
-                        if(add)
-                            jobs.add(job);
+                    if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && Integer.parseInt(job.getSalary()) > minpay &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field){
+                        jobs.add(job);
                     }
                     if(jobs.size() == 200){
                         break;
@@ -227,18 +191,8 @@ public class Database {
                                 break;
                             }
                         }
-                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !(jobs.contains(job))){
-                            boolean add = true;
-                            for(int i = 0; i < jobs.size(); i ++){
-                                String job1 = job.getJobTitle() + job.getCompanyID();
-                                String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
-                                if(job1.equals(job2)){
-                                    add = false;
-                                    break;
-                                }
-                            }
-                            if(add)
-                                jobs.add(job);
+                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !jobs.contains(job)){
+                            jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -255,18 +209,8 @@ public class Database {
                                 break;
                             }
                         }
-                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !(jobs.contains(job))){
-                            boolean add = true;
-                            for(int i = 0; i < jobs.size(); i ++){
-                                String job1 = job.getJobTitle() + job.getCompanyID();
-                                String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
-                                if(job1.equals(job2)){
-                                    add = false;
-                                    break;
-                                }
-                            }
-                            if(add)
-                                jobs.add(job);
+                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !jobs.contains(job)){
+                            jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -283,18 +227,8 @@ public class Database {
                                 break;
                             }
                         }
-                        if(field && !(jobs.contains(job))){
-                            boolean add = true;
-                            for(int i = 0; i < jobs.size(); i ++){
-                                String job1 = job.getJobTitle() + job.getCompanyID();
-                                String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
-                                if(job1.equals(job2)){
-                                    add = false;
-                                    break;
-                                }
-                            }
-                            if(add)
-                                jobs.add(job);
+                        if(field && !jobs.contains(job)){
+                            jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -304,18 +238,8 @@ public class Database {
                 if(!(jobs.size() == 200)){
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
                         Job job = ds.getValue(Job.class);
-                        if(!(jobs.contains(job))){
-                            boolean add = true;
-                            for(int i = 0; i < jobs.size(); i ++){
-                                String job1 = job.getJobTitle() + job.getCompanyID();
-                                String job2 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
-                                if(job1.equals(job2)){
-                                    add = false;
-                                    break;
-                                }
-                            }
-                            if(add)
-                                jobs.add(job);
+                        if(!jobs.contains(job)){
+                            jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -332,6 +256,11 @@ public class Database {
         return jobs;
     }
 
+    /**
+     * Translates school level into an int for use in populateFiltered method
+     * @param school
+     * @return int representing school
+     */
     public Integer schoolToNum(String school){
         if(school.equals("High School")){
             return 1;
@@ -342,6 +271,5 @@ public class Database {
         }else{
             return 4;
         }
-
     }
 }

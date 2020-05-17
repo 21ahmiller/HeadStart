@@ -69,6 +69,7 @@ public class CreateEmployer extends AppCompatActivity {
 
     /**
      * Checks if a given email already exists in Firebase
+     * Not currently working
      * @param email
      * @return true if email exists, false if email is not present
      */
