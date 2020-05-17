@@ -168,10 +168,10 @@ public class Database {
                     }
                     count = 0;
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
-                        count += 1;
                         if(randomJobs.contains(count)){
-                            addJob(ds.getValue(Job.class));
+                            jobs.add(ds.getValue(Job.class));
                         }
+                        count += 1;
                     }
                 }
 
@@ -184,17 +184,94 @@ public class Database {
         return jobs;
     }
 
-    public ArrayList<Job> populateFiltered(String minAge, int maxDrive, int minpay, String school, String jobType, ArrayList<String> Keywords, String state, User user){
-        jobs = new ArrayList<Job>();
+    public ArrayList<Job> populateFiltered(final String minAge, int maxDrive, final int minpay, final String school, final String jobType, final ArrayList<String> Keywords, String state, User user){
+        this.jobs = new ArrayList<Job>();
         Query query = ref.orderByChild("state").equalTo(state);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
-
+                    Job job = ds.getValue(Job.class);
+                    boolean field = false;
+                    for(int i = 0; i < Keywords.size(); i ++){
+                        if(job.getKeywords().contains(Keywords.get(i))){
+                            field = true;
+                            break;
+                        }
+                    }
+                    if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && Integer.parseInt(job.getSalary()) > minpay &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field){
+                        jobs.add(job);
+                    }
+                    if(jobs.size() == 200){
+                        break;
+                    }
+                }
+                if(!(jobs.size() == 200)){
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        Job job = ds.getValue(Job.class);
+                        boolean field = false;
+                        for(int i = 0; i < Keywords.size(); i ++){
+                            if(job.getKeywords().contains(Keywords.get(i))){
+                                field = true;
+                                break;
+                            }
+                        }
+                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !jobs.contains(job)){
+                            jobs.add(job);
+                        }
+                        if(jobs.size() == 200){
+                            break;
+                        }
+                    }
+                }
+                if(!(jobs.size() == 200)){
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        Job job = ds.getValue(Job.class);
+                        boolean field = false;
+                        for(int i = 0; i < Keywords.size(); i ++){
+                            if(job.getKeywords().contains(Keywords.get(i))){
+                                field = true;
+                                break;
+                            }
+                        }
+                        if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !jobs.contains(job)){
+                            jobs.add(job);
+                        }
+                        if(jobs.size() == 200){
+                            break;
+                        }
+                    }
+                }
+                if(!(jobs.size() == 200)){
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        Job job = ds.getValue(Job.class);
+                        boolean field = false;
+                        for(int i = 0; i < Keywords.size(); i ++){
+                            if(job.getKeywords().contains(Keywords.get(i))){
+                                field = true;
+                                break;
+                            }
+                        }
+                        if(field && !jobs.contains(job)){
+                            jobs.add(job);
+                        }
+                        if(jobs.size() == 200){
+                            break;
+                        }
+                    }
+                }
+                if(!(jobs.size() == 200)){
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        Job job = ds.getValue(Job.class);
+                        if(!jobs.contains(job)){
+                            jobs.add(job);
+                        }
+                        if(jobs.size() == 200){
+                            break;
+                        }
+                    }
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
@@ -204,7 +281,16 @@ public class Database {
         return jobs;
     }
 
-    public void addJob(Job job){
-        jobs.add(job);
+    public Integer schoolToNum(String school){
+        if(school.equals("High School")){
+            return 1;
+        }else if(school.equals("High School Graduate")){
+            return 2;
+        }else if(school.equals("College")){
+            return 3;
+        }else{
+            return 4;
+        }
+
     }
 }

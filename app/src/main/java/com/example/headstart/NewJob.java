@@ -169,15 +169,10 @@ public class NewJob extends AppCompatActivity {
 
     }
 
-//    for(int i = aController.getJobRefreshNumber() * 20; i < (aController.getJobRefreshNumber() + 1) * 20; i ++){
-//        aController.getViewingJobs().set(i % 20, aController.getFilteredJobs().get(i));
-//    }
-//    ArrayList<Job> jobs = aController.getViewingJobs();
-
     public void addRandom50(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
-        for(int i = 0; i < 5; i ++){
+        for(int i = 0; i < 50; i ++){
             Random rand = new Random();
             Job newJob = new Job();
 

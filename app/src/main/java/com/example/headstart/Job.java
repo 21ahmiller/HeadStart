@@ -192,8 +192,16 @@ public class Job {
 		this.companyID = companyID;
 	}
 
+	public String arrayToString(ArrayList<String> keywords){
+		String string = "";
+		for(int i = 0; i < keywords.size() - 1; i ++){
+			string = string + keywords.get(i) + ", ";
+		}
+		string = string + keywords.get(keywords.size() - 1);
+		return string;
+	}
 	@Override
 	public String toString(){
-		return jobTitle + "\n" + jobType + "\n" + address + " " + city + ", " + state + " " + zipcode + "\n" + "Salary: $" + salary + " per hour" + "\n" + "Requirements: \n" + requirements;
+		return jobTitle + "\n" + jobType + "\n" + address + " " + city + ", " + state + "\n" + "Salary: $" + salary + " per hour" + "\n" + "Keywords: \n" + arrayToString(keywords);
 	}
 }

@@ -46,10 +46,8 @@ public class MainActivity extends AppCompatActivity {
         }else{
             if(currentUser.comparePassword(password)){
                 Database jobs = new Database("Jobs");
-                for(int i = 0; i < jobs.populateRandom().size(); i++){
-                    aController.getFilteredJobs().set(i, jobs.populateRandom().get(i));
-                }
-                aController.setJobRefreshNumber(0);
+                ArrayList<Job> randomJobs = jobs.populateRandom();
+                aController.setFilteredJobs(randomJobs);
                 performOpenJobListings(v);
             }
             else{
@@ -127,10 +125,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void guestButton(){
+    public void guestButton(View v){
         final Controller aController = (Controller) getApplicationContext();
-        aController.setUser(new User());
-
+        Database jobs = new Database("Jobs");
+        ArrayList<Job> randomJobs = jobs.populateRandom();
+        aController.setFilteredJobs(randomJobs);
         Intent intent = new Intent(this, jobListingPage.class);
         startActivity(intent);
     }

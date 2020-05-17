@@ -86,7 +86,7 @@
         android:text="@string/requirementsStr"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationText" />
+        app:layout_constraintTop_toBottomOf="@+id/locationEdit" />
 
     <TextView
         android:id="@+id/requirementsEdit"
@@ -105,7 +105,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/preferredSkillsStr"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/requirementsText" />
+        app:layout_constraintTop_toBottomOf="@+id/requirementsEdit" />
 
     <TextView
         android:id="@+id/preferredSkillsEdit"
@@ -125,7 +125,7 @@
         android:text="@string/timeStr"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/preferredSkillsText" />
+        app:layout_constraintTop_toBottomOf="@+id/preferredSkillsEdit" />
 
     <TextView
         android:id="@+id/scheduleEdit"
@@ -145,7 +145,7 @@
         android:text="@string/salaryStr"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scheduleText" />
+        app:layout_constraintTop_toBottomOf="@+id/scheduleEdit" />
 
     <TextView
         android:id="@+id/salaryEdit"
@@ -165,7 +165,7 @@
         android:text="@string/benefitsStr"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/salaryText" />
+        app:layout_constraintTop_toBottomOf="@+id/salaryEdit" />
 
     <TextView
         android:id="@+id/benefitsEdit"

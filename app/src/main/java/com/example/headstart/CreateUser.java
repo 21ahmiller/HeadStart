@@ -49,12 +49,9 @@ public class CreateUser extends AppCompatActivity {
                     Database Users = new Database("Users");
                     DatabaseReference ref = Users.getDatabaseReference();
                     ref.child(emailReducer(email)).setValue(applicant);
-
                     Database jobs = new Database("Jobs");
-                    for(int i = 0; i < jobs.populateRandom().size(); i++){
-                        aController.getFilteredJobs().set(i, jobs.populateRandom().get(i));
-                    }
-                    aController.setJobRefreshNumber(0);
+                    ArrayList<Job> randomJobs = jobs.populateRandom();
+                    aController.setFilteredJobs(randomJobs);
                     Intent intent = new Intent(this, jobListingPage.class);
                     startActivity(intent);
                 }else{

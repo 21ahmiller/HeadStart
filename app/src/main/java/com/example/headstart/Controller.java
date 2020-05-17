@@ -8,10 +8,8 @@ public class Controller extends Application {
 
     private User currentUser = new User();
     private Employer currentCompany = new Employer();
-    private ArrayList<Job> viewingJobs = new ArrayList<>(20);
     private ArrayList<Job> filteredJobs = new ArrayList<>(200);
     private int jobNumber = 0;
-    private int jobRefreshNumber = 0;
 
     public void setUser(User user){
         currentUser = user;
@@ -37,22 +35,13 @@ public class Controller extends Application {
         return jobNumber;
     }
 
-    public ArrayList<Job> getViewingJobs(){
-        return viewingJobs;
-    }
-
     public ArrayList<Job> getFilteredJobs(){
         return filteredJobs;
     }
 
-    public int getJobRefreshNumber(){
-        return jobRefreshNumber;
+    public void setFilteredJobs(ArrayList<Job> filteredJobs){
+        this.filteredJobs = filteredJobs;
     }
-
-    public void setJobRefreshNumber(int jobRefreshNumber){
-        this.jobRefreshNumber = jobRefreshNumber;
-    }
-
 
     public void updateFireBaseUserProfile(){
         Database Users = new Database("Users");

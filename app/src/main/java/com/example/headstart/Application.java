@@ -27,8 +27,7 @@ public class Application extends AppCompatActivity {
         setContentView(R.layout.activity_application);
 
         final Controller aController = (Controller) getApplicationContext();
-        ArrayList<Job> jobs = aController.getViewingJobs();
-        Job displayedJob = aController.getViewingJobs().get(aController.getJobNumber());
+        Job displayedJob = aController.getFilteredJobs().get(aController.getJobNumber());
 
         TextView jobDescription = findViewById(R.id.jobInformationText);
         jobDescription.setText(displayedJob.getJobDescription());
