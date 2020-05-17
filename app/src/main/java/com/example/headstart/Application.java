@@ -21,6 +21,10 @@ import java.util.ArrayList;
 
 public class Application extends AppCompatActivity {
 
+    /**
+     * Display's employer's and job's data
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,10 @@ public class Application extends AppCompatActivity {
         DatabaseReference ref = employers.getDatabaseReference();
         Query query = ref.orderByKey().equalTo(employerID);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            /**
+             * retrieves employer from Firebase
+             * @param dataSnapshot
+             */
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -48,6 +56,10 @@ public class Application extends AppCompatActivity {
                 aController.setEmployer(extracted);
             }
 
+            /**
+             * Sends error message if Firebase read fails
+             * @param error
+             */
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
@@ -86,20 +98,30 @@ public class Application extends AppCompatActivity {
 
     }
 
+    /**
+     * Brings user back to JobListings page
+     * @param v
+     */
     public void returnToJobs (View v){
         Intent intent = new Intent(this, jobListingPage.class);
         startActivity(intent);
     }
 
+    /**
+     * Brings user to job's application site
+     * @param url
+     */
     public void openWebsite(String url){
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
 
+    /**
+     * Calls method to open application website when APPLY button clicked
+     * @param v
+     */
     public void goToWeb(View v){
         openWebsite("https://www.massacademy.org/admissions/");
     }
-
-
 }

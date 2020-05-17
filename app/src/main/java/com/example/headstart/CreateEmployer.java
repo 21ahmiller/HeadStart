@@ -14,12 +14,22 @@ import java.util.ArrayList;
 
 public class CreateEmployer extends AppCompatActivity {
 
+    /**
+     * Creates page and sets ContentView
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_employer);
     }
 
+    /**
+     * Checks if information entered is valid, and
+     * If valid: creates an employer in Firebase with given information
+     * If not valid: Toasts error message
+     * @param v
+     */
     public void performCreateEmployer(View v){
         EditText emailText = findViewById(R.id.companyEmailText);
         String email = emailText.getText().toString().replaceAll(" ", "");
@@ -40,7 +50,6 @@ public class CreateEmployer extends AppCompatActivity {
                     Database Employers = new Database("Employers");
                     DatabaseReference ref = Employers.getDatabaseReference();
                     ref.child(emailReducer(email)).setValue(employer);
-                    // Employers.addDefaultEmployer(displayName, email, password);
 
                     Intent intent = new Intent(this, employerMainPage.class);
                     startActivity(intent);
@@ -58,14 +67,21 @@ public class CreateEmployer extends AppCompatActivity {
         }
     }
 
+    /**
+     * Checks if a given email already exists in Firebase
+     * @param email
+     * @return true if email exists, false if email is not present
+     */
     public boolean uniqueEmail(String email){
-        //checks if email already exists in system
-        // true if exists
-        //false if doesn't
         String reduced = emailReducer(email);
         return true; //just a test
     }
 
+    /**
+     * changes email into unique ID without unallowed characters
+     * @param email
+     * @return reduced
+     */
     public static String emailReducer(String email){
         ArrayList<String> characters = new ArrayList<String>();
         for(int i = 0; i < email.length(); i ++){
@@ -80,6 +96,11 @@ public class CreateEmployer extends AppCompatActivity {
         return reduced;
     }
 
+    /**
+     * Checks if a string is in a correct email format
+     * @param email
+     * @return true if email is in correct format
+     */
     public static boolean isEmail(String email){
         int atTimes = 0;
         int periodTimes = 0;

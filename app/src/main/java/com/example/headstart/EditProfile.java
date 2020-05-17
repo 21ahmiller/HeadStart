@@ -13,6 +13,10 @@ import java.util.ArrayList;
 
 public class EditProfile extends AppCompatActivity {
 
+    /**
+     * Autofills in current user's profile information
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +93,11 @@ public class EditProfile extends AppCompatActivity {
 
     }
 
+    /**
+     * Checks if a TextView is filled
+     * @param a
+     * @return true if TextView has a value
+     */
     public boolean filled(String a){
         if(a.equals("")){
             return false;
@@ -97,6 +106,11 @@ public class EditProfile extends AppCompatActivity {
         }
     }
 
+    /**
+     * Takes arrayList and translates the elements into a String
+     * @param strings
+     * @return String total of elements from arrayList strings
+     */
     public String arrayToString(ArrayList<String> strings){
         String total = "";
         if(strings.size() > 0){
@@ -108,6 +122,10 @@ public class EditProfile extends AppCompatActivity {
         return total;
     }
 
+    /**
+     * Uploads new profile information to Firebase
+     * @param v
+     */
     public void saveChanges(View v){
         final Controller aController = (Controller) getApplicationContext();
         User currentUser = aController.getUser();
@@ -189,6 +207,10 @@ public class EditProfile extends AppCompatActivity {
         aController.updateFireBaseUserProfile();
     }
 
+    /**
+     * Brings user back to profile display page (ApplicantProfile)
+     * @param v
+     */
     public void returnHome(View v){
         Intent intent = new Intent(this, ApplicantProfile.class);
         startActivity(intent);
