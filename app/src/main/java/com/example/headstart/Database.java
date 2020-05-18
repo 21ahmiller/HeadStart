@@ -175,7 +175,17 @@ public class Database {
                         }
                     }
                     if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && Integer.parseInt(job.getSalary()) > minpay &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field){
-                        jobs.add(job);
+                        boolean unique = true;
+                        for(int i = 0; i < jobs.size(); i ++){
+                            String job1 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                            String job2 = job.getJobTitle() + job.getCompanyID();
+                            if(job1.equals(job2)){
+                                unique = false;
+                                break;
+                            }
+                        }
+                        if(unique)
+                            jobs.add(job);
                     }
                     if(jobs.size() == 200){
                         break;
@@ -192,7 +202,17 @@ public class Database {
                             }
                         }
                         if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) &&  job.getJobType().equals(jobType) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !jobs.contains(job)){
-                            jobs.add(job);
+                            boolean unique = true;
+                            for(int i = 0; i < jobs.size(); i ++){
+                                String job1 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                                String job2 = job.getJobTitle() + job.getCompanyID();
+                                if(job1.equals(job2)){
+                                    unique = false;
+                                    break;
+                                }
+                            }
+                            if(unique)
+                                jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -210,7 +230,17 @@ public class Database {
                             }
                         }
                         if(Integer.parseInt(job.getAgeMinimum()) < Integer.parseInt(minAge) && schoolToNum(school) >= schoolToNum(job.getSchool()) && field && !jobs.contains(job)){
-                            jobs.add(job);
+                            boolean unique = true;
+                            for(int i = 0; i < jobs.size(); i ++){
+                                String job1 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                                String job2 = job.getJobTitle() + job.getCompanyID();
+                                if(job1.equals(job2)){
+                                    unique = false;
+                                    break;
+                                }
+                            }
+                            if(unique)
+                                jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -228,7 +258,17 @@ public class Database {
                             }
                         }
                         if(field && !jobs.contains(job)){
-                            jobs.add(job);
+                            boolean unique = true;
+                            for(int i = 0; i < jobs.size(); i ++){
+                                String job1 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                                String job2 = job.getJobTitle() + job.getCompanyID();
+                                if(job1.equals(job2)){
+                                    unique = false;
+                                    break;
+                                }
+                            }
+                            if(unique)
+                                jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;
@@ -239,7 +279,17 @@ public class Database {
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
                         Job job = ds.getValue(Job.class);
                         if(!jobs.contains(job)){
-                            jobs.add(job);
+                            boolean unique = true;
+                            for(int i = 0; i < jobs.size(); i ++){
+                                String job1 = jobs.get(i).getJobTitle() + jobs.get(i).getCompanyID();
+                                String job2 = job.getJobTitle() + job.getCompanyID();
+                                if(job1.equals(job2)){
+                                    unique = false;
+                                    break;
+                                }
+                            }
+                            if(unique)
+                                jobs.add(job);
                         }
                         if(jobs.size() == 200){
                             break;

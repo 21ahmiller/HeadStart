@@ -12,15 +12,29 @@ import java.util.ArrayList;
 
 public class ReviewJobs extends AppCompatActivity {
 
+    /**
+     * the number of pages the employer can see (depending on the number of jobs they have)
+     */
     private int pages;
+
+    /**
+     * The page number they are currently viewing
+     */
     private int pageNumber;
+
+    /**
+     * The jobs that the employer has made and can view
+     */
     private ArrayList<Job> jobs;
 
+    /**
+     * Opens the job viewing page and determines the total pages that can be viewed.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_jobs);
-
 
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -39,6 +53,9 @@ public class ReviewJobs extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sets all the button text to the text from each job
+     */
     public void setButtons(){
         Button test3 = findViewById(R.id.button3);
         if(jobs.size() > pageNumber * 10)
@@ -72,6 +89,10 @@ public class ReviewJobs extends AppCompatActivity {
             test12.setText(jobs.get(pageNumber * 10 + 9).toString());
     }
 
+    /**
+     * opens job 1
+     * @param v the view
+     */
     public void open3(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -82,6 +103,10 @@ public class ReviewJobs extends AppCompatActivity {
        }
     }
 
+    /**
+     * opens job 2
+     * @param v the view
+     */
     public void open4(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -91,6 +116,11 @@ public class ReviewJobs extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * opens job 3
+     * @param v the view
+     */
     public void open5(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -100,6 +130,11 @@ public class ReviewJobs extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * opens job 4
+     * @param v the view
+     */
     public void open6(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -109,6 +144,11 @@ public class ReviewJobs extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * opens job 5
+     * @param v the view
+     */
     public void open7(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -118,6 +158,11 @@ public class ReviewJobs extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * opens job 6
+     * @param v the view
+     */
     public void open8(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -127,6 +172,11 @@ public class ReviewJobs extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * opens job 7
+     * @param v the view
+     */
     public void open9(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -136,6 +186,11 @@ public class ReviewJobs extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * opens job 8
+     * @param v the view
+     */
     public void open10(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -145,6 +200,11 @@ public class ReviewJobs extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * opens job 9
+     * @param v the view
+     */
     public void open11(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -154,6 +214,11 @@ public class ReviewJobs extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * opens job 10
+     * @param v the view
+     */
     public void open12(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -164,6 +229,10 @@ public class ReviewJobs extends AppCompatActivity {
         }
     }
 
+    /**
+     * Allows the employer to view the jobs on the next page; returns a toast if there are no further pages
+     * @param v the view
+     */
     public void goAhead(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -176,6 +245,10 @@ public class ReviewJobs extends AppCompatActivity {
         setButtons();
     }
 
+    /**
+     * Allows the employer to view the jobs on the previous page; returns a toast if there are no previous pages
+     * @param v the view
+     */
     public void moveBack(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -188,6 +261,10 @@ public class ReviewJobs extends AppCompatActivity {
         setButtons();
     }
 
+    /**
+     * Returns the employer to their home screen (their profile)
+     * @param v the view
+     */
     public void performReturnHome(View v){
         Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);

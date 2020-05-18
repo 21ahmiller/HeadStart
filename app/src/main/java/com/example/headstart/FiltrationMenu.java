@@ -133,14 +133,31 @@ public class FiltrationMenu extends AppCompatActivity {
             }
         }
 
+        String[] states = {"Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"};
         Database jobs = new Database("Jobs");
         final Controller aController = (Controller) getApplicationContext();
-        ArrayList<Job> filteredJobs = jobs.populateFiltered(age, distance, minPay, school, jobType, keywordsReduced, state, aController.getUser());
-        aController.setFilteredJobs(filteredJobs);
+        boolean stateComplete = false;
+        for(int i = 0; i < states.length; i ++){
+            if(states[i].equals(state)){
+                stateComplete = true;
+                break;
+            }
+        }
+        if(age.equals("")){
+            age = "0";
+        }
+        if(stateComplete){
+            ArrayList<Job> filteredJobs = jobs.populateFiltered(age, distance, minPay, school, jobType, keywordsReduced, state, aController.getUser());
+            aController.setFilteredJobs(filteredJobs);
 
-        Toast toast = Toast.makeText(getApplicationContext(), "Filter Settings Updated", Toast.LENGTH_LONG);
-        toast.show();
+            Toast toast = Toast.makeText(getApplicationContext(), "Filter Settings Updated", Toast.LENGTH_LONG);
+            toast.show();
+        }else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Not A Valid State", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
+
 
     /**
      * Sends user back to jobListingsPage

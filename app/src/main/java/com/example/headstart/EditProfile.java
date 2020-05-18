@@ -62,19 +62,19 @@ public class EditProfile extends AppCompatActivity {
             neither.setChecked(true);
         }
 
-        RadioButton freshman = findViewById(R.id.highSchoolButton);
+        RadioButton freshman = findViewById(R.id.freshmanButton);
         if(currentUser.getProfile().getEducation().getYear().equals("Freshman")){
             freshman.setChecked(true);
         }
-        RadioButton sophomore = findViewById(R.id.collegeButton);
+        RadioButton sophomore = findViewById(R.id.sophomoreButton);
         if(currentUser.getProfile().getEducation().getYear().equals("Sophomore")){
             sophomore.setChecked(true);
         }
-        RadioButton junior = findViewById(R.id.collegeGradButton);
+        RadioButton junior = findViewById(R.id.juniorButton);
         if(currentUser.getProfile().getEducation().getYear().equals("Junior")){
             junior.setChecked(true);
         }
-        RadioButton senior = findViewById(R.id.neitherButton);
+        RadioButton senior = findViewById(R.id.seniorButton);
         if(currentUser.getProfile().getEducation().getYear().equals("Senior")){
             senior.setChecked(true);
         }

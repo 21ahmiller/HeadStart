@@ -16,12 +16,21 @@ import java.util.Random;
 
 public class NewJob extends AppCompatActivity {
 
+    /**
+     * opens the android studio page to make a new job
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_job);
     }
 
+    /**
+     * reduces an email into an ID that can be used to store data in firebase
+     * @param email the email
+     * @return the reduced email
+     */
     public String emailReducer(String email){
         ArrayList<String> characters = new ArrayList<String>();
         for(int i = 0; i < email.length(); i ++){
@@ -36,6 +45,10 @@ public class NewJob extends AppCompatActivity {
         return reduced;
     }
 
+    /**
+     * Stores the job locally and also pushes it into firebase
+     * @param v the view
+     */
     public void onClickSubmit(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();
@@ -174,6 +187,10 @@ public class NewJob extends AppCompatActivity {
 
     }
 
+    /**
+     * Creates 50 randomized jobs. Was meant for populating our data set and testing.
+     * @param v the view
+     */
     public void addRandom50(View v){
         final Controller aController = (Controller) getApplicationContext();
         Employer currentEmployer = aController.getEmployer();

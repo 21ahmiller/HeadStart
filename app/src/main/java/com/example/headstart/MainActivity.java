@@ -20,12 +20,20 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * opens the view of the page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * runs when the applicant button is clicked; tries to sign in user
+     * @param v the view
+     */
     public void clickApplicantButton(View v){
         EditText emailText = findViewById(R.id.emailConfirmText);
         String email = emailText.getText().toString().replaceAll(" ", "");
@@ -36,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
         applicantSignIn(email, password, v);
     }
 
+    /**
+     * Uses the email and the password to check if the user is legitimate; If the user exists, they sign in
+     * @param email the user email
+     * @param password the user's password
+     * @param v the view
+     */
     public void applicantSignIn(String email, String password, View v){
         findUser(email);
         final Controller aController = (Controller) getApplicationContext();
@@ -58,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * finds the user based off of the email they use; sets this user as the user in the controller class
+     * @param email the email that is input when the user signs in
+     */
     public void findUser(final String email){
         final Controller aController = (Controller) getApplicationContext();
 
@@ -91,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * signs in the app user as a guest
+     * @param v the view
+     */
     public void guestButton(View v){
         final Controller aController = (Controller) getApplicationContext();
         Database jobs = new Database("Jobs");
@@ -100,6 +122,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * runs when the button for signing in an employer is clicked
+     * @param v the view
+     */
     public void clickEmployerButton(View v){
         EditText emailText = findViewById(R.id.emailConfirmText);
         String email = emailText.getText().toString().replaceAll(" ", "");
@@ -110,6 +136,12 @@ public class MainActivity extends AppCompatActivity {
         employerSignIn(email, password, v);
     }
 
+    /**
+     * uses the email and password of the employer to look for an employer in firebase and sign them in
+     * @param email the employer email
+     * @param password the employer password
+     * @param v the view
+     */
     public void employerSignIn(String email, String password, View v){
         findEmployer(email);
         final Controller aController = (Controller) getApplicationContext();
@@ -127,6 +159,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * looks through firebase for the employer and sets them as the employer in the controller class
+     * @param email the employer email
+     */
     public void findEmployer(final String email){
         final Controller aController = (Controller) getApplicationContext();
 
@@ -159,11 +195,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * opens the employer main page
+     * @param v the view
+     */
     public void performOpenEmployerMainPage(View v){
         Intent intent = new Intent(this, employerMainPage.class);
         startActivity(intent);
     }
 
+    /**
+     * sends the user to a page which allows them to create an account
+     * @param v the view
+     */
     public void performCreateProfilePage(View v){
         Intent intent = new Intent(this, createProfile.class);
         startActivity(intent);

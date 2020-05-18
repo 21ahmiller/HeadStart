@@ -13,6 +13,10 @@ import java.util.ArrayList;
 
 public class ReviseJob extends AppCompatActivity {
 
+    /**
+     * Opens up the job editing page and sets all the editTexts to the data from the job
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,14 +93,11 @@ public class ReviseJob extends AppCompatActivity {
         keywordText.setText(arrayToString(newJob.getKeywords()));
     }
 
-    public boolean filled(String a){
-        if(a.equals("")){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
+    /**
+     * Turns a list of strings into one long string
+     * @param strings the list of strings
+     * @return
+     */
     public String arrayToString(ArrayList<String> strings){
         String total = "";
         if(strings.size() > 0){
@@ -108,11 +109,19 @@ public class ReviseJob extends AppCompatActivity {
         return total;
     }
 
+    /**
+     * returns the employer to the job viewing page
+     * @param v the view
+     */
     public void returnToJobView (View v){
         Intent intent = new Intent(this, ReviewJobs.class);
         startActivity(intent);
     }
 
+    /**
+     * Applies the changes to the job
+     * @param v the view
+     */
     public void applyChanges(View v){
         final Controller aController = (Controller) getApplicationContext();
         Job newJob = aController.getEmployer().getJobs().get(aController.getJobNumber());
@@ -230,6 +239,10 @@ public class ReviseJob extends AppCompatActivity {
 
     }
 
+    /**
+     * deletes the job from the employers posted jobs
+     * @param v the view
+     */
     public void deleteJob (View v){
         final Controller aController = (Controller) getApplicationContext();
         Database jobs = new Database("Jobs");
